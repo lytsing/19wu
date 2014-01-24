@@ -12,15 +12,16 @@
             = f.input :login, :label => false, :placeholder => User.human_attribute_name(:login), class: 'input-large', :input_html => { 'ng-required' =>'true' }
             = f.input :email, :label => false, :placeholder => resource.class.human_attribute_name(:email), class: 'input-large', :input_html => { 'ng-required' =>'true' }
             = f.input :password, :label => false, :placeholder => resource.class.human_attribute_name(:password), class: 'input-large', :input_html => { 'ng-required' =>'true' }
-            .help-block = t('views.users.apply_sign_up')
             = f.submit t('labels.sign_up'), :class => 'btn btn-success btn-large'
+            hr
+            .help-block = t('views.users.apply_sign_up')
 
 .features
   .row
-    .span4.offset1
+    .span4
       h3 = t('features.follow.title')
       p = t('features.follow.description1')
-    .span5.offset1
+    .span5.offset2
       h3 = t('features.discover.title')
   hr
 
