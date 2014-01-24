@@ -13,7 +13,7 @@ zh-CN:
       stamp: '%b%d日(%a) %p %I:%M'
       stamp_with_year: '%Y年%b%d日(%a) %p %I:%M'
 
-  19wu: "活动盒子"
+  19wu: "课程盒子"
 
   layout:
     sponsors:
@@ -22,7 +22,7 @@ zh-CN:
     opensource: 源代码@GitHub
     contact_us: "联系我们"
     feedback: "反馈问题"
-    title: "活动盒子－让活动更好"
+    title: "课程盒子－让活动更好"
     copyright: "版权所有"
 
     account: "注册信息"
@@ -56,8 +56,8 @@ zh-CN:
   home:
     menu:
       activities: 最新动态
-      created_events: 发起的活动
-      ordered_events: 参加的活动
+      created_events: 发起课程
+      ordered_events: 参加的课程
     body:
       empty: 暂时没有内容
 
@@ -72,9 +72,9 @@ zh-CN:
   labels:
     sign_in: "登录"
     sign_up: "注册"
-    need_upgrade_invitation: "需要发起活动?"
-    apply_sign_up: "申请注册"
-    sign_up_to_launch_event: "注册，发起活动"
+    need_upgrade_invitation: "需要发起课程?"
+    apply_sign_up: "提交申请"
+    sign_up_to_launch_event: "注册，发起课程"
     invitations: "邀请列表"
     admin_orders: "管理订单"
     invoice_orders: "发票订单"
@@ -86,7 +86,7 @@ zh-CN:
     check_in_button: "签到"
     has_checked_in_button: "已签到"
     invite_button: "邀请"
-    my_orders: "我的订单"
+    my_orders: "我的课程"
 
   confirmation:
     destroy: 您确定要删除吗？
