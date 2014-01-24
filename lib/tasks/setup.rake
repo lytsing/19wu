@@ -1,7 +1,7 @@
 # encoding: utf-8
 # 初始化开发环境，要支持多次运行
 # rake setup
-desc "Setup your 19wu development enviroment."
+desc "Setup your shinebox development enviroment."
 task :setup do
   unless Rails.env == 'production' # 防止生产环境下执行
     puts "1. Copy config file..."

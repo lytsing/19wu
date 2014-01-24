@@ -16,7 +16,7 @@ set :rvm_type, :user                                     # Copy the exact line. 
 #set :bundle_flags,    "--deployment --verbose"          # Just for debug
 set :bundle_without,  [:development, :test, :sqlite3, :mysql2]
 
-set :application, "19wu"
+set :application, "shinebox"
 set :port, ENV['CAP_PORT']
 role :web, ENV['CAP_WEB_HOST']                          # Your HTTP server, Apache/etc
 role :app, ENV['CAP_APP_HOST'], jobs: true              # This may be the same as your `Web` server
@@ -25,7 +25,7 @@ role :db,  ENV['CAP_DB_HOST'], primary: true            # This is where Rails mi
 
 set :delayed_job_command, 'bin/delayed_job'
 
-set :repository,  "git://github.com/19wu/#{application}.git"
+set :repository,  "git://github.com/shinebox/#{application}.git"
 set :scm, :git
 set :deploy_to, "/u/apps/#{application}" # default
 set :deploy_via, :remote_cache # 不要每次都获取全新的repository
@@ -52,7 +52,7 @@ namespace :deploy do
     run "kill -s USR2 `cat #{pids_path}/unicorn.#{application}.pid`"
   end
 
-  # scp -P $CAP_PORT config/{database,settings}.yml $CAP_USER@$CAP_APP_HOST:/u/apps/19wu/shared/config/
+  # scp -P $CAP_PORT config/{database,settings}.yml $CAP_USER@$CAP_APP_HOST:/u/apps/shinebox/shared/config/
   desc "Symlink shared resources on each release" # 配置文件
   task :symlink_shared, roles: :app do
     %w(database.yml settings.yml).each do |secure_file|
@@ -69,7 +69,7 @@ namespace :deploy do
   task :add_shared_dir, roles: :app do
     run "mkdir -p #{shared_path}/config"
     %w(database.yml settings.yml).each do |file|
-      run_locally "scp -P $CAP_PORT config/#{file} $CAP_USER@$CAP_APP_HOST:/u/apps/19wu/shared/config/"
+      run_locally "scp -P $CAP_PORT config/#{file} $CAP_USER@$CAP_APP_HOST:/u/apps/shinebox/shared/config/"
     end
   end
 

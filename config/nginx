@@ -1,11 +1,11 @@
-# /etc/nginx/sites-available/19wu
-upstream 19wu {
+# /etc/nginx/sites-available/shinebox
+upstream shinebox {
   # fail_timeout=0 means we always retry an upstream even if it failed
   # to return a good HTTP response (in case the Unicorn master nukes a
   # single worker for timing out).
 
   # for UNIX domain socket setups:
-  server unix:/tmp/19wu.socket fail_timeout=0;
+  server unix:/tmp/shinebox.socket fail_timeout=0;
 }
 
 server {
@@ -21,13 +21,13 @@ server {
     # you could put a list of other domain names this application answers
     server_name shinebox.cn;
 
-    root /u/apps/19wu/current/public;
-    access_log /var/log/nginx/19wu_access.log;
+    root /u/apps/shinebox/current/public;
+    access_log /var/log/nginx/shinebox_access.log;
     rewrite_log on;
 
     location / {
         #all requests are sent to the UNIX socket
-        proxy_pass  http://19wu;
+        proxy_pass  http://shinebox;
         proxy_redirect     off;
 
         proxy_set_header   Host             $host;
@@ -52,7 +52,7 @@ server {
     # cache the resource and navigate faster over the website
     # this probably needs some work with Rails 3.1's asset pipe_line
     location ~ ^/(assets|flash)/  {
-      root /u/apps/19wu/current/public;
+      root /u/apps/shinebox/current/public;
       gzip_static on;
       expires max;
       add_header Cache-Control public;
@@ -60,7 +60,7 @@ server {
     }
 
     location ~ ^/(uploads)/  {
-      root /u/apps/19wu/current/public;
+      root /u/apps/shinebox/current/public;
       expires max;
       break;
     }

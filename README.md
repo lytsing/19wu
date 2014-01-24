@@ -1,8 +1,8 @@
-## 19wu
-[![Build Status](https://travis-ci.org/19wu/19wu.png?branch=master)](https://travis-ci.org/19wu/19wu)
-[![Code Climate](https://codeclimate.com/github/19wu/19wu.png)](https://codeclimate.com/github/19wu/19wu)
-[![Dependency Status](https://gemnasium.com/19wu/19wu.png)](https://gemnasium.com/19wu/19wu)
-[![Coverage Status](https://coveralls.io/repos/19wu/19wu/badge.png?branch=master)](https://coveralls.io/r/19wu/19wu)
+## shinebox
+[![Build Status](https://travis-ci.org/shinebox/shinebox.png?branch=master)](https://travis-ci.org/shinebox/shinebox)
+[![Code Climate](https://codeclimate.com/github/shinebox/shinebox.png)](https://codeclimate.com/github/shinebox/shinebox)
+[![Dependency Status](https://gemnasium.com/shinebox/shinebox.png)](https://gemnasium.com/shinebox/shinebox)
+[![Coverage Status](https://coveralls.io/repos/shinebox/shinebox/badge.png?branch=master)](https://coveralls.io/r/shinebox/shinebox)
 
 这里是 [shinebox.cn](http://shinebox.cn) 网站源代码.
 
@@ -12,7 +12,7 @@ http://shinebox.cn/szruby
 
 部署在 Heroku 的测试网站
 
-http://saberma-19wu.herokuapp.com
+http://saberma-shinebox.herokuapp.com
 Email：`demo@shinebox.cn`
 Password：`666666`
 
@@ -25,20 +25,20 @@ Password：`666666`
 ## 安装步骤
 
 ```bash
-git clone git://github.com/19wu/19wu.git
-cd 19wu
+git clone git://github.com/shinebox/shinebox.git
+cd shinebox
 bundle install --without sqlite3 mysql2
 rake setup
 rails server
 ```
 
-[详情](https://github.com/19wu/19wu/issues/19)
+[详情](https://github.com/shinebox/shinebox/issues/19)
 
 ## 文档资源
 
-[Wiki文档](https://github.com/19wu/19wu/wiki)
+[Wiki文档](https://github.com/shinebox/shinebox/wiki)
 
-[常见问题](https://github.com/19wu/19wu/wiki/%E6%96%B0%E6%89%8B%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB)
+[常见问题](https://github.com/shinebox/shinebox/wiki/%E6%96%B0%E6%89%8B%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB)
 
 ## 团队
 
@@ -48,9 +48,9 @@ rails server
 * [@lgn21st](https://github.com/lgn21st)
 * [@windy](https://github.com/windy)
 
-[所有贡献者](https://github.com/19wu/19wu/graphs/contributors)
+[所有贡献者](https://github.com/shinebox/shinebox/graphs/contributors)
 
-[如何贡献](https://github.com/19wu/19wu/blob/master/CONTRIBUTING.md)
+[如何贡献](https://github.com/shinebox/shinebox/blob/master/CONTRIBUTING.md)
 
 ## 赞助商
 
@@ -60,6 +60,6 @@ rails server
 
 ## License
 
-[The MIT License](https://github.com/19wu/19wu/blob/master/LICENSE)
+[The MIT License](https://github.com/shinebox/shinebox/blob/master/LICENSE)
 
 Project is a member of the [OSS Manifesto](http://ossmanifesto.org).

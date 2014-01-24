@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe UsersController do
   describe 'GET show' do
-    let(:login) { '19wu' }
+    let(:login) { 'shinebox' }
     let!(:user) { create(:user, :login => login) }
 
     it 'finds user by login' do

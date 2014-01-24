@@ -1,7 +1,7 @@
 FactoryGirl.define do
   sample_login = ['jack', 'lucy', 'dave', 'lily', 'john', 'beth'].sample
   sequence(:login) { |n| "#{sample_login}#{n}" }
-  sequence(:email) { |n| "#{sample_login}#{n}@19wu.org".downcase }
+  sequence(:email) { |n| "#{sample_login}#{n}@shinebox.org".downcase }
   sequence(:phone) { |n| "1392845288#{n}"}
 
   factory :user do

@@ -1,7 +1,7 @@
 describe "filters", ->
   money = null
   beforeEach ->
-    module '19wu'
+    module 'shinebox'
     inject ($filter) ->
       money = $filter('money')
 

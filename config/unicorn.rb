@@ -2,7 +2,7 @@
 # config/unicorn.rb
 # see: http://ariejan.net/2011/09/14/lighting-fast-zero-downtime-deployments-with-git-capistrano-nginx-and-unicorn
 # Set environment to development unless something else is specified
-application = '19wu'
+application = 'shinebox'
 
 # See http://unicorn.bogomips.org/Unicorn/Configurator.html for complete
 # documentation.

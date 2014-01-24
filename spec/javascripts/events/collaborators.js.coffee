@@ -1,7 +1,7 @@
 describe "event collaborators", ->
   scope = $httpBackend = null
   beforeEach ->
-    module '19wu'
+    module 'shinebox'
     inject ($rootScope, $controller, $injector, $http) ->
       $rootScope.event = {id: 1}
       scope = $rootScope.$new()

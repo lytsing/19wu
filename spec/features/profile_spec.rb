@@ -15,7 +15,7 @@ feature 'profile settings' do
   end
 
   scenario "I update my profile" do
-    fill_in 'profile_name',    with: '19wu'
+    fill_in 'profile_name',    with: 'shinebox'
     fill_in 'profile_website', with: 'http://shinebox.cn'
     fill_in 'profile_bio',     with: '**Launch your event now**'
 

@@ -48,7 +48,7 @@ describe User do
     end
 
     it "with an invalid email" do
-      user.email = '19wuat19wudotorg'
+      user.email = 'shineboxatshineboxdotorg'
       expect(user.save).to be_false
     end
 

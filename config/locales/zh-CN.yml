@@ -13,7 +13,7 @@ zh-CN:
       stamp: '%b%d日(%a) %p %I:%M'
       stamp_with_year: '%Y年%b%d日(%a) %p %I:%M'
 
-  19wu: "课程盒子"
+  shinebox: "课程盒子"
 
   layout:
     sponsors:

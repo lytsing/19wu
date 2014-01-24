@@ -33,8 +33,8 @@ describe ContentFilter do
     end
 
     it 'has an image' do
-      input = "![19wu Logo](/images/logo.png)"
-      expected = %&<p><img src="/images/logo.png" alt="19wu Logo"></p>&
+      input = "![shinebox Logo](/images/logo.png)"
+      expected = %&<p><img src="/images/logo.png" alt="shinebox Logo"></p>&
       ContentFilter.refine(input).should == expected
     end
 
@@ -45,8 +45,8 @@ describe ContentFilter do
     end
 
     it 'has a blockqoutes' do
-      input = "> welcome to 19wu"
-      expected = "<blockquote>\n<p>welcome to 19wu</p>\n</blockquote>"
+      input = "> welcome to shinebox"
+      expected = "<blockquote>\n<p>welcome to shinebox</p>\n</blockquote>"
     end
 
     it 'has a pre code' do

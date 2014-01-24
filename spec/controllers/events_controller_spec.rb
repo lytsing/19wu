@@ -127,9 +127,9 @@ describe EventsController do
         end
         let(:attributes) do
           valid_attributes.merge(
-                'title' => "19wu development meeting by issuse #185",
+                'title' => "shinebox development meeting by issuse #185",
                 'location' => "Dalian, China",
-                'content' => "Dalian 19wu development meeting by issuse #185",
+                'content' => "Dalian shinebox development meeting by issuse #185",
                 'location_guide' => "Best by Plant come here",
                 'compound_start_time_attributes' => compound_start_time_attributes,
                 'compound_end_time_attributes' => compound_end_time_attributes
@@ -138,9 +138,9 @@ describe EventsController do
 
         it 'when all input changed' do
           patch 'update', :id => event.id, :event => attributes
-          assigns[:event].title.should == "19wu development meeting by issuse #185"
+          assigns[:event].title.should == "shinebox development meeting by issuse #185"
           assigns[:event].location.should ==  "Dalian, China"
-          assigns[:event].content.should == "Dalian 19wu development meeting by issuse #185"
+          assigns[:event].content.should == "Dalian shinebox development meeting by issuse #185"
           assigns[:event].location_guide.should == "Best by Plant come here"
           assigns[:event].start_time.should == Time.zone.parse('2013-01-08 16:10:30')
           assigns[:event].end_time.should == Time.zone.parse('2013-01-08 18:10:30')

@@ -13,13 +13,13 @@ en:
       stamp: '%b %d (%a) %p %I:%M'
       stamp_with_year: '%b %d %Y (%a) %p %I:%M'
 
-  19wu: "19wu"
+  shinebox: "shinebox"
 
   layout:
     opensource: "Fork us"
     contact_us: "Contact us"
     feedback: "反馈问题"
-    title: "19wu - Make events better"
+    title: "shinebox - Make events better"
     copyright: "All rights reserved."
 
     account: "Account"
@@ -169,11 +169,11 @@ en:
 
   email:
     welcome:
-      subject: "Welcome to 19wu"
+      subject: "Welcome to shinebox"
     invited:
       subject: "%{login}, 您现在可以发起课程了"
     notify:
-      subject: "19wu New events - %{title}"
+      subject: "shinebox New events - %{title}"
     reminder:
       subject: "19屋课程提醒"
     profiles:

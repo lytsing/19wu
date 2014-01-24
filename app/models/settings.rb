@@ -3,7 +3,7 @@ class Settings < Settingslogic
   source Rails.root.join('config/settings.yml')
   namespace Rails.env
 
-  # '19wu <support@shinebox.cn>' => 'support@shinebox.cn'
+  # 'shinebox <support@shinebox.cn>' => 'support@shinebox.cn'
   def self.raw_email(email)
     email.gsub(/(.*<|>)/, '')
   end

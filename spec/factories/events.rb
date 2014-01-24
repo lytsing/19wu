@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :event do
-    title "19wu development meeting"
+    title "shinebox development meeting"
     start_time 8.day.since
     end_time 9.days.since
     location "Tianjin, China"
