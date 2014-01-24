@@ -77,7 +77,7 @@ zh-CN:
     need_upgrade_invitation: "申请开课"
     apply_sign_up: "提交申请"
     sign_up_to_launch_event: "注册，发起课程"
-    invitations: "邀请列表"
+    invitations: "开课申请"
     admin_orders: "管理订单"
     invoice_orders: "发票订单"
     launch_event: "发起课程"
@@ -87,7 +87,7 @@ zh-CN:
     checked_in_event: "签到"
     check_in_button: "签到"
     has_checked_in_button: "已签到"
-    invite_button: "邀请"
+    invite_button: "通过"
     my_orders: "我的课程"
 
   confirmation:
