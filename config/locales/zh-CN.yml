@@ -52,6 +52,8 @@ zh-CN:
       description1: 当活动时间、地点发送变化时可以向参与者发送邮件和短信通知
       subtitle2: 免费发送短信
       description2: 此项服务完全免费
+    discover:
+        title: "发现课程"
 
   home:
     menu:
@@ -78,7 +80,7 @@ zh-CN:
     invitations: "邀请列表"
     admin_orders: "管理订单"
     invoice_orders: "发票订单"
-    launch_event: "发起活动"
+    launch_event: "发起课程"
     show_event: "查看活动"
     cancel: "取消"
     markdown_guide: "Markdown 格式说明"
@@ -154,13 +156,13 @@ zh-CN:
     ticket: "门票"
     change: "变更"
     sell: '销售'
-    summary: "总结"
+    summary: "课程评价"
     previous_summary: "往期活动总结"
     check_in: "签到"
     map_preview: "地图预览"
     events:
       new:
-        title: "发起活动"
+        title: "发起课程"
         copy: "复制"
       edit:
         title: "修改活动"
@@ -169,7 +171,7 @@ zh-CN:
       followers:
         title: "关注者列表"
       topics:
-        title: 迷你论坛
+        title: 学习小组
         new:
           button: 发起新贴
     groups:
@@ -182,7 +184,7 @@ zh-CN:
         title: 绑定手机
     users:
       apply_sign_up: "课程盒子拥有简洁和友好的交互界面，并集成了组织一次课程的核心功能，包括：课程发布、课件管理、课程推广、学员报名、课程通知、电子签到、课资支付、学习小组、反馈搜集等。 "
-      upgrade_invitation: "申请审核通过后即可发起活动，普通参与者无需申请，只需在活动报名页面注册或报名参加即可。"
+      upgrade_invitation: "申请审核通过后即可发起课程，普通参与者无需申请，只需在活动报名页面注册或报名参加即可。"
     follow:
       state:
         false: 关注
@@ -226,7 +228,7 @@ zh-CN:
     welcome:
       subject: "欢迎来到活动盒子"
     invited:
-      subject: "%{login}, 您现在可以发起活动了"
+      subject: "%{login}, 您现在可以发起课程了"
     notify:
       subject: "活动盒子新活动 - %{title}"
     reminder:
