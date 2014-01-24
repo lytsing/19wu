@@ -8,12 +8,12 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: nineteen_wu_development
+  database: shinebox_development
 
 test:
   <<: *defaults
-  database: nineteen_wu_test
+  database: shinebox_test
 
 production:
   <<: *defaults
-  database: nineteen_wu_production
+  database: shinebox_production
