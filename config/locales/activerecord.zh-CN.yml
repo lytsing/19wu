@@ -34,8 +34,8 @@ zh-CN:
         remember_me: "记住我"
         created_at: "注册时间"
       event:
-        title: "主题"
-        slug: "活动链接"
+        title: "课程名称"
+        slug: "课程链接"
         start_time: "开始时间"
         compound_start_time: "开始时间"
         end_time: "结束时间"

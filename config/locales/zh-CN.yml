@@ -39,17 +39,17 @@ zh-CN:
       subtitle1: "提高重复参加率"
       description1: "苦于找不到适合自己的高质量的课程，苦于知名讲师的课程资费太高预算不够，苦于得不到客观真实的课程评估…课程盒子致力于帮助企业和团队发现有价值的课程。"
       subtitle2: "提升品牌价值"
-      description2: "随着举办次数的增加，关注者会随之增加；关注者越多，表示活动越吸引人"
+      description2: "随着举办次数的增加，关注者会随之增加；关注者越多，表示课程越吸引人"
     slug:
-      title: "让活动更好推广"
-      subtitle1: "简短的活动地址"
-      description1: "参与者更容易记忆，可以随时使用手机查看活动时间、地址等信息"
+      title: "让课程更好推广"
+      subtitle1: "简短的课程地址"
+      description1: "参与者更容易记忆，可以随时使用手机查看课程时间、地址等信息"
       subtitle2: "只记一个地址"
-      description2: "不管活动举办多少次，参与者都只需记住一个活动永久地址"
+      description2: "不管课程举办多少次，参与者都只需记住一个课程永久地址"
     notification:
       title: 及时通知参与者
       subtitle1: 时间地点变了？
-      description1: 当活动时间、地点发送变化时可以向参与者发送邮件和短信通知
+      description1: 当课程时间、地点发送变化时可以向参与者发送邮件和短信通知
       subtitle2: 免费发送短信
       description2: 此项服务完全免费
     discover:
@@ -67,7 +67,7 @@ zh-CN:
     submit:
       add: "增加"
       event:
-        create: "新活动"
+        create: "新课程"
       profile:
         create: "保存%{model}"
 
@@ -81,7 +81,7 @@ zh-CN:
     admin_orders: "管理订单"
     invoice_orders: "发票订单"
     launch_event: "发起课程"
-    show_event: "查看活动"
+    show_event: "查看课程"
     cancel: "取消"
     markdown_guide: "Markdown 格式说明"
     checked_in_event: "签到"
@@ -111,11 +111,11 @@ zh-CN:
     updated: "更新成功!"
     destroyed: "删除成功!"
     events:
-      created: "活动已经发布"
-      updated: "活动已经更新"
+      created: "课程已经发布"
+      updated: "课程已经更新"
     user_phones:
       here: 这里
-      blank: 建议您绑定手机，以便活动时间、地点等信息发生变化时，及时收到短信通知；点击 %{here} 绑定 。
+      blank: 建议您绑定手机，以便课程时间、地点等信息发生变化时，及时收到短信通知；点击 %{here} 绑定 。
       updated: 手机已经绑定！
     profiles:
       updated: "个人资料已经更新"
@@ -123,11 +123,11 @@ zh-CN:
       checked_in: "%{name}已签到"
       checkin_welcome: "您已成功签到!"
       checkin_need_join_first: "您还没有报名哦，先去报名吧!"
-      checkin_in_need_the_same_day_of_event_starttime: "此活动尚未开放签到，请于活动当天签到!"
+      checkin_in_need_the_same_day_of_event_starttime: "此课程尚未开放签到，请于课程当天签到!"
       checkin_wrong_checkin_code: "您的签到码不正确，请联系现场工作人员!"
       checkin_more_than_1_time: "您已签到，请勿重复签到!"
-      joined: "您已经报名参与此活动"
-      quited: "您已经取消参与此活动"
+      joined: "您已经报名参与此课程"
+      quited: "您已经取消参与此课程"
     my_orders:
       canceled: '你已经成功取消订单。'
       request_refund: '请等待管理员处理您的退款请求.'
@@ -157,7 +157,7 @@ zh-CN:
     change: "变更"
     sell: '销售'
     summary: "总结"
-    previous_summary: "往期活动总结"
+    previous_summary: "往期课程总结"
     check_in: "签到"
     map_preview: "地图预览"
     events:
@@ -165,9 +165,9 @@ zh-CN:
         title: "发起课程"
         copy: "复制"
       edit:
-        title: "修改活动"
+        title: "修改课程"
       slug:
-        hint: '相同链接的活动组成系列活动，访问此链接时显示最近一个活动'
+        hint: '相同链接的课程组成系列课程，访问此链接时显示最近一个课程'
       followers:
         title: "关注者列表"
       topics:
@@ -194,13 +194,13 @@ zh-CN:
         false: "购买"
         true: "已结束"
     history:
-      title: "往期活动"
+      title: "往期课程"
       participants: "%{number}人参加"
     export:
       export_link: "导出"
-      event_time: "活动时间"
+      event_time: "课程时间"
     my_orders:
-      event: '活动'
+      event: '课程'
       user: '用户'
       items: '票种'
       price: '价格（￥）'
@@ -219,20 +219,20 @@ zh-CN:
 
   sms:
     event:
-      change: 活动通知：%{content}【活动盒子】
+      change: 课程通知：%{content}【课程盒子】
       order:
-        checkin_code: '%{event_title} 签到验证码：%{checkin_code}。请您于%{event_start_time}前到达现场并出示签到码。谢谢。【活动盒子】'
+        checkin_code: '%{event_title} 签到验证码：%{checkin_code}。请您于%{event_start_time}前到达现场并出示签到码。谢谢。【课程盒子】'
     user:
-      phone_code: 尊敬的用户,您的手机绑定验证码是%{code},谢谢【活动盒子】
+      phone_code: 尊敬的用户,您的手机绑定验证码是%{code},谢谢【课程盒子】
   email:
     welcome:
-      subject: "欢迎来到活动盒子"
+      subject: "欢迎来到课程盒子"
     invited:
       subject: "%{login}, 您现在可以发起课程了"
     notify:
-      subject: "活动盒子新活动 - %{title}"
+      subject: "课程盒子新课程 - %{title}"
     reminder:
-      subject: "活动盒子活动提醒"
+      subject: "课程盒子课程提醒"
     profiles:
       show:
         title: "个人资料"
@@ -242,11 +242,11 @@ zh-CN:
     order:
       user:
         created:
-          subject: "您在活动盒子的订单下单成功"
+          subject: "您在课程盒子的订单下单成功"
         paid:
           subject: "订单 %{number} 完成支付"
         checkin_code:
-          subject: "订单 %{number} 活动签到码 %{code}"
+          subject: "订单 %{number} 课程签到码 %{code}"
         refund:
           subject: "%{title} 订单 %{number}，已退款 %{amount} 元"
         fulfilled:
