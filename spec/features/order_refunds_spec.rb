@@ -23,7 +23,7 @@ feature 'orders refunds', js: true do
       expect(page).to have_content("即将向 #{order.user.login} 退款 100 元（原因：测试）")
 
       open_email(Settings.raw_email(Settings.email.from))
-      expect(current_email).to have_content('活动主办方刚刚申请退款')
+      expect(current_email).to have_content('课程主办方刚刚申请退款')
       expect(current_email.subject).to have_content(I18n.t('email.order.support.refund.subject', title: event.title, number: order.number))
     end
   end

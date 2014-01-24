@@ -5,8 +5,8 @@ en:
   activerecord:
     models:
       user: "用户"
-      event: "活动"
-      event_summary: "活动总结"
+      event: "课程"
+      event_summary: "课程总结"
       event_change: "变更"
       event_ticket: "门票"
       profile: "资料"
@@ -24,7 +24,7 @@ en:
         created_at: "注册时间"
       event:
         title: "主题"
-        slug: "活动链接"
+        slug: "课程链接"
         start_time: "开始时间"
         compound_start_time: "开始时间"
         end_time: "结束时间"
@@ -40,7 +40,7 @@ en:
         name: "名称"
         price: "价格"
         description: "描述"
-        tickets_quantity: "活动总票数"
+        tickets_quantity: "课程总票数"
         require_invoice: "是否提供发票"
       profile:
         name: "名字"

@@ -15,8 +15,8 @@ zh-CN:
   activerecord:
     models:
       user: "用户"
-      event: "活动"
-      event_summary: "活动总结"
+      event: "课程"
+      event_summary: "课程总结"
       event_change: "变更"
       event_ticket: "课程资费"
       profile: "资料"
@@ -63,7 +63,7 @@ zh-CN:
         name: "名称"
         price: "价格"
         description: "描述"
-        tickets_quantity: "活动总票数"
+        tickets_quantity: "课程总票数"
         require_invoice: "是否提供发票"
       profile:
         name: "名字"

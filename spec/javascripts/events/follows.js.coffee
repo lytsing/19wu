@@ -31,5 +31,5 @@ describe "event", ->
       beforeEach -> scope.init([1, {true: '已关注', false: '关注'}, false])
       it "should be disabled", ->
         expect(scope.disabled).toBe(true)
-        expect(scope.title).toBe('您需要登录后才能关注活动')
+        expect(scope.title).toBe('您需要登录后才能关注课程')
         expect(scope.href).toMatch(/\/users\/sign_in/)

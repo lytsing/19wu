@@ -86,7 +86,7 @@ describe EventOrder do
         end
       end
     end
-    context 'business' do # 收费活动
+    context 'business' do # 收费课程
       let(:order) { create(:order_with_items, event: event) }
       describe 'participant' do
         it 'should be create' do

@@ -3,7 +3,7 @@
     .navbar-inner
       ul.nav.pull-right
         li
-          a data-toggle='tooltip' title='只有活动管理员能看到此菜单'
+          a data-toggle='tooltip' title='只有课程管理员能看到此菜单'
             i.icon-th-list
       = tabs_tag builder: EventMenu do |tab|
         = tab.edit t('views.edit'), edit_event_path(@event)

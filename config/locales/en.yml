@@ -27,7 +27,7 @@ en:
 
   slogan:
     title: "Make events better"
-    description: "19屋致力于为活动组织者提供功能简洁、完全免费的服务"
+    description: "19屋致力于为课程组织者提供功能简洁、完全免费的服务"
 
   highlights:
     free:
@@ -35,7 +35,7 @@ en:
       description: "19屋不会收取任何的使用费，您因此节省下来的成本可以为与会者提供更好的参会体验。"
     devices:
       title: "Access anytime"
-      description: "您和与会者可以随时随地通过电脑，或者平板电脑、手机等移动设备来管理活动。"
+      description: "您和与会者可以随时随地通过电脑，或者平板电脑、手机等移动设备来管理课程。"
     team:
       title: "Contact us"
       description: "我们是%{github}上的开源团队，如果您愿意与我们一起成长，欢迎%{join_us}。"
@@ -43,8 +43,8 @@ en:
   home:
     menu:
       activities: 最新动态
-      created_events: 发起的活动
-      ordered_events: 参加的活动
+      created_events: 发起的课程
+      ordered_events: 参加的课程
     body:
       empty: 暂时没有内容
 
@@ -59,9 +59,9 @@ en:
   labels:
     sign_in: "Login"
     sign_up: "Registration"
-    need_upgrade_invitation: "需要发起活动?"
+    need_upgrade_invitation: "需要发起课程?"
     apply_sign_up: "申请注册"
-    sign_up_to_launch_event: "注册，发起活动"
+    sign_up_to_launch_event: "注册，发起课程"
     invitations: "Invitations"
     launch_event: "Launch event"
     show_event: "Show event"
@@ -88,7 +88,7 @@ en:
       checkin_in_need_the_same_day_of_event_starttime: "This event is not open for checkin yet!"
       checked_in_wrong_checkin_code: "Your checkin code is wrong, please contact organizer!"
       checked_in_more_than_1_time: "You have checked in, please don't mkae duplicated checkin!"
-      joined: "您已经报名参与此活动"
+      joined: "您已经报名参与此课程"
     my_orders:
       canceled: '你已经成功取消订单。'
       request_refund: '请等待管理员处理您的退款请求.'
@@ -127,15 +127,15 @@ en:
       edit:
         title: "Edit event"
       slug:
-        hint: '相同链接的活动组成系列活动，访问此链接时显示最近一个活动'
+        hint: '相同链接的课程组成系列课程，访问此链接时显示最近一个课程'
       followers:
         title: "Followers"
     profiles:
       show:
         title: "Profile"
     users:
-      apply_sign_up: "活动组织者申请注册成功后才可以发起活动，普通参与者可以直接在活动报名页面注册。"
-      upgrade_invitation: "此功能只对少数活动组织者开放，申请后才能使用。普通参与者可以直接在活动报名页面注册"
+      apply_sign_up: "课程组织者申请注册成功后才可以发起课程，普通参与者可以直接在课程报名页面注册。"
+      upgrade_invitation: "此功能只对少数课程组织者开放，申请后才能使用。普通参与者可以直接在课程报名页面注册"
     follow:
       state:
         false: Follow 
@@ -155,7 +155,7 @@ en:
         true: "Don't forget to attend"
         checked_in: "Enjoy your time"
     my_orders:
-      event: '活动'
+      event: '课程'
       items: '票种'
       price: '价格（￥）'
       status: '状态'
@@ -171,11 +171,11 @@ en:
     welcome:
       subject: "Welcome to 19wu"
     invited:
-      subject: "%{login}, 您现在可以发起活动了"
+      subject: "%{login}, 您现在可以发起课程了"
     notify:
       subject: "19wu New events - %{title}"
     reminder:
-      subject: "19屋活动提醒"
+      subject: "19屋课程提醒"
     profiles:
       show:
         title: "Profile"

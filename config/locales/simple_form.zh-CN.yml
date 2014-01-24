@@ -21,7 +21,7 @@ zh-CN:
     #       email: 'E-mail.'
     hints:
       profile:
-        phone: "只有您参与的活动的组织者能够查看您的联系电话"
+        phone: "只有您参与的课程的组织者能够查看您的联系电话"
       photo:
         upload: "上传图片"
         uploading: "正在上传..."
@@ -29,14 +29,14 @@ zh-CN:
         nothing: "没有内容预览"
         loading: "预览载入中。。。"
       event_ticket:
-        tickets_quantity: 此票数不属于当前门票，而是指活动所有门票的总票数；为方便设置，会显示在所有门票的表单中。
+        tickets_quantity: 此票数不属于当前门票，而是指课程所有门票的总票数；为方便设置，会显示在所有门票的表单中。
     placeholders:
       user:
         invite_reason: "预计开课的时间、地点，以及课程的简要介绍"
         phone: "请输入11位手机号码"
         phone_valid_code: "请输入手机短信中的校验码"
       event_change:
-        content: "可以输入活动的时间、地点等变更信息"
+        content: "可以输入课程的时间、地点等变更信息"
     options:
       event_ticket:
         require_invoice:

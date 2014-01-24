@@ -39,7 +39,7 @@ describe OrderMailer do
       end
       describe "order checkin code" do
         subject { OrderMailer.notify_user_checkin_code(participant) }
-        its(:subject) { should eql "订单 #{order.number} 活动签到码 #{participant.checkin_code}" }
+        its(:subject) { should eql "订单 #{order.number} 课程签到码 #{participant.checkin_code}" }
         its(:from) { should eql [Settings.email.from] }
         its(:to) { should eql [order.user.email] }
         its('body.decoded') { should match "#{event.title} 签到码：#{participant.checkin_code}。" }
@@ -96,7 +96,7 @@ describe OrderMailer do
         its(:subject) { should eql "#{event.title} 订单 #{order.number}，主办方申请退款" }
         its(:from) { should eql [Settings.email.from] }
         its(:to) { should eql [Settings.email.from] }
-        its('body.decoded') { should match '活动主办方刚刚申请退款' }
+        its('body.decoded') { should match '课程主办方刚刚申请退款' }
       end
     end
   end

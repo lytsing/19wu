@@ -4,7 +4,7 @@
   .span9
     = simple_form_for @change, html: {name: 'form', novalidate: ''} do |f|
       = f.label :content
-      p.muted 可以输入活动时间、地点等变更信息
+      p.muted 可以输入课程时间、地点等变更信息
       textarea.span5 rows="7" cols="40" name="event_change[content]" ng-init="content='（#{@event.title}）'" ng-maxlength="100" ng-model="content"
       p.muted
         |变更内容将以邮件、短信方式发送，剩余字数：

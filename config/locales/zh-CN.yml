@@ -153,10 +153,10 @@ zh-CN:
   views:
     edit: "修改"
     destroy: "删除"
-    ticket: "门票"
+    ticket: "课程资费"
     change: "变更"
     sell: '销售'
-    summary: "总结"
+    summary: "课后评价"
     previous_summary: "往期课程总结"
     check_in: "签到"
     map_preview: "地图预览"
