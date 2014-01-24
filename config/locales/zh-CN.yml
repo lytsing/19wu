@@ -58,8 +58,8 @@ zh-CN:
   home:
     menu:
       activities: 最新动态
-      created_events: 发起课程
-      ordered_events: 参加的课程
+      created_events: 我发起的课程
+      ordered_events: 我参加的课程
     body:
       empty: 暂时没有内容
 
