@@ -22,7 +22,7 @@ zh-CN:
     opensource: 源代码@GitHub
     contact_us: "联系我们"
     feedback: "反馈问题"
-    title: "课程盒子－让活动更好"
+    title: "课程盒子－让开课变得更简单"
     copyright: "版权所有"
 
     account: "注册信息"
@@ -74,7 +74,7 @@ zh-CN:
   labels:
     sign_in: "登录"
     sign_up: "注册"
-    need_upgrade_invitation: "需要发起课程?"
+    need_upgrade_invitation: "申请开课"
     apply_sign_up: "提交申请"
     sign_up_to_launch_event: "注册，发起课程"
     invitations: "邀请列表"
@@ -156,7 +156,7 @@ zh-CN:
     ticket: "门票"
     change: "变更"
     sell: '销售'
-    summary: "课程评价"
+    summary: "总结"
     previous_summary: "往期活动总结"
     check_in: "签到"
     map_preview: "地图预览"
@@ -184,7 +184,7 @@ zh-CN:
         title: 绑定手机
     users:
       apply_sign_up: "课程盒子拥有简洁和友好的交互界面，并集成了组织一次课程的核心功能，包括：课程发布、课件管理、课程推广、学员报名、课程通知、电子签到、课资支付、学习小组、反馈搜集等。 "
-      upgrade_invitation: "申请审核通过后即可发起课程，普通参与者无需申请，只需在活动报名页面注册或报名参加即可。"
+      upgrade_invitation: "申请审核通过后即可发起课程。学员无需申请，只需在课程报名页面注册或报名即可。"
     follow:
       state:
         false: 关注

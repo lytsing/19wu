@@ -32,7 +32,7 @@ zh-CN:
         tickets_quantity: 此票数不属于当前门票，而是指活动所有门票的总票数；为方便设置，会显示在所有门票的表单中。
     placeholders:
       user:
-        invite_reason: "活动组织情况(最近组织的几场活动?计划组织的下一场活动?)"
+        invite_reason: "预计开课的时间、地点，以及课程的简要介绍"
         phone: "请输入11位手机号码"
         phone_valid_code: "请输入手机短信中的校验码"
       event_change:
