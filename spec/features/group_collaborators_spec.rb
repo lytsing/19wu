@@ -53,7 +53,7 @@ feature 'group collaborators', js: true do
     scenario 'I can update event' do
       visit edit_event_path(event)
       fill_in 'event_title', with: 'new event title'
-      click_on '更新活动'
+      click_on '更新课程'
       page.should have_content(I18n.t('flash.events.updated'))
     end
   end

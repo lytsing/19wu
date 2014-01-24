@@ -4,7 +4,7 @@ zh-CN:
       quantity_overflow: '您购买的票数超过了最大数量。'
       invalid_login: 只允许大小写字母、数字和下划线
       event_order:
-        miss_shipping_address: 购买的门票包含发票，但没有提供收货地址
+        miss_shipping_address: 购买的课程资费包含发票，但没有提供收货地址
       event_order_participant:
         invalid_code: 签到码不正确。
         used: 已于 %{time} 使用，请勿重复签到。
@@ -18,7 +18,7 @@ zh-CN:
       event: "活动"
       event_summary: "活动总结"
       event_change: "变更"
-      event_ticket: "门票"
+      event_ticket: "课程资费"
       profile: "资料"
       group_topic: "贴子"
       event_order_refund: "退款申请"
@@ -44,12 +44,12 @@ zh-CN:
         location_guide: "交通指引"
         content: "简介"
       event_summary:
-        content: "总结"
+        content: "课后评价"
       event_change:
         content: "变更内容"
       event_order:
-        quantity: '门票数量'
-        items: '门票'
+        quantity: '课程资费数量'
+        items: '课程资费'
       event_order_refund:
         amount: '退款金额'
         amount_in_cents: '退款金额'
