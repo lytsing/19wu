@@ -27,12 +27,12 @@ en:
 
   slogan:
     title: "Make events better"
-    description: "19屋致力于为课程组织者提供功能简洁、完全免费的服务"
+    description: "课程盒子致力于为课程组织者提供功能简洁、完全免费的服务"
 
   highlights:
     free:
       title: "Free for all"
-      description: "19屋不会收取任何的使用费，您因此节省下来的成本可以为与会者提供更好的参会体验。"
+      description: "课程盒子不会收取任何的使用费，您因此节省下来的成本可以为与会者提供更好的参会体验。"
     devices:
       title: "Access anytime"
       description: "您和与会者可以随时随地通过电脑，或者平板电脑、手机等移动设备来管理课程。"
@@ -175,7 +175,7 @@ en:
     notify:
       subject: "shinebox New events - %{title}"
     reminder:
-      subject: "19屋课程提醒"
+      subject: "课程盒子课程提醒"
     profiles:
       show:
         title: "Profile"

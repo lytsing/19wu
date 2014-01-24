@@ -137,7 +137,7 @@ describe Event do
 
     it 'should remind all participants' do
       Event.remind_participants
-      subject.subject.should eql '19屋课程提醒'
+      subject.subject.should eql '课程盒子课程提醒'
       subject.to.should eql [order.user.email]
     end
   end

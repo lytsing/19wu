@@ -13,7 +13,7 @@ describe OrderMailer do
     describe "user" do
       describe "order created" do
         subject { OrderMailer.notify_user_created(order) }
-        its(:subject) { should eql '您在19屋的订单下单成功' }
+        its(:subject) { should eql '您在课程盒子的订单下单成功' }
         its(:from) { should eql [Settings.email.from] }
         its(:to) { should eql [order.user.email] }
         its('body.decoded') { should match '收货人信息' }

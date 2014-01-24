@@ -14,7 +14,7 @@ describe EventObserver do
       new_event
     end
     it 'should notify all followers' do
-      subject.subject.should eql '19屋新课程 - SH Ruby'
+      subject.subject.should eql '课程盒子新课程 - SH Ruby'
       subject.body.decoded.should match /http:\/\/localhost:3000\/rubyconf/
     end
   end

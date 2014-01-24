@@ -16,7 +16,7 @@ class OrderRefundsController < ApplicationController
     @refunds = EventOrderRefund.where(status: 'submited', refund_batch_id: nil)
   end
 
-  # 19屋管理员获取退款批次号
+  # 课程盒子管理员获取退款批次号
   def archive
     @refunds = EventOrderRefund.where(status: 'submited', refund_batch_id: nil)
     unless @refunds.empty?

@@ -17,4 +17,4 @@
         submit_button: "设置我的密码"
     mailer:
       invitation_instructions:
-        subject: '有人邀请你加入19屋'
+        subject: '有人邀请你加入课程盒子'
