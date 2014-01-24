@@ -28,7 +28,7 @@ Pull Request 中的代码更改需要测试代码覆盖，以保证这些更改�
 
 # Bug 报告和修复
 
-你可以通过在本地部署或者访问 http://19wu.com 来试用功能，通过 Github Issues
+你可以通过在本地部署或者访问 http://shinebox.cn 来试用功能，通过 Github Issues
 [提交](https://github.com/19wu/19wu/issues/new) 建议或者找到的 Bug。为了方便
 快速确认和定位，Bug 应该有详细的环境描述和重现步骤。可以参考
 [已经提交](https://github.com/19wu/19wu/issues?labels=bug&page=1&state=closed)

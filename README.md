@@ -4,16 +4,16 @@
 [![Dependency Status](https://gemnasium.com/19wu/19wu.png)](https://gemnasium.com/19wu/19wu)
 [![Coverage Status](https://coveralls.io/repos/19wu/19wu/badge.png?branch=master)](https://coveralls.io/r/19wu/19wu)
 
-这里是 [19wu.com](http://19wu.com) 网站源代码.
+这里是 [shinebox.cn](http://shinebox.cn) 网站源代码.
 
 ## 官网
 
-http://19wu.com/szruby
+http://shinebox.cn/szruby
 
 部署在 Heroku 的测试网站
 
 http://saberma-19wu.herokuapp.com
-Email：`demo@19wu.com`
+Email：`demo@shinebox.cn`
 Password：`666666`
 
 ## 系统要求

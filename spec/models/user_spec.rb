@@ -78,7 +78,7 @@ describe User do
 
   describe '#send_reset_password_instructions' do # issue#287
     context 'user is waiting for invite' do
-      let(:user) { User.invite! email: 'demo@19wu.com', skip_invitation: true }
+      let(:user) { User.invite! email: 'demo@shinebox.cn', skip_invitation: true }
       before { user.send_reset_password_instructions }
       it 'should get errors' do
         user.errors[:email].first.should eql '您正申请注册，请等待邀请邮件.'

@@ -39,8 +39,8 @@ describe ContentFilter do
     end
 
     it 'has a link' do
-      input = "http://19wu.com"
-      expected = %&<p><a href="http://19wu.com">http://19wu.com</a></p>&
+      input = "http://shinebox.cn"
+      expected = %&<p><a href="http://shinebox.cn">http://shinebox.cn</a></p>&
       ContentFilter.refine(input).should == expected
     end
 

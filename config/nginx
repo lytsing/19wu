@@ -9,8 +9,8 @@ upstream 19wu {
 }
 
 server {
-    server_name www.19wu.com *.19wu.com;
-    rewrite ^ http://19wu.com$request_uri? permanent;
+    server_name www.shinebox.cn *.shinebox.cn;
+    rewrite ^ http://shinebox.cn$request_uri? permanent;
 }
 
 server {
@@ -19,7 +19,7 @@ server {
     listen 80;
 
     # you could put a list of other domain names this application answers
-    server_name 19wu.com;
+    server_name shinebox.cn;
 
     root /u/apps/19wu/current/public;
     access_log /var/log/nginx/19wu_access.log;

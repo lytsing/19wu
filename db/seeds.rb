@@ -9,9 +9,9 @@
 is_heroku = ['/app/','/app'].include?(ENV['HOME']) # ENV['HOME'] = '/app' in rails console or rake
 email = Settings.raw_email(Settings.email.from)
 emails = [email]
-emails << 'demo@19wu.com' if Rails.env.development? || is_heroku
+emails << 'demo@shinebox.cn' if Rails.env.development? || is_heroku
 emails.each do |email|
-  login = email.sub(/@.*/,'')                      # 'support@19wu.com' => 'support'
+  login = email.sub(/@.*/,'')                      # 'support@shinebox.cn' => 'support'
   user = User.where(:login => login, :email => email).first_or_create(:password => '666666').confirm!
   user.admin = true
   user.save(validate:false)
