@@ -11,7 +11,7 @@
 ## 安装步骤
 
 ```bash
-git clone git://github.com/shinebox/shinebox.git
+git clone https://github.com/lytsing/shinebox.git
 cd shinebox
 bundle install --without pg mysql2
 rake setup
@@ -19,7 +19,7 @@ guard
 ```
 ## License
 
-[The MIT License](https://github.com/shinebox/shinebox/blob/master/LICENSE)
+[The MIT License](https://github.com/lytsing/shinebox/blob/master/LICENSE)
 
 Project is a member of the [OSS Manifesto](http://ossmanifesto.org).
 

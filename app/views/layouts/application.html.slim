@@ -15,7 +15,13 @@ html ng-app='shinebox'
       .navbar.navbar-static-top
         .navbar-inner
           .container
-            a.brand href="/"
+            a.brand href="/" 课程盒子
+            - if !user_signed_in?
+              ul.nav
+                li
+                  a href="/" 发起课程
+                li
+                  a href="/" 发现课程
 
             = render_nav_bar
 
