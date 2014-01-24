@@ -16,8 +16,7 @@ html ng-app='19wu'
         .navbar-inner
           .container
             a.brand href="/"
-              img.logo-wordmark src=image_path('logo-wordmark.png')
-              span.alpha alpha
+
             = render_nav_bar
 
             .nav-collapse.collapse
@@ -38,15 +37,11 @@ html ng-app='19wu'
     footer#footer
       .container
         .row
-          .span8
-            p = t('layout.sponsors.title')
-            = link_to image_tag('sponsors/tui3.png'), 'http://tui3.com', target: '_blank', title: t('layout.sponsors.sms'), data: {toggle: 'tooltip'}
           .span4
-            ul.pull-right
-              li = link_to t('layout.feedback'),  "https://github.com/19wu/19wu/issues/new"
-              li = link_to t('layout.contact_us'), "mailto:mahb45@gmail.com"
-              li = link_to t('layout.opensource'), "http://github.com/19wu/19wu"
-              -#li &copy; #{Date.current.year} #{t('layout.copyright')}
+            ul.list-inline
+              li = link_to t('layout.contact_us'), "mailto:support@shinebox.cn"
+              li = link_to t('layout.opensource'), "https://github.com/lytsing/shinebox"
+              li &copy; #{Date.current.year} #{t('layout.copyright')}
 
     = javascript_include_tag "application"
     = javascript_include_tag "locales/#{locale}"

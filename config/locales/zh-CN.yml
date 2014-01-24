@@ -13,7 +13,7 @@ zh-CN:
       stamp: '%b%d日(%a) %p %I:%M'
       stamp_with_year: '%Y年%b%d日(%a) %p %I:%M'
 
-  19wu: "19屋"
+  19wu: "活动盒子"
 
   layout:
     sponsors:
@@ -22,7 +22,7 @@ zh-CN:
     opensource: 源代码@GitHub
     contact_us: "联系我们"
     feedback: "反馈问题"
-    title: "19屋－让活动更好"
+    title: "活动盒子－让活动更好"
     copyright: "版权所有"
 
     account: "注册信息"
@@ -30,14 +30,14 @@ zh-CN:
     user_phone: 绑定手机
 
   slogan:
-    title: "让活动更好"
-    description: "19屋致力于为活动组织者提供功能简洁、完全免费的服务"
+    title: "让开课变得更简单"
+    description: "课程盒子致力于为课程发起者、课程设计者、课程组织者、培训师、引导师提供课程发布和管理平台。 "
 
   features:
     follow:
-      title: "让活动参与者越来越多"
+      title: "让上课变得更容易"
       subtitle1: "提高重复参加率"
-      description1: "参与者报名时会默认关注活动，以后每次举办新活动时，他都能得到及时通知"
+      description1: "苦于找不到适合自己的高质量的课程，苦于知名讲师的课程资费太高预算不够，苦于得不到客观真实的课程评估…课程盒子致力于帮助企业和团队发现有价值的课程。"
       subtitle2: "提升品牌价值"
       description2: "随着举办次数的增加，关注者会随之增加；关注者越多，表示活动越吸引人"
     slug:
@@ -181,7 +181,7 @@ zh-CN:
       edit:
         title: 绑定手机
     users:
-      apply_sign_up: "普通参与者可以直接在这里或者活动报名页面注册，发起活动需要在注册成功登录后申请。"
+      apply_sign_up: "课程盒子拥有简洁和友好的交互界面，并集成了组织一次课程的核心功能，包括：课程发布、课件管理、课程推广、学员报名、课程通知、电子签到、课资支付、学习小组、反馈搜集等。 "
       upgrade_invitation: "申请审核通过后即可发起活动，普通参与者无需申请，只需在活动报名页面注册或报名参加即可。"
     follow:
       state:
@@ -217,20 +217,20 @@ zh-CN:
 
   sms:
     event:
-      change: 活动通知：%{content}【19屋】
+      change: 活动通知：%{content}【活动盒子】
       order:
-        checkin_code: '%{event_title} 签到验证码：%{checkin_code}。请您于%{event_start_time}前到达现场并出示签到码。谢谢。【19屋】'
+        checkin_code: '%{event_title} 签到验证码：%{checkin_code}。请您于%{event_start_time}前到达现场并出示签到码。谢谢。【活动盒子】'
     user:
-      phone_code: 尊敬的用户,您的手机绑定验证码是%{code},谢谢【19屋】
+      phone_code: 尊敬的用户,您的手机绑定验证码是%{code},谢谢【活动盒子】
   email:
     welcome:
-      subject: "欢迎来到19屋"
+      subject: "欢迎来到活动盒子"
     invited:
       subject: "%{login}, 您现在可以发起活动了"
     notify:
-      subject: "19屋新活动 - %{title}"
+      subject: "活动盒子新活动 - %{title}"
     reminder:
-      subject: "19屋活动提醒"
+      subject: "活动盒子活动提醒"
     profiles:
       show:
         title: "个人资料"
@@ -240,7 +240,7 @@ zh-CN:
     order:
       user:
         created:
-          subject: "您在19屋的订单下单成功"
+          subject: "您在活动盒子的订单下单成功"
         paid:
           subject: "订单 %{number} 完成支付"
         checkin_code:
