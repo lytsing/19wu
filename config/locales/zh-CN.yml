@@ -90,6 +90,16 @@ zh-CN:
     invite_button: "通过"
     my_orders: "我的课程"
 
+    
+  find:
+    submit: "提交"
+    address: "输入希望上课的地点"
+    time: "输入希望课程时间"
+    content: "输入希望课程内容"
+    name: "输入联系人姓名"
+    tel: "输入联系人电话"
+    email: "输入联系人 Email 地址"
+
   confirmation:
     destroy: 您确定要删除吗？
     orders:
