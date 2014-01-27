@@ -94,6 +94,8 @@ article.event ng-init=init_event(@event)
         .event-summary
           h2 = build_summary_title(@event)
           == build_summary_content(@event)
+          
+        = image_tag(@event.picture_url, :width => 72) if @event.picture.present?
       = render 'topics/index'
     .span4
       .actions

@@ -23,6 +23,8 @@ class Event < ActiveRecord::Base
   has_html_pipeline :location_guide, :markdown
 
   attr_accessor :slug
+  
+  mount_uploader :picture, PictureUploader
 
   validates :title, :location, presence: true
   validates :slug, presence: true
