@@ -70,6 +70,7 @@ class ApplicationController < ActionController::Base
   private
   def system_notification
     message = I18n.t('flash.user_phones.blank', here: view_context.link_to(I18n.t('flash.user_phones.here'), edit_user_phone_path)).html_safe
-    flash.now[:alert] = message if current_user && current_user.phone.blank?
+    #  comment it by lytsing, 2014-01-28, shining don't like it.
+    #flash.now[:alert] = message if current_user && current_user.phone.blank?
   end
 end
