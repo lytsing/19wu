@@ -32,7 +32,7 @@ defaults: &defaults
     from: 'shinebox <support@shinebox.cn>'
 
     exception_recipients:
-      - 'mahb45@gmail.com'
+      - 'xmudeli@qq.com'
 
     delivery_method: :smtp
 
