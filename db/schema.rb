@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140127172459) do
+ActiveRecord::Schema.define(version: 20140128120809) do
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
@@ -146,6 +146,7 @@ ActiveRecord::Schema.define(version: 20140127172459) do
     t.integer  "group_id",                     null: false
     t.integer  "tickets_quantity", default: 0
     t.string   "picture"
+    t.text     "abstract"
   end
 
   add_index "events", ["group_id"], name: "index_events_on_group_id"

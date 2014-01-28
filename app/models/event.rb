@@ -29,6 +29,9 @@ class Event < ActiveRecord::Base
   validates :title, :location, presence: true
   validates :slug, presence: true
   validates :compound_start_time, presence: true
+  validates :abstract,            :presence => true
+  validates :picture,            :presence => true
+  
 
   validate :end_time_must_after_start_time
   validate :slug_must_uniq
