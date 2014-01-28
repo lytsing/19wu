@@ -43,12 +43,16 @@ html ng-app='shinebox'
     footer#footer
       .container
         .row
-          .span4
-            ul.list-inline
-              li = link_to t('layout.contact_us'), "mailto:service@shinebox.cn"
-              li QQ ：1240859081
-              li 邮箱 ：service@shinebox.cn
-              li &copy; #{Date.current.year} #{t('layout.copyright')}
+          .span2.offset1
+            = link_to image_tag('qr.png')
+          .span2
+             = link_to image_tag('qq.png') , 'http://wpa.qq.com/msgrd?v=3&uin=1240859081&site=qq&menu=yes'
+          .span2 
+             = link_to image_tag('email.png'), 'mailto:service@shinebox.cn'
+          .span2
+            br
+            br
+            p &copy; #{Date.current.year} #{t('layout.copyright')}
 
     = javascript_include_tag "application"
     = javascript_include_tag "locales/#{locale}"

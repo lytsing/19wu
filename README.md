@@ -26,7 +26,7 @@ guard
 
 创建生产环境的数据库：
 
-CREATE DATABASE `shinebox_production  ` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+  CREATE DATABASE `shinebox_production  ` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 ```bash
 bundle install --without sqlite3 pg
