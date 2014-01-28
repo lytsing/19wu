@@ -5,6 +5,10 @@ class HomeController < ApplicationController
       format.json { render json: @events }
     end
   end
+  
+  def page
+    @events = Event.all
+  end
 
   def content_preview
     render :nothing => true, :status => 200,

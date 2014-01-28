@@ -31,5 +31,16 @@
         = f.input :password, :label => false, :placeholder => t('find.tel'), class: 'input-large', :input_html => { 'ng-required' =>'true' }
         = f.input :password, :label => false, :placeholder => t('find.email'), class: 'input-large', :input_html => { 'ng-required' =>'true' }
         = f.submit t('find.submit'), :class => 'btn btn-success btn-large'
-hr
 
+  hr
+  .row
+    h3 最新课程
+    .list
+      - @events.each do |event|
+        .item
+          .avatar-wrapper = image_tag event.picture_url(:size => 96), :class => 'gravatar'
+          = link_to event.title, event_path(event)
+          .event-item-time
+            = time_merge(event)
+          .event-item-location
+            = event.location
