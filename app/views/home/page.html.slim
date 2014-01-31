@@ -34,15 +34,16 @@
 
   hr
   .row
-    h3 最新课程
-    .list
-      - @events.each do |event|
-        .item
-          .avatar-wrapper = image_tag event.picture_url(:size => 96), :class => 'gravatar'
-          = link_to event.title, event_path(event)
-          .event-item-time
-            i.icon-calendar
-            = time_merge(event)
-          .event-item-location
-            i.icon-map-marker
-            = event.location
+    .span9
+      h3 最新课程
+      .list
+        - @events.each do |event|
+          .item
+            .avatar-wrapper = image_tag event.picture_url(:size => 96), :class => 'gravatar'
+            = link_to event.title, event_path(event)
+            .event-item-time
+              i.icon-calendar
+              = time_merge(event)
+            .event-item-location
+              i.icon-map-marker
+              = event.location
