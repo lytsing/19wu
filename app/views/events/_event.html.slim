@@ -1,0 +1,11 @@
+.box
+  = link_to image_tag(event.picture_url, :class => "img-rounded img-responsive"), event
+  .list
+    .item
+      p = link_to event.title, event_path(event)
+      .event-item-time
+        i.icon-calendar
+        = time_merge(event)
+      .event-item-location
+        i.icon-map-marker
+        = event.location

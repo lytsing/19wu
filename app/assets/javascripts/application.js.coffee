@@ -1,5 +1,6 @@
 #= require jquery
 #= require jquery_ujs
+//= require masonry.pkgd.min.js
 #= require jquery-fileupload/basic
 #= require jquery.textarea.caret
 #= require jquery.ba-throttle-debounce.min
