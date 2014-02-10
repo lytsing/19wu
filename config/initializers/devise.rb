@@ -257,3 +257,12 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = "/my_engine/users/auth"
 end
+
+SERVICES = YAML.load_file(Rails.root.join("config", "weibo.yml")).fetch(Rails.env)
+Devise.setup do |config|
+  # ==> OmniAuth
+  # Add a new OmniAuth provider. Check the wiki for more information on setting
+  # up on your models and hooks.
+  config.omniauth :weibo, SERVICES['weibo']['api_key'], SERVICES['weibo']['api_secret']
+end
+

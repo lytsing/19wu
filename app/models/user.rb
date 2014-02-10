@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable
   # :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:weibo]
   delegate :name, to: :profile
 
   accepts_nested_attributes_for :profile

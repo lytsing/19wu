@@ -1,0 +1,14 @@
+common: &common
+  weibo:
+    api_key: "这里填写你获取到的api key"
+    api_secret: "这里填写你获取到的api secret"
+    redirect_uri: "http://www.yourdomain.com/users/auth/weibo/callback"
+
+production:
+  <<: *common
+
+development:
+  <<: *common
+
+test:
+  <<: *common

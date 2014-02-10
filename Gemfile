@@ -67,6 +67,7 @@ end
 
 gem 'devise', '~> 3.0.1'
 gem 'devise_invitable', github: 'scambra/devise_invitable'
+gem 'omniauth-weibo-oauth2', '~> 0.2.0' # Weibo support
 gem 'settingslogic'
 gem "delayed_job", "~> 4.0.0.beta2"
 gem 'delayed_job_active_record', '~> 4.0.0.beta3'
