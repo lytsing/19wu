@@ -24,6 +24,11 @@
 
 .features
   .row
+    h3 最新课程
+    .pins
+      = render @events
+  hr
+  .row
     .span6
       h3 = t('features.follow.title')
       p = t('features.follow.description1')
@@ -38,8 +43,4 @@
         = f.input :password, :label => false, :placeholder => t('find.email'), class: 'input-large', :input_html => { 'ng-required' =>'true' }
         = f.submit t('find.submit'), :class => 'btn btn-success btn-large'
 
-  hr
-  .row
-    h3 最新课程
-    .pins
-      = render @events
+
