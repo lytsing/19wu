@@ -24,8 +24,8 @@ zh-CN:
       event_order_refund: "退款申请"
     attributes:
       user:
-        login: "课程发布者"
-        email: "Email 地址"
+        login: "用户名"
+        email: "邮箱"
         phone: "手机号码"
         phone_valid_code: "校验码"
         password: "密码"
