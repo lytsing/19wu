@@ -34,13 +34,6 @@
       p = t('features.follow.description1')
     .span4.offset2
       h3 = t('features.discover.title')
-      = simple_form_for(User.new, :as => resource_name, :url => user_registration_path, :html => { :class => 'form-full-width'}) do |f|
-        = f.input :login, :label => false, :placeholder => t('find.address'), class: 'input-large', :input_html => { 'ng-required' =>'true' }
-        = f.input :email, :label => false, :placeholder => t('find.time'), class: 'input-large', :input_html => { 'ng-required' =>'true' }
-        = f.input :password, :label => false, :placeholder => t('find.content'), class: 'input-large', :input_html => { 'ng-required' =>'true' }
-        = f.input :password, :label => false, :placeholder => t('find.name'), class: 'input-large', :input_html => { 'ng-required' =>'true' }
-        = f.input :password, :label => false, :placeholder => t('find.tel'), class: 'input-large', :input_html => { 'ng-required' =>'true' }
-        = f.input :password, :label => false, :placeholder => t('find.email'), class: 'input-large', :input_html => { 'ng-required' =>'true' }
-        = f.submit t('find.submit'), :class => 'btn btn-success btn-large'
+
 
 

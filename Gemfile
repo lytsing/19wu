@@ -133,3 +133,4 @@ gem 'bootstrap-timepicker-rails-addon'
 
 # fallback
 gem 'rails-observers'
+gem 'protected_attributes'
