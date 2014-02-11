@@ -161,14 +161,14 @@ zh-CN:
         all: '全部'
 
   views:
-    edit: "修改"
+    edit: "课程信息"
     destroy: "删除"
     ticket: "课程资费"
-    change: "变更"
-    sell: '销售'
+    change: "课程通知"
+    sell: '报名管理'
     summary: "课后评价"
     previous_summary: "往期课程总结"
-    check_in: "签到"
+    check_in: "签到管理"
     map_preview: "地图预览"
     events:
       new:

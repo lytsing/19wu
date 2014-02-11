@@ -32,7 +32,7 @@ class Event < ActiveRecord::Base
   validates :abstract,            :presence => true
   validates :picture,            :presence => true
   validates :contact,            :presence => true
-  validates :telephone,            :presence => true
+  validates :telephone,          :presence => true
   
   
   
