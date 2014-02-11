@@ -7,7 +7,7 @@ class HomeController < ApplicationController
   end
   
   def page
-    @events = Event.all.latest
+    @events = Event.all
   end
 
   def content_preview
