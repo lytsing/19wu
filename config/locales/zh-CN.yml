@@ -67,7 +67,7 @@ zh-CN:
     submit:
       add: "增加"
       event:
-        create: "新课程"
+        create: "发起课程"
       profile:
         create: "保存%{model}"
 

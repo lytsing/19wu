@@ -115,8 +115,8 @@ article.event ng-init=init_event(@event)
           p
             span.label.label-important 联系人
             span.event-contact
-              = link_to @event.user.login, user_path(@event.user)
-              = @event.user.phone
+              = @event.contact
+              = @event.telephone
 
           div
             hr

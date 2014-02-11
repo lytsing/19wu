@@ -31,6 +31,11 @@ class Event < ActiveRecord::Base
   validates :compound_start_time, presence: true
   validates :abstract,            :presence => true
   validates :picture,            :presence => true
+  validates :contact,            :presence => true
+  validates :telephone,            :presence => true
+  
+  
+  
   
 
   validate :end_time_must_after_start_time

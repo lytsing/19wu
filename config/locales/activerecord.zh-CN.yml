@@ -45,6 +45,8 @@ zh-CN:
         content: "简介"
         abstract : "课程摘要"
         picture: "课程主题图片"
+        contact: "课程联系人"
+        telephone: "联系方式"
       event_summary:
         content: "课后评价"
       event_change:
