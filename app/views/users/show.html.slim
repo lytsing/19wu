@@ -14,3 +14,9 @@
           li #{l @user.created_at.to_date} 加入
 
         .user-body = raw @user.profile.bio_html
+        
+    
+#content
+  .container
+    = render 'home/menu', :current => :activities
+    div = t('home.body.empty')
