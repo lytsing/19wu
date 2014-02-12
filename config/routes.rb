@@ -56,6 +56,8 @@ NineteenWu::Application.routes.draw do
     post "refunds/alipay_notify" => 'order_refunds#alipay_notify'
 
     get 'admin_orders' => 'admin_orders#index'
+    get 'admin_events' => 'admin_events#index'
+    
     patch 'admin_orders/:id/pay' => 'admin_orders#pay', :as => :admin_orders_pay
 
     patch '/invitations/:id/mail' => 'invitations#mail', :as => :mail_invitation

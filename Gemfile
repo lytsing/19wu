@@ -51,6 +51,7 @@ gem 'jbuilder'
 gem 'state_machine'
 gem 'state_machine-audit_trail'
 gem 'axlsx_rails'
+gem "kaminari"
 
 group :pg do
   gem 'pg', :platform => [:ruby, :mswin, :mingw]

@@ -209,6 +209,8 @@ zh-CN:
     export:
       export_link: "导出"
       event_time: "课程时间"
+    manage:
+      title: "课程管理"
     my_orders:
       event: '课程'
       user: '用户'
