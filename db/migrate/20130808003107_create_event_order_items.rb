@@ -1,6 +1,6 @@
 class CreateEventOrderItems < ActiveRecord::Migration
   def change
-    create_table :event_order_items do |t|
+    create_table :course_order_items do |t|
       t.integer :order_id , null: false
       t.integer :ticket_id, null: false
       t.integer :quantity , null: false

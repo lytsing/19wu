@@ -125,19 +125,19 @@ describe User do
 
   describe '#ordered?' do
     before { user.save }
-    let(:event) { create :event }
-    let(:another_event) { create :event, slug: 'another' }
+    let(:course) { create :course }
+    let(:another_course) { create :course, slug: 'another' }
 
     before {
-      create(:order_with_items, user: user, event: event)
+      create(:order_with_items, user: user, course: course)
     }
 
-    context 'with placed order on the event' do
-      subject { user.ordered?(event) }
+    context 'with placed order on the course' do
+      subject { user.ordered?(course) }
       it { should be_true }
     end
-    context 'without orders on the event' do
-      subject { user.ordered?(another_event) }
+    context 'without orders on the course' do
+      subject { user.ordered?(another_course) }
       it { should be_false }
     end
   end

@@ -1,6 +1,6 @@
 class CreateEventOrderRefunds < ActiveRecord::Migration
   def change
-    create_table :event_order_refunds do |t|
+    create_table :course_order_refunds do |t|
       t.integer :order_id, null: false
       t.integer :refund_batch_id
       t.integer :amount_in_cents, null: false

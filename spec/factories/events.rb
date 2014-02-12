@@ -1,7 +1,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :event do
+  factory :course do
     title "shinebox development meeting"
     start_time 8.day.since
     end_time 9.days.since

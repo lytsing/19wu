@@ -1,15 +1,15 @@
 # encoding: utf-8
 require File.expand_path('../../spec_helper', __FILE__)
 
-feature 'event participants', js: true do
+feature 'course participants', js: true do
   given(:user) { create(:user, :confirmed) }
-  given(:event) { create(:event, user: user) }
-  given(:order) { create(:order_with_items, event: event) }
+  given(:course) { create(:course, user: user) }
+  given(:order) { create(:order_with_items, course: course) }
   given(:participant) { order.participant }
   given(:trade_no) { '2013080841700373' }
   before do
     sign_in user
-    visit checkin_event_participants_path(event)
+    visit checkin_course_participants_path(course)
   end
 
   context 'with participant' do

@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe EventTicket do
-  let(:event) { create :event }
+  let(:course) { create :course }
   describe '#tickets_quantity' do
-    let(:ticket) { build(:event_ticket, event: Event.find(event.id), tickets_quantity: 400) }
+    let(:ticket) { build(:course_ticket, course: Event.find(course.id), tickets_quantity: 400) }
     describe '#create' do
       subject { ticket.tap(&:save) }
       its(:tickets_quantity) { should eql 400 }
@@ -11,7 +11,7 @@ describe EventTicket do
 
     context 'exists' do
       before { ticket.save }
-      subject { event.reload }
+      subject { course.reload }
       describe '#update' do
         before { ticket.update_attribute :tickets_quantity, 500 }
         its(:tickets_quantity) { should eql 500 }
@@ -20,13 +20,13 @@ describe EventTicket do
       describe '#destroy' do
         context 'with other ticket' do
           before do
-            create(:event_ticket, event: Event.find(event.id), name: 'other', tickets_quantity: 500)
+            create(:course_ticket, course: Event.find(course.id), name: 'other', tickets_quantity: 500)
             ticket.destroy
           end
           its(:tickets_quantity) { should eql 500 }
         end
         context 'without other ticket' do
-          before { event.tickets.destroy_all }
+          before { course.tickets.destroy_all }
           its(:tickets_quantity) { should eql nil }
         end
       end

@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe EventOrderRefund do
   let(:user) { create(:user, :confirmed) }
-  let(:event) { create(:event, user: user) }
-  let(:order) { create(:order_with_items, event: event) }
+  let(:course) { create(:course, user: user) }
+  let(:order) { create(:order_with_items, course: course) }
   let(:trade_no) { '2013080841700373' }
   let(:refund) { order.refunds.create amount: '10', reason: 'test' }
 
@@ -24,7 +24,7 @@ describe EventOrderRefund do
       end
       context 'less than order paid amount' do
         let(:refund) { order.refunds.build amount: '300' }
-        its([:amount_in_cents]) { should eql [I18n.t('errors.messages.event_order_refund.amount_in_cents.less_than', paid_amount: 299.0)] }
+        its([:amount_in_cents]) { should eql [I18n.t('errors.messages.course_order_refund.amount_in_cents.less_than', paid_amount: 299.0)] }
       end
     end
   end

@@ -1,6 +1,6 @@
 FactoryGirl.define do
-  factory :event_summary do
+  factory :course_summary do
     content "This is a great party! I really like it!"
-    event
+    course
   end
 end

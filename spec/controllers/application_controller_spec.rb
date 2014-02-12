@@ -57,10 +57,10 @@ describe ApplicationController do
       get 'show', :id => user
       assigns[:user_path].should == '/bob'
     end
-    it 'generates /u/events for user with login "events"' do
-      user = build(:user, :login => 'events')
+    it 'generates /u/courses for user with login "courses"' do
+      user = build(:user, :login => 'courses')
       get 'show', :id => user
-      assigns[:user_path].should == '/u/events'
+      assigns[:user_path].should == '/u/courses'
     end
   end
 end

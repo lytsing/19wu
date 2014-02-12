@@ -1,8 +1,8 @@
 class ParticipantAutomaticFollowEvent < ActiveRecord::Migration
   def up
-    Event.all.each do |event|
-      group = event.group
-      event.participated_users.each do |user|
+    Event.all.each do |course|
+      group = course.group
+      course.participated_users.each do |user|
         user.follow group
       end
     end

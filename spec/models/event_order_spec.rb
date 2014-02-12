@@ -3,9 +3,9 @@ require 'spec_helper'
 
 describe EventOrder do
   let(:user) { create(:user, :confirmed) }
-  let(:event) { create(:event, user: user) }
+  let(:course) { create(:course, user: user) }
   let(:trade_no) { '2013080841700373' }
-  let(:order) { create(:order_with_items, event: event) }
+  let(:order) { create(:order_with_items, course: course) }
   subject { order }
 
   describe '#create' do
@@ -13,12 +13,12 @@ describe EventOrder do
       subject { order.errors.messages }
       describe 'tickets' do
         before { order.valid? }
-        let(:order) { EventOrder.build_order(user, event, {}) }
+        let(:order) { EventOrder.build_order(user, course, {}) }
         its([:quantity]) { should_not be_empty }
       end
       describe 'shipping_address' do
-        let(:ticket) { event.tickets.first }
-        let(:order) { EventOrder.build_order(user, event, items_attributes: [{ticket_id: ticket.id, quantity: 1}]) }
+        let(:ticket) { course.tickets.first }
+        let(:order) { EventOrder.build_order(user, course, items_attributes: [{ticket_id: ticket.id, quantity: 1}]) }
         before do
           ticket.update_attribute :require_invoice, true
           order.valid?
@@ -67,19 +67,19 @@ describe EventOrder do
       its(:status_name) { should eql '未支付' }
     end
     describe '#shipping_address' do
-      let(:order) { create(:order_with_items, shipping_address_attributes: attributes_for(:shipping_address), event: event) }
+      let(:order) { create(:order_with_items, shipping_address_attributes: attributes_for(:shipping_address), course: course) }
       its(:shipping_address) { should_not be_nil }
     end
-    it 'should let user to follow event' do
-      expect{order}.to change{event.group.followers}
+    it 'should let user to follow course' do
+      expect{order}.to change{course.group.followers}
     end
     context 'free' do
-      let(:order) { create(:order_with_items, tickets_price: 0, event: event) }
+      let(:order) { create(:order_with_items, tickets_price: 0, course: course) }
       its(:pending?) { should be_false }
       its(:free?) { should be_true }
       its(:paid?) { should be_true }
       describe 'participant' do
-        let(:order) { build(:order_with_items, tickets_price: 0, event: event) }
+        let(:order) { build(:order_with_items, tickets_price: 0, course: course) }
         it 'should be create' do
           order.should_receive(:create_participant)
           order.save
@@ -87,7 +87,7 @@ describe EventOrder do
       end
     end
     context 'business' do # 收费课程
-      let(:order) { create(:order_with_items, event: event) }
+      let(:order) { create(:order_with_items, course: course) }
       describe 'participant' do
         it 'should be create' do
           order.should_not_receive(:create_participant)
@@ -123,20 +123,20 @@ describe EventOrder do
   describe '#cancel' do
     context 'pending order' do
       before { order.cancel! }
-      describe 'event' do
-        subject { event }
+      describe 'course' do
+        subject { course }
         its(:tickets_quantity) { should eql 400 }
       end
     end
     context 'paid order' do
       before { order.pay!(trade_no) }
-      context 'when event has not been finished' do
+      context 'when course has not been finished' do
         before { order.cancel! }
         its(:canceled?) { should be_true }
       end
-      context 'when event has been finished' do
+      context 'when course has been finished' do
         before do
-          Timecop.travel(1.day.since(event.end_time))
+          Timecop.travel(1.day.since(course.end_time))
           # order.cancel! # it will raise error
           order.cancel
         end
@@ -146,9 +146,9 @@ describe EventOrder do
     end
   end
 
-  describe "can not request refund when event start draws near" do
+  describe "can not request refund when course start draws near" do
     before do
-      event.update_attributes! start_time: 1.days.since, end_time: 2.days.since
+      course.update_attributes! start_time: 1.days.since, end_time: 2.days.since
       order.pay!(trade_no)
     end
     subject { order }
@@ -156,15 +156,15 @@ describe EventOrder do
   end
 
   describe 'forbid participant when total quantity is 0' do
-    let(:order) { build(:order_with_items, items_count: 600, event: event) }
+    let(:order) { build(:order_with_items, items_count: 600, course: course) }
 
     subject { order }
     its(:save) { should be_false }
   end
 
-  describe 'event tickets quantity' do
-    let(:order) { create(:order_with_items, items_count: 2, event: event) }
-    subject { event }
+  describe 'course tickets quantity' do
+    let(:order) { create(:order_with_items, items_count: 2, course: course) }
+    subject { course }
     before { order }
     its(:tickets_quantity) { should eql 398 }
   end

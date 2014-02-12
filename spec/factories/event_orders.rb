@@ -1,8 +1,8 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :event_order do
-    event
+  factory :course_order do
+    course
     user
     price 1.5
 
@@ -15,7 +15,7 @@ FactoryGirl.define do
         paid false
       end
       after(:build) do |order, evaluator|
-        FactoryGirl.create_list(:ticket, evaluator.items_count, price: evaluator.tickets_price, require_invoice: evaluator.require_invoice, event: order.event).each do |ticket|
+        FactoryGirl.create_list(:ticket, evaluator.items_count, price: evaluator.tickets_price, require_invoice: evaluator.require_invoice, course: order.course).each do |ticket|
           order.items.build ticket: ticket, quantity: evaluator.quantity, price: ticket.price
         end
         if order.require_invoice
@@ -28,6 +28,6 @@ FactoryGirl.define do
     end
   end
 
-  factory :order, parent: :event_order do
+  factory :order, parent: :course_order do
   end
 end

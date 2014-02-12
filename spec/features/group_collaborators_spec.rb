@@ -3,19 +3,19 @@ require File.expand_path('../../spec_helper', __FILE__)
 
 feature 'group collaborators', js: true do
   given(:user) { create(:user, :confirmed) }
-  given(:event) { create(:event, user: user) }
+  given(:course) { create(:course, user: user) }
   given(:partner) { create(:user, :confirmed) }
-  given(:collaborator) { create(:group_collaborator, group_id: event.group.id, user_id: partner.id) }
+  given(:collaborator) { create(:group_collaborator, group_id: course.group.id, user_id: partner.id) }
   context 'as a group creator sign in' do
     before { sign_in user }
     scenario 'I can see the collaborators menu' do
-      visit event_path(event)
+      visit course_path(course)
       page.should have_content(I18n.t('views.groups.collaborators'))
     end
     context 'with a collaborator' do
       before do
         collaborator
-        visit event_collaborators_path(event_id: event.id)
+        visit course_collaborators_path(course_id: course.id)
       end
       scenario 'I see the collaborator' do
         within '.collaborators-list' do
@@ -30,7 +30,7 @@ feature 'group collaborators', js: true do
       end
     end
     scenario 'I can add a collaborator' do
-      visit event_collaborators_path(event_id: event.id)
+      visit course_collaborators_path(course_id: course.id)
       within '.collaborators-list' do
         find('input').set partner.login
         find('.typeahead.dropdown-menu li').click
@@ -47,14 +47,14 @@ feature 'group collaborators', js: true do
       sign_in partner
     end
     scenario 'I can not see the collaborators menu' do
-      visit event_path(event)
+      visit course_path(course)
       page.should_not have_content(I18n.t('views.groups.collaborators'))
     end
-    scenario 'I can update event' do
-      visit edit_event_path(event)
-      fill_in 'event_title', with: 'new event title'
+    scenario 'I can update course' do
+      visit edit_course_path(course)
+      fill_in 'course_title', with: 'new course title'
       click_on '更新课程'
-      page.should have_content(I18n.t('flash.events.updated'))
+      page.should have_content(I18n.t('flash.courses.updated'))
     end
   end
 end

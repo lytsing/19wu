@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe UserOrdersController do
   let(:user) { create(:user, :confirmed) }
-  let(:event) { create(:event, user: user) }
+  let(:course) { create(:course, user: user) }
   before { login_user user }
 
   describe 'alipay' do
     let(:trade_no) { '2013080841700373' }
-    let(:order) { create(:order_with_items, event: event, user: user) }
+    let(:order) { create(:order_with_items, course: course, user: user) }
     let(:attrs) { { trade_no: trade_no, out_trade_no: order.number, trade_status: trade_status, total_fee: order.price } }
     describe "GET alipay_done" do
       let(:trade_status) { 'TRADE_SUCCESS' }
@@ -55,12 +55,12 @@ describe UserOrdersController do
   end
 
   describe 'GET index' do
-    let(:another_event) { create(:event, slug: 'another') }
-    let!(:order) { create(:order_with_items, event: event, user: user) }
-    let!(:another_order) { create(:order_with_items, event: another_event, user: user) }
-    describe 'event_id filter' do
-      it 'returns orders for the specified event' do
-        get 'index', event_id: event.id
+    let(:another_course) { create(:course, slug: 'another') }
+    let!(:order) { create(:order_with_items, course: course, user: user) }
+    let!(:another_order) { create(:order_with_items, course: another_course, user: user) }
+    describe 'course_id filter' do
+      it 'returns orders for the specified course' do
+        get 'index', course_id: course.id
         expect(assigns[:orders]).to eq([order])
       end
     end

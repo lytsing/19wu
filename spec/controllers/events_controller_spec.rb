@@ -4,7 +4,7 @@ describe EventsController do
 
   describe "GET 'index'" do
     login_user
-    it "renders the event list" do
+    it "renders the course list" do
       get 'index'
       response.should render_template('index')
     end
@@ -12,7 +12,7 @@ describe EventsController do
 
   describe "GET 'ordered'" do
     login_user
-    it "renders the event list" do
+    it "renders the course list" do
       get 'ordered'
       response.should render_template('ordered')
     end
@@ -22,26 +22,26 @@ describe EventsController do
     context 'when user has signed in' do
       let(:user) { login_user }
       before { login_user }
-      it "builds a new event" do
+      it "builds a new course" do
         get 'new'
-        assigns[:event].should be_a_kind_of(Event)
-        assigns[:event].should be_a_new_record
+        assigns[:course].should be_a_kind_of(Event)
+        assigns[:course].should be_a_new_record
       end
-      it "renders the new event form" do
+      it "renders the new course form" do
         get 'new'
         response.should render_template('new')
       end
-      context 'with other event' do
-        let(:event) { create(:event, user: user) }
-        before { event }
-        it "should show source events" do
+      context 'with other course' do
+        let(:course) { create(:course, user: user) }
+        before { course }
+        it "should show source courses" do
           get 'new'
-          assigns[:source_events].should_not be_empty
+          assigns[:source_courses].should_not be_empty
         end
         it "should be copy" do
-          get 'new', from: event.id
-          assigns[:event].should be_a_new_record
-          assigns[:event].title.should eql event.title
+          get 'new', from: course.id
+          assigns[:course].should be_a_new_record
+          assigns[:course].title.should eql course.title
         end
       end
     end
@@ -56,19 +56,19 @@ describe EventsController do
   describe "POST 'create'" do
     context 'when user has signed in' do
       login_user
-      let(:valid_attributes) { attributes_for(:event) }
+      let(:valid_attributes) { attributes_for(:course) }
       context 'with valid attributes' do
-        it 'creates the event' do
+        it 'creates the course' do
           expect {
-            post 'create', :event => valid_attributes
+            post 'create', :course => valid_attributes
           }.to change{Event.count}.by(1)
         end
       end
       context 'with invalid attributes' do # issue#392
         render_views
-        it 'should not creates the event' do
+        it 'should not creates the course' do
           expect {
-            post 'create', :event => valid_attributes.except(:start_time)
+            post 'create', :course => valid_attributes.except(:start_time)
           }.to_not change{Event.count}
           response.should be_success
         end
@@ -86,9 +86,9 @@ describe EventsController do
             merge('compound_start_time_attributes' => compound_start_time_attributes)
         end
 
-        it 'creates event with date 2013-12-31 12:10:30' do
-          post 'create', :event => attributes
-          assigns[:event].start_time.should == Time.zone.parse('2013-12-31 12:10:30')
+        it 'creates course with date 2013-12-31 12:10:30' do
+          post 'create', :course => attributes
+          assigns[:course].start_time.should == Time.zone.parse('2013-12-31 12:10:30')
         end
       end
     end
@@ -101,14 +101,14 @@ describe EventsController do
   end
 
   describe "PATCH 'update'" do
-    let(:event_creator) { login_user }
-    let(:event) { FactoryGirl.create(:event, user: event_creator) }
-    let(:valid_attributes) { attributes_for(:event) }
+    let(:course_creator) { login_user }
+    let(:course) { FactoryGirl.create(:course, user: course_creator) }
+    let(:valid_attributes) { attributes_for(:course) }
     context 'when user has signed in' do
       context 'with valid attributes' do
-        it 'update the event' do
-          patch 'update', :id => event.id, :event => valid_attributes
-          response.should redirect_to(edit_event_path(event))
+        it 'update the course' do
+          patch 'update', :id => course.id, :course => valid_attributes
+          response.should redirect_to(edit_course_path(course))
         end
       end
 
@@ -137,37 +137,37 @@ describe EventsController do
         end
 
         it 'when all input changed' do
-          patch 'update', :id => event.id, :event => attributes
-          assigns[:event].title.should == "shinebox development meeting by issuse #185"
-          assigns[:event].location.should ==  "Dalian, China"
-          assigns[:event].content.should == "Dalian shinebox development meeting by issuse #185"
-          assigns[:event].location_guide.should == "Best by Plant come here"
-          assigns[:event].start_time.should == Time.zone.parse('2013-01-08 16:10:30')
-          assigns[:event].end_time.should == Time.zone.parse('2013-01-08 18:10:30')
+          patch 'update', :id => course.id, :course => attributes
+          assigns[:course].title.should == "shinebox development meeting by issuse #185"
+          assigns[:course].location.should ==  "Dalian, China"
+          assigns[:course].content.should == "Dalian shinebox development meeting by issuse #185"
+          assigns[:course].location_guide.should == "Best by Plant come here"
+          assigns[:course].start_time.should == Time.zone.parse('2013-01-08 16:10:30')
+          assigns[:course].end_time.should == Time.zone.parse('2013-01-08 18:10:30')
         end
       end
     end
 
     context 'when user has not yet signed in' do
       it "should be redirect" do
-        patch 'update', :id => event.id, :event => valid_attributes
+        patch 'update', :id => course.id, :course => valid_attributes
         response.should be_redirect
       end
     end
   end
 
   describe "follower" do
-    let(:event) { create(:event, :user => create(:user)) }
+    let(:course) { create(:course, :user => create(:user)) }
     let(:user) { login_user }
-    subject { event.group }
+    subject { course.group }
     context 'follow' do
       before { user }
-      before { post :follow, id: event.id }
+      before { post :follow, id: course.id }
       its('followers.first') { should eql user }
     end
     context 'unfollow' do
       before { user.follow(subject) }
-      before { post :unfollow, id: event.id }
+      before { post :unfollow, id: course.id }
       its(:followers) { should be_empty }
     end
   end

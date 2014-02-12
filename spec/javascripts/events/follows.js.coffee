@@ -1,8 +1,8 @@
-describe "event", ->
+describe "course", ->
   scope = $httpBackend = null
   beforeEach ->
     inject ($rootScope, $controller, $injector, $http) ->
-      $rootScope.event = {id: 1}
+      $rootScope.course = {id: 1}
       scope = $rootScope.$new()
       $httpBackend = $injector.get('$httpBackend')
       ctrl = $controller(FollowsCtrl, {$scope: scope, $http: $http})
@@ -12,7 +12,7 @@ describe "event", ->
     describe "follow", ->
       beforeEach ->
         scope.init([1, {true: '已关注', false: '关注'}, false])
-        $httpBackend.when('POST', '/events/1/follow').respond(count: 2)
+        $httpBackend.when('POST', '/courses/1/follow').respond(count: 2)
         scope.follow()
       it "should change label and count", ->
         $httpBackend.flush()
@@ -20,7 +20,7 @@ describe "event", ->
     describe "unfollow", ->
       beforeEach ->
         scope.init([1, {true: '已关注', false: '关注'}, true])
-        $httpBackend.when('POST', '/events/1/unfollow').respond(count: 0)
+        $httpBackend.when('POST', '/courses/1/unfollow').respond(count: 0)
         scope.follow()
       it "should change label and count", ->
         $httpBackend.flush()

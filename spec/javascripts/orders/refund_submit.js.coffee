@@ -2,7 +2,7 @@ describe "orders", ->
   scope = $httpBackend = null
   beforeEach ->
     inject ($rootScope, $controller, $injector, $http) ->
-      $rootScope.event = {id: 1}
+      $rootScope.course = {id: 1}
       scope = $rootScope.$new()
       scope.orders = [
         { id: 1 },
@@ -20,7 +20,7 @@ describe "orders", ->
 
       describe "after another submit", ->
         beforeEach ->
-          $httpBackend.when('POST', '/events/1/orders/1/refund/submit').respond({id: 1, amount: '10', reason: 'test'})
+          $httpBackend.when('POST', '/courses/1/orders/1/refund/submit').respond({id: 1, amount: '10', reason: 'test'})
           order0 = scope.orders[0]
           order0.amount = '10'
           order0.reason = 'test'
@@ -34,7 +34,7 @@ describe "orders", ->
 
     describe "submit", ->
       beforeEach ->
-        $httpBackend.when('POST', '/events/1/orders/1/refund/submit').respond({id: 1, amount: '10', reason: 'test'})
+        $httpBackend.when('POST', '/courses/1/orders/1/refund/submit').respond({id: 1, amount: '10', reason: 'test'})
         scope.submit(0)
         $httpBackend.flush()
       it "should be success", ->

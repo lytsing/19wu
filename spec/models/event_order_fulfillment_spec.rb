@@ -9,14 +9,14 @@ describe EventOrderFulfillment do
       it 'should be done' do
         mail.should_receive(:deliver)
         OrderFulfillmentMailer.should_receive(:notify_user_fulfilled).and_return(mail)
-        order.create_fulfillment attributes_for(:event_order_fulfillment)
+        order.create_fulfillment attributes_for(:course_order_fulfillment)
       end
     end
     describe 'organizer' do
       it 'should be done' do
         mail.should_receive(:deliver)
         OrderFulfillmentMailer.should_receive(:notify_organizer_fulfilled).and_return(mail)
-        order.create_fulfillment attributes_for(:event_order_fulfillment)
+        order.create_fulfillment attributes_for(:course_order_fulfillment)
       end
     end
   end

@@ -1,6 +1,6 @@
 class CreateEventOrderShippingAddresses < ActiveRecord::Migration
   def change
-    create_table :event_order_shipping_addresses do |t|
+    create_table :course_order_shipping_addresses do |t|
       t.integer :order_id, null: false
       t.string :invoice_title
       t.string :province , limit: 64

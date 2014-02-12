@@ -8,16 +8,16 @@ class CreateGroups < ActiveRecord::Migration
     end
     add_index :groups, :slug, :unique => true
 
-    add_column :events, :group_id, :integer
-    add_index :events, :group_id
-    Event.all.each do |event|
-      event.update_attributes! :slug => "e#{event.id}"
+    add_column :courses, :group_id, :integer
+    add_index :courses, :group_id
+    Event.all.each do |course|
+      course.update_attributes! :slug => "e#{course.id}"
     end
-    change_column :events, :group_id, :integer, :null => false
+    change_column :courses, :group_id, :integer, :null => false
   end
 
   def down
     drop_table :groups
-    remove_column :events, :group_id
+    remove_column :courses, :group_id
   end
 end

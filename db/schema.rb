@@ -29,23 +29,23 @@ ActiveRecord::Schema.define(version: 20140211124627) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
-  create_table "event_changes", force: true do |t|
-    t.integer  "event_id"
+  create_table "course_changes", force: true do |t|
+    t.integer  "course_id"
     t.string   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "event_changes", ["event_id"], name: "index_event_changes_on_event_id"
+  add_index "course_changes", ["course_id"], name: "index_course_changes_on_course_id"
 
-  create_table "event_order_fulfillments", force: true do |t|
+  create_table "course_order_fulfillments", force: true do |t|
     t.integer  "order_id"
     t.string   "tracking_number", limit: 64
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "event_order_items", force: true do |t|
+  create_table "course_order_items", force: true do |t|
     t.integer  "order_id",                        null: false
     t.integer  "ticket_id",                       null: false
     t.integer  "quantity",                        null: false
@@ -55,9 +55,9 @@ ActiveRecord::Schema.define(version: 20140211124627) do
     t.integer  "unit_price_in_cents", default: 0, null: false
   end
 
-  create_table "event_order_participants", force: true do |t|
+  create_table "course_order_participants", force: true do |t|
     t.integer  "order_id",               null: false
-    t.integer  "event_id",               null: false
+    t.integer  "course_id",               null: false
     t.integer  "user_id",                null: false
     t.string   "checkin_code", limit: 6, null: false
     t.datetime "checkin_at"
@@ -65,9 +65,9 @@ ActiveRecord::Schema.define(version: 20140211124627) do
     t.datetime "updated_at"
   end
 
-  add_index "event_order_participants", ["event_id", "checkin_code"], name: "index_event_order_participants_on_event_id_and_checkin_code", unique: true
+  add_index "course_order_participants", ["course_id", "checkin_code"], name: "index_course_order_participants_on_course_id_and_checkin_code", unique: true
 
-  create_table "event_order_refunds", force: true do |t|
+  create_table "course_order_refunds", force: true do |t|
     t.integer  "order_id",                   null: false
     t.integer  "refund_batch_id"
     t.integer  "amount_in_cents",            null: false
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20140211124627) do
     t.datetime "updated_at"
   end
 
-  create_table "event_order_shipping_addresses", force: true do |t|
+  create_table "course_order_shipping_addresses", force: true do |t|
     t.integer  "order_id",                 null: false
     t.string   "invoice_title"
     t.string   "province",      limit: 64
@@ -90,18 +90,18 @@ ActiveRecord::Schema.define(version: 20140211124627) do
     t.datetime "updated_at"
   end
 
-  create_table "event_order_status_transitions", force: true do |t|
-    t.integer  "event_order_id"
-    t.string   "event"
+  create_table "course_order_status_transitions", force: true do |t|
+    t.integer  "course_order_id"
+    t.string   "course"
     t.string   "from"
     t.string   "to"
     t.datetime "created_at"
   end
 
-  add_index "event_order_status_transitions", ["event_order_id"], name: "index_event_order_status_transitions_on_event_order_id"
+  add_index "course_order_status_transitions", ["course_order_id"], name: "index_course_order_status_transitions_on_course_order_id"
 
-  create_table "event_orders", force: true do |t|
-    t.integer  "event_id",                                    null: false
+  create_table "course_orders", force: true do |t|
+    t.integer  "course_id",                                    null: false
     t.integer  "user_id",                                     null: false
     t.integer  "quantity",                                    null: false
     t.string   "status",               limit: 16
@@ -113,27 +113,27 @@ ActiveRecord::Schema.define(version: 20140211124627) do
     t.integer  "paid_amount_in_cents",            default: 0, null: false
   end
 
-  add_index "event_orders", ["event_id"], name: "index_event_orders_on_event_id"
-  add_index "event_orders", ["user_id"], name: "index_event_orders_on_user_id"
+  add_index "course_orders", ["course_id"], name: "index_course_orders_on_course_id"
+  add_index "course_orders", ["user_id"], name: "index_course_orders_on_user_id"
 
-  create_table "event_summaries", force: true do |t|
+  create_table "course_summaries", force: true do |t|
     t.text    "content"
-    t.integer "event_id"
+    t.integer "course_id"
   end
 
-  create_table "event_tickets", force: true do |t|
+  create_table "course_tickets", force: true do |t|
     t.string   "name"
     t.string   "description"
     t.boolean  "require_invoice"
-    t.integer  "event_id"
+    t.integer  "course_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "price_in_cents",  default: 0, null: false
   end
 
-  add_index "event_tickets", ["event_id"], name: "index_event_tickets_on_event_id"
+  add_index "course_tickets", ["course_id"], name: "index_course_tickets_on_course_id"
 
-  create_table "events", force: true do |t|
+  create_table "courses", force: true do |t|
     t.string   "title",                        null: false
     t.datetime "start_time"
     t.datetime "end_time"
@@ -151,7 +151,7 @@ ActiveRecord::Schema.define(version: 20140211124627) do
     t.text     "telephone"
   end
 
-  add_index "events", ["group_id"], name: "index_events_on_group_id"
+  add_index "courses", ["group_id"], name: "index_courses_on_group_id"
 
   create_table "fallback_urls", force: true do |t|
     t.string   "origin"

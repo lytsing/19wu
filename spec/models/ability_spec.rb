@@ -5,8 +5,8 @@ describe Ability do
   subject { Ability.new(user) }
   context "when user has not signed in" do
     let(:user) { nil }
-    context 'event' do
-      it{ should_not be_able_to(:update, create(:event)) }
+    context 'course' do
+      it{ should_not be_able_to(:update, create(:course)) }
     end
     context 'order' do
       it{ should_not be_able_to(:confirm_pay, EventOrder) }
@@ -15,21 +15,21 @@ describe Ability do
 
   context "when user has signed in" do
     let(:user) { create(:user) }
-    context 'event' do
+    context 'course' do
       context 'belongs to him' do
-        let(:event) { create(:event, :user => user) }
-        it{ should be_able_to(:update, event) }
-        it{ should be_able_to(:update, event.group) }
+        let(:course) { create(:course, :user => user) }
+        it{ should be_able_to(:update, course) }
+        it{ should be_able_to(:update, course.group) }
       end
       context 'belongs to others' do
-        let(:event) { create(:event) }
-        it{ should_not be_able_to(:update, event) }
-        it{ should_not be_able_to(:update, event.group) }
+        let(:course) { create(:course) }
+        it{ should_not be_able_to(:update, course) }
+        it{ should_not be_able_to(:update, course.group) }
         context 'he is the collaborator' do
-          let(:collaborator) { create(:group_collaborator, group_id: event.group.id, user_id: user.id) }
+          let(:collaborator) { create(:group_collaborator, group_id: course.group.id, user_id: user.id) }
           before { collaborator }
           it{ should be_able_to(:create, Event) }
-          it{ should be_able_to(:update, event) }
+          it{ should be_able_to(:update, course) }
         end
       end
       context 'order' do

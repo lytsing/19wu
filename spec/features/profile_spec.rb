@@ -17,7 +17,7 @@ feature 'profile settings' do
   scenario "I update my profile" do
     fill_in 'profile_name',    with: 'shinebox'
     fill_in 'profile_website', with: 'http://shinebox.cn'
-    fill_in 'profile_bio',     with: '**Launch your event now**'
+    fill_in 'profile_bio',     with: '**Launch your course now**'
 
     click_button '保存资料'
 

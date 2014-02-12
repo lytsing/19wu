@@ -4,8 +4,8 @@ require File.expand_path('../../spec_helper', __FILE__)
 feature 'orders refunds', js: true do
   given(:support) { create(:user, :confirmed, :admin) }
   given(:user) { create(:user, :confirmed) }
-  given(:event) { create(:event, user: user) }
-  given(:order) { create(:order_with_items, event: event) }
+  given(:course) { create(:course, user: user) }
+  given(:order) { create(:order_with_items, course: course) }
   given(:trade_no) { '2013080841700373' }
 
   before { order.pay(trade_no) }
@@ -13,7 +13,7 @@ feature 'orders refunds', js: true do
   context 'as organizer' do
     before { sign_in user }
     scenario 'I can submit order refund' do
-      visit filter_event_orders_path(event, status: :paid)
+      visit filter_course_orders_path(course, status: :paid)
       within '.orders-list' do
         click_on '退款'
         fill_in '退款金额', with: '100'
@@ -24,12 +24,12 @@ feature 'orders refunds', js: true do
 
       open_email(Settings.raw_email(Settings.email.from))
       expect(current_email).to have_content('课程主办方刚刚申请退款')
-      expect(current_email.subject).to have_content(I18n.t('email.order.support.refund.subject', title: event.title, number: order.number))
+      expect(current_email.subject).to have_content(I18n.t('email.order.support.refund.subject', title: course.title, number: order.number))
     end
   end
 
   context 'as support' do
-    given!(:refund) { create :event_order_refund, :submited, order: order }
+    given!(:refund) { create :course_order_refund, :submited, order: order }
     before { sign_in support }
     scenario 'I can generate refund link' do
       visit refunds_path

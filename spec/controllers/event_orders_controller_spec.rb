@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe EventOrdersController do
   let(:user) { create(:user, :confirmed) }
-  let(:event) { create(:event, user: user) }
-  let(:ticket) { create(:event_ticket, event: event, tickets_quantity: 400) }
+  let(:course) { create(:course, user: user) }
+  let(:ticket) { create(:course_ticket, course: course, tickets_quantity: 400) }
   let(:order_params) {
     { items_attributes: [{ticket_id: ticket.id, quantity: 2}] }
   }
@@ -18,7 +18,7 @@ describe EventOrdersController do
     before { Timecop.freeze('2013-08-25') }
     after { Timecop.return }
     it "should be success" do
-      post :create, format: :json, event_id: event.id, order: order_params
+      post :create, format: :json, course_id: course.id, order: order_params
       expect(response).to be_success
       expect(assigns[:order].items.size).to eql 1
       json = JSON(response.body)
@@ -27,9 +27,9 @@ describe EventOrdersController do
     end
 
     context 'free' do
-      let(:ticket) { create(:event_ticket, :free, event: event, tickets_quantity: 400) }
+      let(:ticket) { create(:course_ticket, :free, course: course, tickets_quantity: 400) }
       it "should not return pay link" do
-        post :create, format: :json, event_id: event.id, order: order_params
+        post :create, format: :json, course_id: course.id, order: order_params
         json = JSON(response.body)
         expect(json['link']).to be_nil
         expect(json['status']).to eql 'paid'
@@ -45,14 +45,14 @@ describe EventOrdersController do
       }
       before { ticket.update_attribute :require_invoice, true }
       it 'should be success' do
-        post :create, format: :json, event_id: event.id, order: order_params
+        post :create, format: :json, course_id: course.id, order: order_params
         expect(response).to be_success
         expect(assigns[:order].shipping_address).not_to be_nil
       end
     end
 
     describe "with user information" do
-      before { post :create, event_id: event.id, order: order_params, user: user_params }
+      before { post :create, course_id: course.id, order: order_params, user: user_params }
       context 'profile is not a new record' do
         let(:user) { create(:user, :confirmed, :with_profile) }
         it "should be update" do

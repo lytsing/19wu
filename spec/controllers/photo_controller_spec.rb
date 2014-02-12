@@ -3,7 +3,7 @@ require 'spec_helper'
 describe PhotoController do
 
   describe "POST 'create'" do
-    let(:path) { Rails.root.join("spec/factories/data/event/map.png") }
+    let(:path) { Rails.root.join("spec/factories/data/course/map.png") }
     let(:files) { [Rack::Test::UploadedFile.new(path)] }
     context 'when user has signed in' do
       login_user

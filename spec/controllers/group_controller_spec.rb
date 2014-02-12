@@ -3,17 +3,17 @@ require 'spec_helper'
 describe GroupController do
 
   describe "GET 'show'" do
-    let(:event) { create :event }
+    let(:course) { create :course }
     it "returns http success" do
-      get 'event', :slug => event.group.slug
+      get 'course', :slug => course.group.slug
       response.should be_success
     end
   end
 
   describe "GET 'followers'" do
-    let(:event) { create :event }
+    let(:course) { create :course }
     it "returns http success" do
-      get 'event', :slug => event.group.slug
+      get 'course', :slug => course.group.slug
       response.should be_success
     end
   end

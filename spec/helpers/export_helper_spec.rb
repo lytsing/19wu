@@ -4,63 +4,63 @@ require 'spec_helper'
 describe ExportHelper do
 
   describe '#markdown_format_content' do
-    it 'the event has not summary' do
-      event = create(:event, :markdown)
-      markdown_format_content(event).should == markdown_content_has_not_summary_example(event)
+    it 'the course has not summary' do
+      course = create(:course, :markdown)
+      markdown_format_content(course).should == markdown_content_has_not_summary_example(course)
     end
 
-    it 'the event has summary' do
-      event = create(:event, :markdown)
-      create(:event_summary, event: event)
+    it 'the course has summary' do
+      course = create(:course, :markdown)
+      create(:course_summary, course: course)
 
-      markdown_format_content(event).should == markdown_content_has_summary_example(event)
+      markdown_format_content(course).should == markdown_content_has_summary_example(course)
     end
   end
 
-  def markdown_content_has_not_summary_example(event)
-    %Q{#### #{t('activerecord.attributes.event.title')}
+  def markdown_content_has_not_summary_example(course)
+    %Q{#### #{t('activerecord.attributes.course.title')}
 
-#{event.title}
-
-
-#### #{t('views.export.event_time')}
-
-#{time_merge(event)}
+#{course.title}
 
 
-#### #{t('activerecord.attributes.event.location')}
+#### #{t('views.export.course_time')}
 
-#{event.location}
+#{time_merge(course)}
 
 
-#### #{t('activerecord.attributes.event.content')}
+#### #{t('activerecord.attributes.course.location')}
 
-#{event.content}}
+#{course.location}
+
+
+#### #{t('activerecord.attributes.course.content')}
+
+#{course.content}}
   end
 
-  def markdown_content_has_summary_example(event)
-    %Q{#### #{t('activerecord.attributes.event.title')}
+  def markdown_content_has_summary_example(course)
+    %Q{#### #{t('activerecord.attributes.course.title')}
 
-#{event.title}
-
-
-#### #{t('views.export.event_time')}
-
-#{time_merge(event)}
+#{course.title}
 
 
-#### #{t('activerecord.attributes.event.location')}
+#### #{t('views.export.course_time')}
 
-#{event.location}
+#{time_merge(course)}
 
 
-#### #{t('activerecord.attributes.event.content')}
+#### #{t('activerecord.attributes.course.location')}
 
-#{event.content}
+#{course.location}
+
+
+#### #{t('activerecord.attributes.course.content')}
+
+#{course.content}
 
 
 #### #{t('views.summary')}
 
-#{event.event_summary.content}}
+#{course.course_summary.content}}
   end
 end

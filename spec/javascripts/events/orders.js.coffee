@@ -10,17 +10,17 @@ describe "orders", ->
   describe "create", ->
     describe 'when user logined', ->
       beforeEach -> inject ($rootScope) -> $rootScope.user = {id: 1, name: '张三', phone: '13928452888'}
-      describe 'when event is not start', ->
+      describe 'when course is not start', ->
         beforeEach ->
           inject ($rootScope, $injector, $http, $window, $controller) ->
-            $rootScope.event = {id: 1, started: false}
+            $rootScope.course = {id: 1, started: false}
             controller $rootScope, $injector, $http, $window, $controller
         it "should not be diabled", ->
           expect(scope.disabled).toBe(false)
         describe 'with tickets', ->
           beforeEach ->
             scope.tickets = [{"id":1,"name":"个人票","price":0.01,"require_invoice":false,"description":"","quantity":1}]
-            $httpBackend.when('POST', '/events/1/orders').respond(200, {result: 'ok', id: 1, link: 'https://alipay.com'})
+            $httpBackend.when('POST', '/courses/1/orders').respond(200, {result: 'ok', id: 1, link: 'https://alipay.com'})
             scope.create()
           it "should be success", ->
             $httpBackend.flush()
@@ -32,10 +32,10 @@ describe "orders", ->
             scope.create()
           it "should be fail", ->
             expect(scope.errors['tickets']).toBe(true)
-      describe 'when event is started', ->
+      describe 'when course is started', ->
         beforeEach ->
           inject ($rootScope, $injector, $http, $window, $controller) ->
-            $rootScope.event = {id: 1, started: true}
+            $rootScope.course = {id: 1, started: true}
             controller $rootScope, $injector, $http, $window, $controller
           scope.create()
         it "should be diabled", ->

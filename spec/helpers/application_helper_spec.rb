@@ -34,13 +34,13 @@ describe ApplicationHelper do
       end
       its([:class]) { should include('signed-out') }
     end
-    context 'when event is show' do
+    context 'when course is show' do
       before do
         helper.should_receive(:user_signed_in?).and_return(false)
         helper.should_receive(:controller_name).and_return('mockup')
-        helper.should_receive(:action_name).and_return('event')
+        helper.should_receive(:action_name).and_return('course')
       end
-      its([:class]) { should include('l-event') }
+      its([:class]) { should include('l-course') }
     end
   end
 

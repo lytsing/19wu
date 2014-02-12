@@ -1,6 +1,6 @@
 class AddAbstractToEvents < ActiveRecord::Migration
   def change
-    add_column :events, :abstract, :text
+    add_column :courses, :abstract, :text
   end
 end
 

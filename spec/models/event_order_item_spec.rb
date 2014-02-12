@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe EventOrderItem do
-  let(:event) { create(:event) }
-  let(:order) { create(:order_with_items, event: event, quantity: 2) }
+  let(:course) { create(:course) }
+  let(:order) { create(:order_with_items, course: course, quantity: 2) }
   let(:order_item) { order.items.first }
 
   describe 'create' do

@@ -20,8 +20,8 @@ feature 'user registration' do
     open_email(user.email)
     expect(current_email.subject).to have_content(I18n.t('email.welcome.subject'))
 
-    # can not create event, need to upgrade
-    click_link I18n.t('labels.launch_event')
+    # can not create course, need to upgrade
+    click_link I18n.t('labels.launch_course')
     expect(page).to have_content(I18n.t('labels.need_upgrade_invitation'))
     fill_in 'user_invite_reason', with: 'blah blah'
     click_button I18n.t('labels.apply_sign_up')
@@ -41,8 +41,8 @@ feature 'user registration' do
     fill_in 'user_password', with: user.password
     click_button I18n.t('labels.sign_in')
 
-    # can create event
-    can_create_event
+    # can create course
+    can_create_course
   end
 
   scenario 'directly' do
@@ -60,8 +60,8 @@ feature 'user registration' do
     open_email(user.email)
     expect(current_email.subject).to have_content(I18n.t('email.welcome.subject'))
 
-    # can not create event, need to upgrade
-    click_link I18n.t('labels.launch_event')
+    # can not create course, need to upgrade
+    click_link I18n.t('labels.launch_course')
     expect(page).to have_content(I18n.t('labels.need_upgrade_invitation'))
     fill_in 'user_invite_reason', with: 'blah blah'
     click_button I18n.t('labels.apply_sign_up')
@@ -81,8 +81,8 @@ feature 'user registration' do
     fill_in 'user_password', with: user.password
     click_button I18n.t('labels.sign_in')
 
-    # can create event
-    can_create_event
+    # can create course
+    can_create_course
   end
 
   private
@@ -102,8 +102,8 @@ feature 'user registration' do
     click_link I18n.t('devise.navigation.sign_out')
   end
 
-  def can_create_event
-    click_link I18n.t('labels.launch_event')
-    expect(page).to have_content(I18n.t('activerecord.attributes.event.title'))
+  def can_create_course
+    click_link I18n.t('labels.launch_course')
+    expect(page).to have_content(I18n.t('activerecord.attributes.course.title'))
   end
 end

@@ -1,5 +1,5 @@
 class AddLocationGuideToEvents < ActiveRecord::Migration
   def change
-    add_column :events, :location_guide, :text
+    add_column :courses, :location_guide, :text
   end
 end
