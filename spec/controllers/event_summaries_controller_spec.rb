@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe EventSummariesController do
+describe CourseSummariesController do
 
   describe "GET new" do
     let(:user) { create(:user, :confirmed) }
@@ -18,10 +18,10 @@ describe EventSummariesController do
       expect(assigns(:course)).to eq(course)
     end
 
-    it "should set variable @summary to a new EventSummary object" do
+    it "should set variable @summary to a new CourseSummary object" do
       login_user user
       get :new, course_id: course.id
-      expect(assigns(:summary)).to be_a_new(EventSummary)
+      expect(assigns(:summary)).to be_a_new(CourseSummary)
     end
   end
 
@@ -35,7 +35,7 @@ describe EventSummariesController do
         course_summary_attributes = FactoryGirl.attributes_for(:course_summary, :course => course)
         expect {
           post :create, course_id: course.id, course_summary: course_summary_attributes
-        }.to change{ EventSummary.count }.by(1)
+        }.to change{ CourseSummary.count }.by(1)
       end
 
       it "should redirect to course show page" do
@@ -51,7 +51,7 @@ describe EventSummariesController do
         login_user user
         expect {
           post :create, course_id: course.id, course_summary: { content: "test" }
-        }.to change{ EventSummary.count }.by(0)
+        }.to change{ CourseSummary.count }.by(0)
       end
 
       it "should render new template" do

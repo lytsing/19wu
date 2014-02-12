@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe EventOrderParticipant do
+describe CourseOrderParticipant do
   let(:user) { create(:user, :confirmed) }
   let(:course) { create(:course, user: user) }
   let(:order) { create(:order_with_items, course: course) }
@@ -16,7 +16,7 @@ describe EventOrderParticipant do
     describe 'notification' do
       before do
         course.update_attribute :start_time, Time.zone.local(2013, 8, 18, 15, 30, 20)
-        EventOrderParticipant.stub(:random_code).and_return('123456')
+        CourseOrderParticipant.stub(:random_code).and_return('123456')
       end
       describe 'by email' do
         let(:mail) { double('mail') }

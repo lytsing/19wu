@@ -1,6 +1,0 @@
-article.course
-  h1 = link_to "{{ title }}", course_path(@course), "ng-model" => "title"
-  = render 'menu'
-  = simple_form_for @course, :html => { :class => "form-horizontal course-form" } do |f|
-    = f.error_notification
-    = render 'form', :f => f

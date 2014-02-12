@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe EventOrderFulfillment do
+describe CourseOrderFulfillment do
   let(:order) { create(:order_with_items, require_invoice: true, paid: true) }
 
   describe 'mail to' do

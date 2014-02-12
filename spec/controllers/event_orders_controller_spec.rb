@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe EventOrdersController do
+describe CourseOrdersController do
   let(:user) { create(:user, :confirmed) }
   let(:course) { create(:course, user: user) }
   let(:ticket) { create(:course_ticket, course: course, tickets_quantity: 400) }

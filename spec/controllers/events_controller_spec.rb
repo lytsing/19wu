@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe EventsController do
+describe CoursesController do
 
   describe "GET 'index'" do
     login_user
@@ -24,7 +24,7 @@ describe EventsController do
       before { login_user }
       it "builds a new course" do
         get 'new'
-        assigns[:course].should be_a_kind_of(Event)
+        assigns[:course].should be_a_kind_of(Course)
         assigns[:course].should be_a_new_record
       end
       it "renders the new course form" do
@@ -61,7 +61,7 @@ describe EventsController do
         it 'creates the course' do
           expect {
             post 'create', :course => valid_attributes
-          }.to change{Event.count}.by(1)
+          }.to change{Course.count}.by(1)
         end
       end
       context 'with invalid attributes' do # issue#392
@@ -69,7 +69,7 @@ describe EventsController do
         it 'should not creates the course' do
           expect {
             post 'create', :course => valid_attributes.except(:start_time)
-          }.to_not change{Event.count}
+          }.to_not change{Course.count}
           response.should be_success
         end
       end

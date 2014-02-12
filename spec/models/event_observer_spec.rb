@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'spec_helper'
 
-describe EventObserver do
+describe CourseObserver do
   context 'create' do
     let(:user) { create :user }
     let(:course) { create :course, user: user }

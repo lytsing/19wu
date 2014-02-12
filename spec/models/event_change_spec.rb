@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'spec_helper'
 
-describe EventChange do
+describe CourseChange do
   describe 'send change to participants' do
     let(:user) { create(:user, :confirmed) }
     let(:course) { create(:course, user: user, title: '深圳Rubyist课程') }

@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe EventTicketsController do
+describe CourseTicketsController do
 
 end

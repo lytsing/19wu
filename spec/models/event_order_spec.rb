@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe EventOrder do
+describe CourseOrder do
   let(:user) { create(:user, :confirmed) }
   let(:course) { create(:course, user: user) }
   let(:trade_no) { '2013080841700373' }
@@ -13,12 +13,12 @@ describe EventOrder do
       subject { order.errors.messages }
       describe 'tickets' do
         before { order.valid? }
-        let(:order) { EventOrder.build_order(user, course, {}) }
+        let(:order) { CourseOrder.build_order(user, course, {}) }
         its([:quantity]) { should_not be_empty }
       end
       describe 'shipping_address' do
         let(:ticket) { course.tickets.first }
-        let(:order) { EventOrder.build_order(user, course, items_attributes: [{ticket_id: ticket.id, quantity: 1}]) }
+        let(:order) { CourseOrder.build_order(user, course, items_attributes: [{ticket_id: ticket.id, quantity: 1}]) }
         before do
           ticket.update_attribute :require_invoice, true
           order.valid?
@@ -172,7 +172,7 @@ describe EventOrder do
   describe 'clean up expired orders' do
     before do
       order.update_attributes! created_at: 4.days.ago
-      EventOrder.cleanup_expired
+      CourseOrder.cleanup_expired
       order.reload
     end
     subject { order }

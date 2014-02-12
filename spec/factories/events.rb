@@ -17,7 +17,7 @@ FactoryGirl.define do
 
     trait :markdown do
       content <<-MD
-# Awesome Event #
+# Awesome Course #
 
 -   free wifi
 -   free coffee

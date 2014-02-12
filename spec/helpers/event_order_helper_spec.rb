@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'spec_helper'
 
-describe EventOrderHelper do
+describe CourseOrderHelper do
   describe '#stats_tickets_price' do
     let(:course) { create :course }
     let!(:orders) { create_list(:order_with_items, 6, tickets_price: 0.01, course: course) }

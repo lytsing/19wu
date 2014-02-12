@@ -9,7 +9,7 @@ FactoryGirl.define do
     trait :autofill do
       name { user.try(:login).try(:capitalize) }
       website ['http://shinebox.org', 'http://shinebox.cn'].sample
-      bio '**Launch your Event today**'
+      bio '**Launch your Course today**'
     end
   end
 end

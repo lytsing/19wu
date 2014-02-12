@@ -1,5 +1,0 @@
-.span3
-  .submenu
-    = tabs_tag namespace: :sidebar, builder: CourseSubmenu do |tab|
-      = tab.new_change '发布通知', new_course_change_path(@course)
-      = tab.changes '变更记录', course_changes_path(@course)

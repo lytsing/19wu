@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe EventChangesController do
+describe CourseChangesController do
 
 end

@@ -7,7 +7,7 @@ feature 'follower page' do
     subject { course.group }
 
     before do
-      Event.stub(:find).with(course.id.to_s).and_return(course)
+      Course.stub(:find).with(course.id.to_s).and_return(course)
       participant.follow(subject) 
     end
 

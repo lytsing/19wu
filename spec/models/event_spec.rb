@@ -1,7 +1,7 @@
 # coding: utf-8
 require 'spec_helper'
 
-describe Event do
+describe Course do
   let(:course) { build :course }
 
   it "passes validation with all valid informations" do
@@ -120,7 +120,7 @@ describe Event do
       course_tomorrow = create(:course, :slug => 'e3', :start_time => '2013-05-26')
 
       today = Time.zone.parse('2013-05-25')
-      Event.upcoming(today).should == [course_tomorrow]
+      Course.upcoming(today).should == [course_tomorrow]
     end
   end
 
@@ -136,7 +136,7 @@ describe Event do
     end
 
     it 'should remind all participants' do
-      Event.remind_participants
+      Course.remind_participants
       subject.subject.should eql '课程盒子课程提醒'
       subject.to.should eql [order.user.email]
     end

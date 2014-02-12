@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'spec_helper'
 
-describe EventHelper do
+describe CourseHelper do
   describe '#time_merge' do
     let(:course) { build :course, start_time: "#{year}-12-30 08:00", end_time: "#{year}-12-30 10:00" }
     let(:year) { Time.zone.now.year }

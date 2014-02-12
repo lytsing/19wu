@@ -9,7 +9,7 @@ describe Ability do
       it{ should_not be_able_to(:update, create(:course)) }
     end
     context 'order' do
-      it{ should_not be_able_to(:confirm_pay, EventOrder) }
+      it{ should_not be_able_to(:confirm_pay, CourseOrder) }
     end
   end
 
@@ -28,19 +28,19 @@ describe Ability do
         context 'he is the collaborator' do
           let(:collaborator) { create(:group_collaborator, group_id: course.group.id, user_id: user.id) }
           before { collaborator }
-          it{ should be_able_to(:create, Event) }
+          it{ should be_able_to(:create, Course) }
           it{ should be_able_to(:update, course) }
         end
       end
       context 'order' do
-        it{ should_not be_able_to(:confirm_pay, EventOrder) }
+        it{ should_not be_able_to(:confirm_pay, CourseOrder) }
       end
     end
 
     context "when admin has signed in" do
       let(:user) { create(:user, :admin) }
       context 'order' do
-        it{ should be_able_to(:confirm_pay, EventOrder) }
+        it{ should be_able_to(:confirm_pay, CourseOrder) }
       end
     end
   end

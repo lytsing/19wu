@@ -1,4 +1,0 @@
-= render 'courses/header'
-.row
-  = simple_form_for @summary, :url => create_course_summary_path(@course), :html => { :class => "form-horizontal course-form" } do |f|
-    = render 'form', :f => f

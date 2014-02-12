@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe EventOrderRefundObserver do
+describe CourseOrderRefundObserver do
   let(:user) { create(:user, :confirmed) }
   let(:course) { create(:course, user: user) }
   let(:order) { create(:order_with_items, course: course) }

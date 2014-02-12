@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AdminEventsController do
+describe AdminCoursesController do
 
   describe "GET 'index'" do
     it "returns http success" do
