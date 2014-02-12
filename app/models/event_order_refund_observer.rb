@@ -1,4 +1,4 @@
-class EventOrderRefundObserver< ActiveRecord::Observer
+class CourseOrderRefundObserver< ActiveRecord::Observer
   def after_refund(refund, transition)
     order = refund.order
     order.decrement! :paid_amount_in_cents, refund.amount_in_cents

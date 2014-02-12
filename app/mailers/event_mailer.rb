@@ -1,4 +1,4 @@
-class EventMailer < ActionMailer::Base
+class CourseMailer < ActionMailer::Base
   default from: Settings.email[:from]
 
   def change_email(change, user)

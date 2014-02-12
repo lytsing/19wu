@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-class EventObserver < ActiveRecord::Observer
+class CourseObserver < ActiveRecord::Observer
   def before_create(course)
     save_group course
   end

@@ -1,4 +1,4 @@
-class EventTicket < ActiveRecord::Base
+class CourseTicket < ActiveRecord::Base
   belongs_to :course
   priceable :price
   validates :name, :price, presence: true

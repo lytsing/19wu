@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-class EventOrderObserver < ActiveRecord::Observer
+class CourseOrderObserver < ActiveRecord::Observer
   def after_pay(order, transition)
     order.create_participant
     order.increment! :paid_amount_in_cents, order.price_in_cents # convenient for refunding

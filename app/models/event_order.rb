@@ -1,12 +1,12 @@
-class EventOrder < ActiveRecord::Base
+class CourseOrder < ActiveRecord::Base
   belongs_to :course
   belongs_to :user
   has_many :course_order_status_transitions
-  has_many :items, class_name: 'EventOrderItem', foreign_key: "order_id"
-  has_many :refunds, class_name: 'EventOrderRefund', foreign_key: "order_id"
-  has_one :participant     , class_name: 'EventOrderParticipant'    , foreign_key: "order_id"
-  has_one :shipping_address, class_name: 'EventOrderShippingAddress', foreign_key: "order_id"
-  has_one :fulfillment     , class_name: 'EventOrderFulfillment'    , foreign_key: "order_id"
+  has_many :items, class_name: 'CourseOrderItem', foreign_key: "order_id"
+  has_many :refunds, class_name: 'CourseOrderRefund', foreign_key: "order_id"
+  has_one :participant     , class_name: 'CourseOrderParticipant'    , foreign_key: "order_id"
+  has_one :shipping_address, class_name: 'CourseOrderShippingAddress', foreign_key: "order_id"
+  has_one :fulfillment     , class_name: 'CourseOrderFulfillment'    , foreign_key: "order_id"
   priceable :price, :paid_amount
 
   accepts_nested_attributes_for :items, :shipping_address
@@ -83,7 +83,7 @@ class EventOrder < ActiveRecord::Base
 
   class<< self
     def build_order(user, course, params)
-      items_attributes = EventOrderItem.filter_attributes(
+      items_attributes = CourseOrderItem.filter_attributes(
           course,
           params[:items_attributes]
       )

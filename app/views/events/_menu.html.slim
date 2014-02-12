@@ -5,7 +5,7 @@
         li
           a data-toggle='tooltip' title='只有课程管理员能看到此菜单'
             i.icon-th-list
-      = tabs_tag builder: EventMenu do |tab|
+      = tabs_tag builder: CourseMenu do |tab|
         = tab.edit t('views.edit'), edit_course_path(@course)
         = tab.ticket t('views.ticket'), course_tickets_path(@course)
         = tab.order t('views.sell'), filter_course_orders_path(@course, status: :paid)        

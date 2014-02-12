@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @period = "weeks"
     activation_conditions = ["user_id IN (?)", non_guests]
     @cohorts = CohortMe.analyze(period: @period,
-                                activation_class: Event,
+                                activation_class: Course,
                                 activation_conditions: activation_conditions)
   end
 end

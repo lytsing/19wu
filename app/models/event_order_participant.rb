@@ -1,7 +1,7 @@
-class EventOrderParticipant < ActiveRecord::Base
+class CourseOrderParticipant < ActiveRecord::Base
   belongs_to :course
   belongs_to :user
-  belongs_to :order, class_name: 'EventOrder'
+  belongs_to :order, class_name: 'CourseOrder'
 
   validates :checkin_code, uniqueness: { scope: :course_id }
   validate :cannot_checkin_again, :order_is_valid, on: :update

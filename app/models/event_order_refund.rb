@@ -1,5 +1,5 @@
-class EventOrderRefund < ActiveRecord::Base
-  belongs_to :order, class_name: 'EventOrder'
+class CourseOrderRefund < ActiveRecord::Base
+  belongs_to :order, class_name: 'CourseOrder'
   belongs_to :refund_batch
   priceable :amount
 

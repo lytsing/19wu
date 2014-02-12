@@ -1,4 +1,4 @@
-module EventHelper
+module CourseHelper
 
   def time_merge(course)
     start_time = course.start_time

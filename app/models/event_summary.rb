@@ -1,4 +1,4 @@
-class EventSummary < ActiveRecord::Base
+class CourseSummary < ActiveRecord::Base
   extend HasHtmlPipeline
 
   belongs_to :course

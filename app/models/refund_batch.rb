@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class RefundBatch < ActiveRecord::Base
-  has_many :refunds, class_name: 'EventOrderRefund', dependent: :nullify
+  has_many :refunds, class_name: 'CourseOrderRefund', dependent: :nullify
   validates :batch_no, presence: true
 
   before_validation do

@@ -44,7 +44,7 @@ class UserOrdersController < ApplicationController
   def alipay_notify
     notify_params = params.except(*request.path_parameters.keys)
     if Alipay::Sign.verify?(notify_params) && Alipay::Notify.verify?(notify_params)
-      @order = EventOrder.find params[:id]
+      @order = CourseOrder.find params[:id]
       if ['TRADE_SUCCESS', 'TRADE_FINISHED'].include?(params[:trade_status])
         @order.pay!(params[:trade_no]) if @order.pending?
       elsif params[:trade_status] == 'TRADE_CLOSED'
@@ -59,7 +59,7 @@ class UserOrdersController < ApplicationController
   private
   def filter_orders
     if params[:course_id].present?
-      course = Event.find(params[:course_id])
+      course = Course.find(params[:course_id])
       @orders = @orders.where(course_id: course.id)
     end
   end

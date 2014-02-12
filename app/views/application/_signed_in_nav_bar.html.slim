@@ -1,9 +1,9 @@
 ul.nav
   - if can? :invite, User
     li = link_to t('labels.invitations'), invitations_path
-  - if can? :refund, EventOrder
+  - if can? :refund, CourseOrder
     li = link_to t('activerecord.models.course_order_refund'), refunds_path
-  - if can? :admin, EventOrder
+  - if can? :admin, CourseOrder
     li = link_to t('views.manage.title'), admin_courses_path
     li = link_to t('labels.admin_orders'), admin_orders_path
     li = link_to t('labels.invoice_orders'), admin_fulfillments_path

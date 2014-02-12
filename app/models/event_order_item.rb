@@ -1,6 +1,6 @@
-class EventOrderItem < ActiveRecord::Base
-  belongs_to :order, class_name: 'EventOrder'
-  belongs_to :ticket, class_name: 'EventTicket'
+class CourseOrderItem < ActiveRecord::Base
+  belongs_to :order, class_name: 'CourseOrder'
+  belongs_to :ticket, class_name: 'CourseTicket'
   priceable :price, :unit_price
 
   validates :ticket, presence: true, on: :create

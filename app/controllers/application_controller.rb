@@ -51,7 +51,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def authorize_course!
-    @course = Event.find(params[:course_id])
+    @course = Course.find(params[:course_id])
     authorize! :update, @course
   end
 

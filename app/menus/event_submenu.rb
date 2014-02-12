@@ -1,4 +1,4 @@
-class EventSubmenu < TabsOnRails::Tabs::Builder
+class CourseSubmenu < TabsOnRails::Tabs::Builder
   def open_tabs(options = {})
     @context.tag("ul", {class: ['nav', 'nav-list']}.merge(options), open = true)
   end

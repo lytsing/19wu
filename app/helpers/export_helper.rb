@@ -1,7 +1,7 @@
 require 'course_helper'
 
 module ExportHelper
-  include EventHelper
+  include CourseHelper
 
   def markdown_format_content(course)
     markdown = []

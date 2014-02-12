@@ -13,12 +13,12 @@ class OrderRefundsController < ApplicationController
 
   def index
     @refund_batches = RefundBatch.where(status: 'pending')
-    @refunds = EventOrderRefund.where(status: 'submited', refund_batch_id: nil)
+    @refunds = CourseOrderRefund.where(status: 'submited', refund_batch_id: nil)
   end
 
   # 课程盒子管理员获取退款批次号
   def archive
-    @refunds = EventOrderRefund.where(status: 'submited', refund_batch_id: nil)
+    @refunds = CourseOrderRefund.where(status: 'submited', refund_batch_id: nil)
     unless @refunds.empty?
       refund_batch = RefundBatch.create
       logger.info refund_batch.errors.full_messages
@@ -30,7 +30,7 @@ class OrderRefundsController < ApplicationController
   def alipay_notify
     notify_params = params.except(*request.path_parameters.keys)
     if Alipay::Notify.verify?(notify_params)
-      EventOrder.transaction do
+      CourseOrder.transaction do
         refund_batch = RefundBatch.where(batch_no: params[:batch_no]).first
         refund_batch.complete! if params['success_num'].to_i == refund_batch.refunds.size
         params['result_details'].split('#').each do |item|
@@ -38,7 +38,7 @@ class OrderRefundsController < ApplicationController
           # 2010031906272929^80^SUCCESS$jax_chuanhang@alipay.com^2088101003147483^0.01^SUCCESS
           trade_no, amount, result = item.split(/\^|\$/)
           if result.downcase == 'success'
-            order = EventOrder.where(trade_no: trade_no).first
+            order = CourseOrder.where(trade_no: trade_no).first
             refund = order.refunds.refunding
             refund.refund!
           end
@@ -52,6 +52,6 @@ class OrderRefundsController < ApplicationController
 
   private
   def authorize_refund!
-    authorize! :refund, EventOrder
+    authorize! :refund, CourseOrder
   end
 end

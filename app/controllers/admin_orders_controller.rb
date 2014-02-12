@@ -4,17 +4,17 @@ class AdminOrdersController < ApplicationController
 
   def index
     @orders = []
-    @orders = EventOrder.where(number: params[:number]) unless params[:number].blank?
+    @orders = CourseOrder.where(number: params[:number]) unless params[:number].blank?
   end
 
   def pay
-    @order = EventOrder.find params[:id]
+    @order = CourseOrder.find params[:id]
     @order.pay! if @order.pending?
     redirect_to admin_orders_path(number: @order.number)
   end
 
   private
   def authorize_order!
-    authorize! :confirm_pay, EventOrder
+    authorize! :confirm_pay, CourseOrder
   end
 end

@@ -1,4 +1,4 @@
-module EventOrderHelper
+module CourseOrderHelper
   def stats_tickets_quantity(orders)
     orders.map(&:quantity).reduce(&:+) || 0
   end

@@ -24,7 +24,7 @@ class TopicsController < ApplicationController
 
   private
   def find_resource
-    @course = Event.find(params[:course_id])
+    @course = Course.find(params[:course_id])
     @group = @course.group
   end
 

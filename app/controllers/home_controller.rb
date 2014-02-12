@@ -7,7 +7,7 @@ class HomeController < ApplicationController
   end
   
   def page
-    @courses = Event.all
+    @courses = Course.all
   end
 
   def content_preview
