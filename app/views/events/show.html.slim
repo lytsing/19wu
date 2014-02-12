@@ -89,7 +89,7 @@ article.event ng-init=init_event(@event)
         .sold-out.alert.alert-alert
           | 名额已满，停止报名 :(
       .event-body
-        = image_tag(@event.picture_url, :width => 72) if @event.picture.present?
+        = image_tag(@event.picture_url, :width => 180) if @event.picture.present?
         == @event.content_html
         
       - if @event.show_summary?

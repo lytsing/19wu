@@ -8,7 +8,7 @@ en:
       event: "课程"
       event_summary: "课程总结"
       event_change: "变更"
-      event_ticket: "门票"
+      event_ticket: "资费项目"
       profile: "资料"
       group_topic: "贴子"
     attributes:

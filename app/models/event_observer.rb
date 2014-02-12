@@ -6,7 +6,7 @@ class EventObserver < ActiveRecord::Observer
 
   def after_create(event)
     notify_followers event
-    event.tickets.create name: '门票', price: 0
+    event.tickets.create name: '资费项目', price: 0
   end
 
   def before_update(event)
