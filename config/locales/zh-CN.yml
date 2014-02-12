@@ -58,15 +58,15 @@ zh-CN:
   home:
     menu:
       activities: 最新动态
-      created_events: 我发起的课程
-      ordered_events: 我参加的课程
+      created_courses: 我发起的课程
+      ordered_courses: 我参加的课程
     body:
       empty: 暂时没有内容
 
   helpers:
     submit:
       add: "增加"
-      event:
+      course:
         create: "发起课程"
       profile:
         create: "保存%{model}"
@@ -76,15 +76,15 @@ zh-CN:
     sign_up: "注册"
     need_upgrade_invitation: "申请开课"
     apply_sign_up: "提交申请"
-    sign_up_to_launch_event: "注册，发起课程"
+    sign_up_to_launch_course: "注册，发起课程"
     invitations: "开课申请"
     admin_orders: "管理订单"
     invoice_orders: "发票订单"
-    launch_event: "发起课程"
-    show_event: "查看课程"
+    launch_course: "发起课程"
+    show_course: "查看课程"
     cancel: "取消"
     markdown_guide: "Markdown 格式说明"
-    checked_in_event: "签到"
+    checked_in_course: "签到"
     check_in_button: "签到"
     has_checked_in_button: "已签到"
     invite_button: "通过"
@@ -110,7 +110,7 @@ zh-CN:
     user_phone:
       get_code: 获取短信校验码
       get_code_until: 重新获取短信校验码（等待 {{timeleft}} 秒）
-    event_ticket:
+    course_ticket:
       new: 新增
     orders:
       submit_refund: 退款
@@ -120,7 +120,7 @@ zh-CN:
     created: "新增成功!"
     updated: "更新成功!"
     destroyed: "删除成功!"
-    events:
+    courses:
       created: "课程已经发布"
       updated: "课程已经更新"
     user_phones:
@@ -133,7 +133,7 @@ zh-CN:
       checked_in: "%{name}已签到"
       checkin_welcome: "您已成功签到!"
       checkin_need_join_first: "您还没有报名哦，先去报名吧!"
-      checkin_in_need_the_same_day_of_event_starttime: "此课程尚未开放签到，请于课程当天签到!"
+      checkin_in_need_the_same_day_of_course_starttime: "此课程尚未开放签到，请于课程当天签到!"
       checkin_wrong_checkin_code: "您的签到码不正确，请联系现场工作人员!"
       checkin_more_than_1_time: "您已签到，请勿重复签到!"
       joined: "您已经报名参与此课程"
@@ -170,7 +170,7 @@ zh-CN:
     previous_summary: "往期课程总结"
     check_in: "签到管理"
     map_preview: "地图预览"
-    events:
+    courses:
       new:
         title: "发起课程"
         copy: "复制"
@@ -208,11 +208,11 @@ zh-CN:
       participants: "%{number}人参加"
     export:
       export_link: "导出"
-      event_time: "课程时间"
+      course_time: "课程时间"
     manage:
       title: "课程管理"
     my_orders:
-      event: '课程'
+      course: '课程'
       user: '用户'
       items: '票种'
       price: '价格（￥）'
@@ -230,10 +230,10 @@ zh-CN:
       view_all_orders: '查看全部订单'
 
   sms:
-    event:
+    course:
       change: 课程通知：%{content}【课程盒子】
       order:
-        checkin_code: '%{event_title} 签到验证码：%{checkin_code}。请您于%{event_start_time}前到达现场并出示签到码。谢谢。【课程盒子】'
+        checkin_code: '%{course_title} 签到验证码：%{checkin_code}。请您于%{course_start_time}前到达现场并出示签到码。谢谢。【课程盒子】'
     user:
       phone_code: 尊敬的用户,您的手机绑定验证码是%{code},谢谢【课程盒子】
   email:
@@ -248,7 +248,7 @@ zh-CN:
     profiles:
       show:
         title: "个人资料"
-    event:
+    course:
       change:
         subject: "「重要」%{title} 变更通知"
     order:

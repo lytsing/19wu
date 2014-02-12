@@ -19,14 +19,14 @@ en:
     opensource: "Fork us"
     contact_us: "Contact us"
     feedback: "反馈问题"
-    title: "shinebox - Make events better"
+    title: "shinebox - Make courses better"
     copyright: "All rights reserved."
 
     account: "Account"
     profile: "Profile"
 
   slogan:
-    title: "Make events better"
+    title: "Make courses better"
     description: "课程盒子致力于为课程组织者提供功能简洁、完全免费的服务"
 
   highlights:
@@ -43,16 +43,16 @@ en:
   home:
     menu:
       activities: 最新动态
-      created_events: 发起的课程
-      ordered_events: 参加的课程
+      created_courses: 发起的课程
+      ordered_courses: 参加的课程
     body:
       empty: 暂时没有内容
 
   helpers:
     submit:
       add: "Add"
-      event:
-        create: "New event"
+      course:
+        create: "New course"
       profile:
         create: "Save %{model}"
 
@@ -61,22 +61,22 @@ en:
     sign_up: "Registration"
     need_upgrade_invitation: "需要发起课程?"
     apply_sign_up: "申请注册"
-    sign_up_to_launch_event: "注册，发起课程"
+    sign_up_to_launch_course: "注册，发起课程"
     invitations: "Invitations"
-    launch_event: "Launch event"
-    show_event: "Show event"
+    launch_course: "Launch course"
+    show_course: "Show course"
     cancel: "Cancel"
-    join_event_button: "Join"
-    has_joined_event_button: "Joined"
+    join_course_button: "Join"
+    has_joined_course_button: "Joined"
     markdown_guide: "Markdown guide"
-    checked_in_event: "Check in"
+    checked_in_course: "Check in"
     check_in_button: "Check in"
     has_checked_in_button: "Checked"
     invite_button: "Invite"
     my_orders: "My orders"
 
   flash:
-    events:
+    courses:
       created: "Event has been published."
       updated: "Event has been updated."
     profiles:
@@ -84,8 +84,8 @@ en:
     participants:
       checked_in: "%{name} has checked."
       checked_in_welcome: "You have checked in successfully!"
-      checked_in_need_join_first: "You havn't join this event yet!"
-      checkin_in_need_the_same_day_of_event_starttime: "This event is not open for checkin yet!"
+      checked_in_need_join_first: "You havn't join this course yet!"
+      checkin_in_need_the_same_day_of_course_starttime: "This course is not open for checkin yet!"
       checked_in_wrong_checkin_code: "Your checkin code is wrong, please contact organizer!"
       checked_in_more_than_1_time: "You have checked in, please don't mkae duplicated checkin!"
       joined: "您已经报名参与此课程"
@@ -120,12 +120,12 @@ en:
     check_in_code: "Checkin Code"
     manual_check_in: "Manual Checkin"
     map_preview: "Map Preview"
-    events:
+    courses:
       new:
-        title: "Launch event"
+        title: "Launch course"
         copy: "Copy"
       edit:
-        title: "Edit event"
+        title: "Edit course"
       slug:
         hint: '相同链接的课程组成系列课程，访问此链接时显示最近一个课程'
       followers:
@@ -145,17 +145,17 @@ en:
       participants: "%{number} people joined"
     join:
       state:
-        event_end: "Ended"
+        course_end: "Ended"
         false: "Join"
         true: "Joined"
         checked_in: "Checked in"
       title:
-        event_end: "This event has ended"
+        course_end: "This course has ended"
         false: "Join now"
         true: "Don't forget to attend"
         checked_in: "Enjoy your time"
     my_orders:
-      event: '课程'
+      course: '课程'
       items: '票种'
       price: '价格（￥）'
       status: '状态'
@@ -173,13 +173,13 @@ en:
     invited:
       subject: "%{login}, 您现在可以发起课程了"
     notify:
-      subject: "shinebox New events - %{title}"
+      subject: "shinebox New courses - %{title}"
     reminder:
       subject: "课程盒子课程提醒"
     profiles:
       show:
         title: "Profile"
-    event:
+    course:
       change:
         subject: "[IMPORTANT]%{title} Change Notification"
 

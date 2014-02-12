@@ -1,7 +1,7 @@
 NineteenWu::Application.routes.draw do
   get "autocomplete/users"
 
-  resources :events, except: [:destroy] do
+  resources :courses, except: [:destroy] do
     member do
       post 'join'
       post 'quit'
@@ -21,11 +21,11 @@ NineteenWu::Application.routes.draw do
       resource :reply       , :only => [:create]                  , :controller => 'topic_reply'
     end
     resources :export       , :only => [:index]
-    resources :changes      , :only => [:index, :new, :create]    , :controller => 'event_changes'
-    resources :tickets      , :controller => 'event_tickets'
-    resources :orders       , :only => [:create, :index]          , :controller => 'event_orders' do
+    resources :changes      , :only => [:index, :new, :create]    , :controller => 'course_changes'
+    resources :tickets      , :controller => 'course_tickets'
+    resources :orders       , :only => [:create, :index]          , :controller => 'course_orders' do
       collection do
-        get 'status/:status', :to => 'event_orders#index', :as => :filter
+        get 'status/:status', :to => 'course_orders#index', :as => :filter
       end
       member do
         post "refund/submit", to: 'order_refunds#submit'
@@ -33,13 +33,13 @@ NineteenWu::Application.routes.draw do
     end
   end
 
-  get "events/:event_id/summary", to: "event_summaries#new", as: :new_event_summary
-  post "events/:event_id/summary", to: "event_summaries#create", as: :create_event_summary
-  patch "events/:event_id/summary", to: "event_summaries#update"
+  get "courses/:course_id/summary", to: "course_summaries#new", as: :new_course_summary
+  post "courses/:course_id/summary", to: "course_summaries#create", as: :create_course_summary
+  patch "courses/:course_id/summary", to: "course_summaries#update"
 
-  get ":slug" => "group#event", :constraints => SlugConstraint, :as => :slug_event
+  get ":slug" => "group#course", :constraints => SlugConstraint, :as => :slug_course
   get ":slug/followers" => "group#followers"
-  get 'ordered_events', to: "events#ordered"
+  get 'ordered_courses', to: "courses#ordered"
   post '/photos', to: "photo#create"
   post "/content/preview/" => "home#content_preview"
 
@@ -56,7 +56,7 @@ NineteenWu::Application.routes.draw do
     post "refunds/alipay_notify" => 'order_refunds#alipay_notify'
 
     get 'admin_orders' => 'admin_orders#index'
-    get 'admin_events' => 'admin_events#index'
+    get 'admin_courses' => 'admin_courses#index'
     
     patch 'admin_orders/:id/pay' => 'admin_orders#pay', :as => :admin_orders_pay
 
@@ -88,7 +88,7 @@ NineteenWu::Application.routes.draw do
   devise_for :users, :controllers => { :sessions => "sessions", :registrations => "registrations", :invitations => 'invitations', :omniauth_callbacks => 'authentications' }
 
   namespace :api, defaults: {format: 'json'} do
-    get '/events/:id/participants', to: "events#participants"
+    get '/courses/:id/participants', to: "courses#participants"
   end
 
   namespace :admin do

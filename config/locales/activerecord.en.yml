@@ -5,10 +5,10 @@ en:
   activerecord:
     models:
       user: "用户"
-      event: "课程"
-      event_summary: "课程总结"
-      event_change: "变更"
-      event_ticket: "资费项目"
+      course: "课程"
+      course_summary: "课程总结"
+      course_change: "变更"
+      course_ticket: "资费项目"
       profile: "资料"
       group_topic: "贴子"
     attributes:
@@ -22,7 +22,7 @@ en:
         current_password: "当前密码"
         remember_me: "记住我"
         created_at: "注册时间"
-      event:
+      course:
         title: "主题"
         slug: "课程链接"
         start_time: "开始时间"
@@ -32,11 +32,11 @@ en:
         location: "地点"
         location_guide: "交通指引"
         content: "简介"
-      event_summary:
+      course_summary:
         content: "总结"
-      event_change:
+      course_change:
         content: "变更内容"
-      event_ticket:
+      course_ticket:
         name: "名称"
         price: "价格"
         description: "描述"

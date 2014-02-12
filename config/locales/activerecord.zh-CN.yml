@@ -3,25 +3,25 @@ zh-CN:
     messages:
       quantity_overflow: '您购买的票数超过了最大数量。'
       invalid_login: 只允许大小写字母、数字和下划线
-      event_order:
+      course_order:
         miss_shipping_address: 购买的课程资费包含发票，但没有提供收货地址
-      event_order_participant:
+      course_order_participant:
         invalid_code: 签到码不正确。
         used: 已于 %{time} 使用，请勿重复签到。
         invalid_order: 状态为 %{status}，不能签到。
-      event_order_refund:
+      course_order_refund:
         amount_in_cents:
           less_than: 必须小于已支付金额 %{paid_amount} 元。
   activerecord:
     models:
       user: "用户"
-      event: "课程"
-      event_summary: "课程总结"
-      event_change: "变更"
-      event_ticket: "课程资费"
+      course: "课程"
+      course_summary: "课程总结"
+      course_change: "变更"
+      course_ticket: "课程资费"
       profile: "资料"
       group_topic: "贴子"
-      event_order_refund: "退款申请"
+      course_order_refund: "退款申请"
     attributes:
       user:
         login: "用户名"
@@ -33,7 +33,7 @@ zh-CN:
         current_password: "当前密码"
         remember_me: "记住我"
         created_at: "注册时间"
-      event:
+      course:
         title: "课程名称"
         slug: "课程链接"
         start_time: "开始时间"
@@ -47,23 +47,23 @@ zh-CN:
         picture: "课程主题图片"
         contact: "课程联系人"
         telephone: "联系方式"
-      event_summary:
+      course_summary:
         content: "课后评价"
-      event_change:
+      course_change:
         content: "变更内容"
-      event_order:
+      course_order:
         quantity: '课程资费数量'
         items: '课程资费'
-      event_order_refund:
+      course_order_refund:
         amount: '退款金额'
         amount_in_cents: '退款金额'
         reason: '退款原因'
-      event_order_fulfillment:
+      course_order_fulfillment:
         tracking_number: '顺丰快递单号'
-      event_order_participant:
+      course_order_participant:
         order: '订单'
         checkin_at: '签到码'
-      event_ticket:
+      course_ticket:
         name: "名称"
         price: "价格"
         description: "描述"
@@ -77,7 +77,7 @@ zh-CN:
         title: "标题"
         body: "正文"
     state_machines:
-      event_order:
+      course_order:
         states:
           pending: '未支付'
           paid: '已支付'
