@@ -27,7 +27,7 @@ class RefundBatch < ActiveRecord::Base
   state_machine :status, :initial => :pending do
     state :pending, :completed
 
-    course :complete do
+    event :complete do
       transition :pending => :completed
     end
   end
