@@ -1,0 +1,14 @@
+.row
+  .list
+   - @events.each do |event|
+     .item
+       .avatar-wrapper = image_tag event.user.gravatar_url(:size => 50), :class => 'gravatar'
+       = link_to event.title, edit_event_path(event)
+       .event-item-time
+         i.icon-calendar
+         = time_merge(event)
+       .event-item-location
+         i.icon-map-marker
+         = event.location
+       
+  = paginate @events
