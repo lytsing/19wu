@@ -10,5 +10,5 @@
     return if $scope.disabled
     $scope.followed = !$scope.followed
     action = if $scope.followed then 'follow' else 'unfollow'
-    $http.post("/events/#{$scope.event.id}/#{action}").success (data) -> $scope.count = data.count
+    $http.post("/courses/#{$scope.course.id}/#{action}").success (data) -> $scope.count = data.count
 ]

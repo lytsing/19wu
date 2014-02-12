@@ -1,14 +1,14 @@
 .row
   .list
-   - @events.each do |event|
+   - @courses.each do |course|
      .item
-       .avatar-wrapper = image_tag event.user.gravatar_url(:size => 50), :class => 'gravatar'
-       = link_to event.title, edit_event_path(event)
-       .event-item-time
+       .avatar-wrapper = image_tag course.user.gravatar_url(:size => 50), :class => 'gravatar'
+       = link_to course.title, edit_course_path(course)
+       .course-item-time
          i.icon-calendar
-         = time_merge(event)
-       .event-item-location
+         = time_merge(course)
+       .course-item-location
          i.icon-map-marker
-         = event.location
+         = course.location
        
-  = paginate @events
+  = paginate @courses

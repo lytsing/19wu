@@ -1,7 +1,7 @@
 class ParticipantsController < ApplicationController
   include HasApiResponse
   before_filter :authenticate_user!
-  before_filter :authorize_event!
+  before_filter :authorize_course!
   set_tab :check_in
   set_tab :participants_checkin, :sidebar, only: [:checkin]
   set_tab :participants_index  , :sidebar, only: [:index]
@@ -9,23 +9,23 @@ class ParticipantsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_record_no_found_error
 
   def index
-    @participants = @event.participants.joins(:user).order('id DESC').includes(:user => :profile)
+    @participants = @course.participants.joins(:user).order('id DESC').includes(:user => :profile)
   end
 
   def export
-    @orders = @event.orders.where(status: :paid).includes(:participant).order('event_order_participants.checkin_code')
+    @orders = @course.orders.where(status: :paid).includes(:participant).order('course_order_participants.checkin_code')
   end
 
   def checkin
   end
 
   def update
-    @participant = @event.participants.where(checkin_code: params[:code]).first!
+    @participant = @course.participants.where(checkin_code: params[:code]).first!
     @participant.checkin!
   end
 
   private
   def render_record_no_found_error(exception)
-    render json: { errors: [I18n.t('errors.messages.event_order_participant.invalid_code')] }, status: :not_found
+    render json: { errors: [I18n.t('errors.messages.course_order_participant.invalid_code')] }, status: :not_found
   end
 end

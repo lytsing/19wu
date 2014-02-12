@@ -3,14 +3,14 @@ class Event < ActiveRecord::Base
   extend HasHtmlPipeline
   belongs_to :user
   belongs_to :group
-  has_one :event_summary
+  has_one :course_summary
   has_many :participants, :class_name => "EventOrderParticipant"
   has_many :updates,      :class_name => "EventChange"
   has_many :tickets,      :class_name => "EventTicket"
   has_many :orders,       :class_name => "EventOrder"
   has_many :ordered_users, :source => :user, :through => :orders do # TODO: uniq
     def recent(count = nil)
-      order('event_orders.created_at DESC').limit(count)
+      order('course_orders.created_at DESC').limit(count)
     end
     def with_phone
       where("users.phone is not null and users.phone != ''")
@@ -48,8 +48,8 @@ class Event < ActiveRecord::Base
     where(:start_time => tomorrow.beginning_of_day..tomorrow.end_of_day)
   }
 
-  def sibling_events
-    group.events.latest.select { |e| e != self }
+  def sibling_courses
+    group.courses.latest.select { |e| e != self }
   end
 
   def checkin_code
@@ -73,7 +73,7 @@ class Event < ActiveRecord::Base
   end
 
   def show_summary?
-    !!(event_summary || !finished? && group.last_event_with_summary)
+    !!(course_summary || !finished? && group.last_course_with_summary)
   end
 
   private

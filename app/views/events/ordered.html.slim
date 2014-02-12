@@ -1,11 +1,11 @@
-= render 'home/menu', :current => :ordered_events
+= render 'home/menu', :current => :ordered_courses
 
 .list
-  - @events.each do |event|
+  - @courses.each do |course|
     .item
-      .avatar-wrapper = image_tag event.user.gravatar_url(:size => 50), :class => 'gravatar'
-      = link_to event.title, group_event_path(event)
-      .event-item-time
-        = time_merge(event)
-      .event-item-location
-        = event.location
+      .avatar-wrapper = image_tag course.user.gravatar_url(:size => 50), :class => 'gravatar'
+      = link_to course.title, group_course_path(course)
+      .course-item-time
+        = time_merge(course)
+      .course-item-location
+        = course.location

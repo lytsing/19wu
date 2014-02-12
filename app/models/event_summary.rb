@@ -1,7 +1,7 @@
 class EventSummary < ActiveRecord::Base
   extend HasHtmlPipeline
 
-  belongs_to :event
+  belongs_to :course
 
   has_html_pipeline :content, :markdown
 

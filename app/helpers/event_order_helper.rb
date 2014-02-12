@@ -7,7 +7,7 @@ module EventOrderHelper
     (orders.map(&:price_in_cents).reduce(&:+) || 0) / 100.0
   end
 
-  def init_event_orders(orders = @orders)
+  def init_course_orders(orders = @orders)
     orders = Jbuilder.new do |json|
       json.array! orders do |order|
         refunding = order.refunds.refunding

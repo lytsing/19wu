@@ -1,25 +1,25 @@
-article.event ng-init=init_event(@event)
+article.course ng-init=init_course(@course)
   header
-    .actions.pull-right ng-controller="FollowsCtrl" ng-init="init(#{event_follow_info(@event)})"
+    .actions.pull-right ng-controller="FollowsCtrl" ng-init="init(#{course_follow_info(@course)})"
       a.btn ng-href='{{href}}' ng-click='follow()' ng-class='{disabled: disabled}' data-toggle="tooltip" title='{{title}}'
         i.icon-star
         |&nbsp;{{labels[followed]}}
-      a.social-count href=group_event_followers_path(@event) {{count}}
-    h1 = link_to @event.title, event_path(@event), class: 'event-title'
-    h2 = time_merge(@event)
-    = render 'events/menu'
+      a.social-count href=group_course_followers_path(@course) {{count}}
+    h1 = link_to @course.title, course_path(@course), class: 'course-title'
+    h2 = time_merge(@course)
+    = render 'courses/menu'
 
   .row
     .span8
-      - if @event.tickets_quantity != 0
-        .event-tickets ng-controller='OrdersCtrl'
+      - if @course.tickets_quantity != 0
+        .course-tickets ng-controller='OrdersCtrl'
           table.table ng-show='tickets'
             thead
               tr
-                th = t('activerecord.attributes.event_ticket.name')
-                th width='100px' = t('activerecord.attributes.event_ticket.price')
+                th = t('activerecord.attributes.course_ticket.name')
+                th width='100px' = t('activerecord.attributes.course_ticket.price')
                 th width='100px' 数量
-            tbody ng-init=init_tickets(@event)
+            tbody ng-init=init_tickets(@course)
               tr ng-repeat="ticket in tickets"
                 td
                   |{{ticket.name}}
@@ -78,8 +78,8 @@ article.event ng-init=init_event(@event)
                 input.input-medium name='shipping_phone' ng-model="shipping_phone" type="text" placeholder='收货人联系电话'
             a.btn.btn-info.span1.pull-right ng-hide="status || errors['user_session']" ng-disabled='disabled' ng-click='create()' ng-init={labels: t('views.order.labels')}.to_ng_init
               |{{labels[disabled]}}
-            - if current_user && current_user.ordered?(@event)
-              = link_to t('labels.my_orders'), user_orders_path(event_id: @event.id), class: 'btn pull-right', 'ng-hide' => 'status'
+            - if current_user && current_user.ordered?(@course)
+              = link_to t('labels.my_orders'), user_orders_path(course_id: @course.id), class: 'btn pull-right', 'ng-hide' => 'status'
             p.text-info ng-show="status=='paid'" 您已经提交了订单，订单号为 {{number}}，此订单为免费订单，不需要支付，谢谢。
             .pending-order-tip ng-show='pay_url'
               p.text-info 您已经提交了订单，订单号为 {{number}}，请尽快支付。
@@ -88,43 +88,43 @@ article.event ng-init=init_event(@event)
       - else
         .sold-out.alert.alert-alert
           | 名额已满，停止报名 :(
-      .event-body
-        = image_tag(@event.picture_url, :width => 180) if @event.picture.present?
-        == @event.content_html
+      .course-body
+        = image_tag(@course.picture_url, :width => 180) if @course.picture.present?
+        == @course.content_html
         
-      - if @event.show_summary?
-        .event-summary
-          h2 = build_summary_title(@event)
-          == build_summary_content(@event)
+      - if @course.show_summary?
+        .course-summary
+          h2 = build_summary_title(@course)
+          == build_summary_content(@course)
           
       = render 'topics/index'
     .span4
       .actions
-        .event-sidebar
+        .course-sidebar
           ul.unstyled
             li
               i.icon-calendar
-              = time_merge(@event)
+              = time_merge(@course)
             li
               i.icon-map-marker
-              = @event.location
-          .event-map == @event.location_guide_html
+              = @course.location
+          .course-map == @course.location_guide_html
           - if baidu_map_enabled?
-            #baiduMap data-location=@event.location
+            #baiduMap data-location=@course.location
           hr
           p
             span.label.label-important 联系人
-            span.event-contact
-              = @event.contact
-              = @event.telephone
+            span.course-contact
+              = @course.contact
+              = @course.telephone
 
           div
             hr
             h3
               |已参加用户
-              span.label.amount = @event.ordered_users.size
-            ul.event-participants
-              - @event.ordered_users.recent(10).each do |user|
+              span.label.amount = @course.ordered_users.size
+            ul.course-participants
+              - @course.ordered_users.recent(10).each do |user|
                 li
                   .popover.top id="participant-#{user.id}"
                     .arrow
@@ -139,12 +139,12 @@ article.event ng-init=init_event(@event)
                         .user-body = raw user.profile.try(:bio_html)
                   = link_to user_path(user), rel: "popover", data: { target: "#participant-#{user.id}", trigger: 'hover', placement: 'left' } do
                     = image_tag user.gravatar_url(:size => 40), :class => 'gravatar'
-      - if @event.sibling_events.any?
-        .sibling-events
-          .event-sidebar
+      - if @course.sibling_courses.any?
+        .sibling-courses
+          .course-sidebar
             i.icon-list
             = t('views.history.title')
             ul
-              - @event.sibling_events.each do |sibling_event|
+              - @course.sibling_courses.each do |sibling_course|
                 li
-                  = link_to history_url_text(sibling_event), sibling_event
+                  = link_to history_url_text(sibling_course), sibling_course

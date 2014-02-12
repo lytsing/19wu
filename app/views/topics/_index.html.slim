@@ -1,15 +1,15 @@
 div
-  = link_to t('views.events.topics.new.button'), new_event_topic_path(@event), class: "btn pull-right span1"
+  = link_to t('views.courses.topics.new.button'), new_course_topic_path(@course), class: "btn pull-right span1"
   ul.topics-nav
     li.active
-      a href="#" = t('views.events.topics.title')
+      a href="#" = t('views.courses.topics.title')
   ul.media-list.unstyled
-    = content_tag_for('li', @event.group.topics, class: 'topic-item') do |topic|
+    = content_tag_for('li', @course.group.topics, class: 'topic-item') do |topic|
       a.topic-item-avatar href=user_path(topic.user)
         img.media-object src=topic.user.gravatar_url(size: 48)
       .media-body
         span.replies-count = topic.replies.size
-        .topic-item-title = link_to topic.title, event_topic_path(@event, topic)
+        .topic-item-title = link_to topic.title, course_topic_path(@course, topic)
         .topic-item-info
           = link_to topic.user.login, user_path(topic.user), class: 'muted'
           |  •

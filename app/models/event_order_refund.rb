@@ -18,18 +18,18 @@ class EventOrderRefund < ActiveRecord::Base
 
   def amount_in_cents_cannot_be_great_than_order_paid_amount
     if self.amount_in_cents.present? && self.amount_in_cents > self.order.paid_amount_in_cents
-      errors.add(:amount_in_cents, I18n.t('errors.messages.event_order_refund.amount_in_cents.less_than', paid_amount: self.order.paid_amount))
+      errors.add(:amount_in_cents, I18n.t('errors.messages.course_order_refund.amount_in_cents.less_than', paid_amount: self.order.paid_amount))
     end
   end
 
   state_machine :status, :initial => :pending do
     state :pending, :submited, :refunded
 
-    event :submit do
+    course :submit do
       transition :pending => :submited
     end
 
-    event :refund do
+    course :refund do
       transition :submited => :refunded
     end
   end

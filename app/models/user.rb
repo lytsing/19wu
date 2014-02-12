@@ -3,12 +3,12 @@ class User < ActiveRecord::Base
   acts_as_follower
   friendly_id :login
   has_one :profile
-  has_many :events
+  has_many :courses
   has_many :orders,       :class_name => "EventOrder"
   has_many :groups
   has_many :photos
-  has_many :event_orders
-  has_many :ordered_events, :through => :event_orders, :source => :event
+  has_many :course_orders
+  has_many :ordered_courses, :through => :course_orders, :source => :course
   # Include default devise modules. Others available are:
   # :token_authenticatable
   # :lockable, :timeoutable and :omniauthable
@@ -60,8 +60,8 @@ class User < ActiveRecord::Base
     group.nil? or group.user == self or group.collaborator?(self)
   end
 
-  def ordered?(event)
-    orders.exists?(event_id: event.id)
+  def ordered?(course)
+    orders.exists?(course_id: course.id)
   end
 
   def email_with_login

@@ -5,41 +5,41 @@ class EventsController < ApplicationController
   set_tab :edit, only: :edit
 
   def index
-    @events = current_user.events.latest
+    @courses = current_user.courses.latest
   end
 
   def ordered
-    @events = current_user.ordered_events.latest.uniq
+    @courses = current_user.ordered_courses.latest.uniq
   end
 
   def show
-    @event = Event.find(params[:id])
+    @course = Event.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @event }
+      format.json { render json: @course }
     end
   end
 
   def new
-    find_source_events
-    @event = if params[:from]
+    find_source_courses
+    @course = if params[:from]
                Event.find(params[:from]).dup
              else
-               current_user.events.new
+               current_user.courses.new
              end
   end
 
   def create
-    @event = current_user.events.new(event_params)
+    @course = current_user.courses.new(course_params)
 
     respond_to do |format|
-      if @event.save
-        format.html { redirect_to group_event_path(@event), notice: I18n.t('flash.events.created') }
-        format.json { render json: @event, status: :created, location: @event }
+      if @course.save
+        format.html { redirect_to group_course_path(@course), notice: I18n.t('flash.courses.created') }
+        format.json { render json: @course, status: :created, location: @course }
       else
-        find_source_events
+        find_source_courses
         format.html { render action: "new" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -49,12 +49,12 @@ class EventsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @event.update_attributes(event_params)
-        format.html { redirect_to edit_event_path(@event), notice: I18n.t('flash.events.updated') }
+      if @course.update_attributes(course_params)
+        format.html { redirect_to edit_course_path(@course), notice: I18n.t('flash.courses.updated') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -71,24 +71,24 @@ class EventsController < ApplicationController
   end
 
   def followers
-    @event = Event.find(params[:id])
+    @course = Event.find(params[:id])
     respond_to do |format|
       format.html
-      format.json { render json: @event }
+      format.json { render json: @course }
     end
   end
 
   private
-  def event_params
-    params.require(:event).permit(
+  def course_params
+    params.require(:course).permit(
       :content, :location, :location_guide, :start_time, :end_time, :title, :slug, :picture,:abstract,:contact, :telephone,
       compound_start_time_attributes: [:date, :time], compound_end_time_attributes: [:date, :time]
       )
   end
   # TODO: move these to a model using ActiveModel validation
 
-  def find_source_events
+  def find_source_courses
     group_ids = (current_user.group_ids + GroupCollaborator.where(user_id: current_user.id).map(&:group_id)).uniq
-    @source_events = Event.where(group_id: group_ids).latest.limit(1)
+    @source_courses = Event.where(group_id: group_ids).latest.limit(1)
   end
 end

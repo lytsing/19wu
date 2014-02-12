@@ -1,5 +1,5 @@
 @OrdersCtrl = ['$scope', '$http', '$window', ($scope, $http, $window) ->
-  $scope.disabled = $scope.event.started
+  $scope.disabled = $scope.course.started
   $scope.user_form = 'register'
   $scope.errors = {}
 
@@ -31,7 +31,7 @@
     return if $scope.validate_form()
     return if $scope.validate_invoice_info()
 
-    request = $http.post("/events/#{$scope.event.id}/orders", $scope.postData())
+    request = $http.post("/courses/#{$scope.course.id}/orders", $scope.postData())
     request.success (data) ->
       $scope.id = data['id']
       $scope.number = data['number']

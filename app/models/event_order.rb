@@ -1,7 +1,7 @@
 class EventOrder < ActiveRecord::Base
-  belongs_to :event
+  belongs_to :course
   belongs_to :user
-  has_many :event_order_status_transitions
+  has_many :course_order_status_transitions
   has_many :items, class_name: 'EventOrderItem', foreign_key: "order_id"
   has_many :refunds, class_name: 'EventOrderRefund', foreign_key: "order_id"
   has_one :participant     , class_name: 'EventOrderParticipant'    , foreign_key: "order_id"
@@ -11,9 +11,9 @@ class EventOrder < ActiveRecord::Base
 
   accepts_nested_attributes_for :items, :shipping_address
 
-  validates :event_id, :user_id, presence: true
+  validates :course_id, :user_id, presence: true
   validates :quantity, presence: true, numericality: { greater_than: 0 }
-  validate :quantity_cannot_be_greater_than_event_quantity, :invoice_should_has_address, on: :create
+  validate :quantity_cannot_be_greater_than_course_quantity, :invoice_should_has_address, on: :create
 
   before_validation do
     self.quantity = calculate_quantity
@@ -22,7 +22,7 @@ class EventOrder < ActiveRecord::Base
 
   before_create do
     self.status = free? ? 'paid' : 'pending'
-    event.decrement! :tickets_quantity, self.quantity if event.tickets_quantity
+    course.decrement! :tickets_quantity, self.quantity if course.tickets_quantity
     self.number = Sequence.get
   end
 
@@ -30,7 +30,7 @@ class EventOrder < ActiveRecord::Base
     self.create_participant if free?
     OrderMailer.delay.notify_user_created(self)
     OrderMailer.delay.notify_organizer_created(self)
-    user.follow event.group
+    user.follow course.group
   end
 
   def free?
@@ -38,7 +38,7 @@ class EventOrder < ActiveRecord::Base
   end
 
   def status_name
-    I18n.t(self.status, scope: 'activerecord.state_machines.event_order.states')
+    I18n.t(self.status, scope: 'activerecord.state_machines.course_order.states')
   end
 
   # TODO: use financial status to track partial refund and refunded status
@@ -50,19 +50,19 @@ class EventOrder < ActiveRecord::Base
       validates :trade_no, :presence => true
     end
 
-    event :pay do
-      transition :pending => :paid, :if => ->(order) { !order.event.finished? }
+    course :pay do
+      transition :pending => :paid, :if => ->(order) { !order.course.finished? }
     end
 
-    event :cancel do # use order.cancel instead of order.cancel! if you don't want to raise error when order has been finished.
-      transition  [:pending, :paid, :refund_pending] => :canceled, :if => ->(order) { !order.event.finished? }
+    course :cancel do # use order.cancel instead of order.cancel! if you don't want to raise error when order has been finished.
+      transition  [:pending, :paid, :refund_pending] => :canceled, :if => ->(order) { !order.course.finished? }
     end
 
-    event :request_refund do
-      transition :paid => :refund_pending, :if => ->(order) { order.event.start_time - Time.now > 7.days }
+    course :request_refund do
+      transition :paid => :refund_pending, :if => ->(order) { order.course.start_time - Time.now > 7.days }
     end
 
-    event :close do
+    course :close do
       transition :pending => :closed
     end
   end
@@ -82,9 +82,9 @@ class EventOrder < ActiveRecord::Base
   end
 
   class<< self
-    def build_order(user, event, params)
+    def build_order(user, course, params)
       items_attributes = EventOrderItem.filter_attributes(
-          event,
+          course,
           params[:items_attributes]
       )
       order_params = {
@@ -93,12 +93,12 @@ class EventOrder < ActiveRecord::Base
           items_attributes: items_attributes
       }
       order_params[:shipping_address_attributes] = params[:shipping_address_attributes] if params[:shipping_address_attributes]
-      event.orders.build order_params
+      course.orders.build order_params
     end
 
-    # TODO: validate, event and its inventory, #457, #467
-    def place_order(user, event, params)
-      build_order(user, event, params).tap do |order|
+    # TODO: validate, course and its inventory, #457, #467
+    def place_order(user, course, params)
+      build_order(user, course, params).tap do |order|
         order.save!
       end
     end
@@ -114,17 +114,17 @@ class EventOrder < ActiveRecord::Base
 
   private
 
-  def quantity_cannot_be_greater_than_event_quantity
-    return unless event.tickets_quantity
+  def quantity_cannot_be_greater_than_course_quantity
+    return unless course.tickets_quantity
     order_quantity = self.quantity || 0
-    if event.tickets_quantity == 0 || order_quantity > event.tickets_quantity
+    if course.tickets_quantity == 0 || order_quantity > course.tickets_quantity
       errors.add(:quantity, I18n.t('errors.messages.quantity_overflow'))
     end
   end
 
   def invoice_should_has_address
     if self.require_invoice && shipping_address.nil?
-      errors.add(:shipping_address, I18n.t('errors.messages.event_order.miss_shipping_address'))
+      errors.add(:shipping_address, I18n.t('errors.messages.course_order.miss_shipping_address'))
     end
   end
 

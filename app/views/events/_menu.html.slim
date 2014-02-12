@@ -1,4 +1,4 @@
-- if can? :update, @event
+- if can? :update, @course
   .menu.navbar
     .navbar-inner
       ul.nav.pull-right
@@ -6,12 +6,12 @@
           a data-toggle='tooltip' title='只有课程管理员能看到此菜单'
             i.icon-th-list
       = tabs_tag builder: EventMenu do |tab|
-        = tab.edit t('views.edit'), edit_event_path(@event)
-        = tab.ticket t('views.ticket'), event_tickets_path(@event)
-        = tab.order t('views.sell'), filter_event_orders_path(@event, status: :paid)        
-        /! = tab.export t('views.export.export_link'), event_export_index_path(@event)
-        = tab.change t('views.change'), new_event_change_path(@event)
-        = tab.check_in t('views.check_in'), checkin_event_participants_path(@event)
-        = tab.event_summary t('views.summary'), new_event_summary_path(@event)
-        /!- if can? :update, @event.group
-        /!  = tab.collaborators t('views.groups.collaborators'), event_collaborators_path(@event)
+        = tab.edit t('views.edit'), edit_course_path(@course)
+        = tab.ticket t('views.ticket'), course_tickets_path(@course)
+        = tab.order t('views.sell'), filter_course_orders_path(@course, status: :paid)        
+        /! = tab.export t('views.export.export_link'), course_export_index_path(@course)
+        = tab.change t('views.change'), new_course_change_path(@course)
+        = tab.check_in t('views.check_in'), checkin_course_participants_path(@course)
+        = tab.course_summary t('views.summary'), new_course_summary_path(@course)
+        /!- if can? :update, @course.group
+        /!  = tab.collaborators t('views.groups.collaborators'), course_collaborators_path(@course)

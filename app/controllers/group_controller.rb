@@ -1,13 +1,13 @@
 class GroupController < ApplicationController
-  def event
+  def course
     group = Group.where(slug: params[:slug]).first!
-    @event = group.events.latest.first
-    render 'events/show'
+    @course = group.courses.latest.first
+    render 'courses/show'
   end
 
   def followers
     group = Group.where(slug: params[:slug]).first!
-    @event = group.events.latest.first
-    render 'events/followers'
+    @course = group.courses.latest.first
+    render 'courses/followers'
   end
 end

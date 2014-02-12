@@ -3,7 +3,7 @@ class EventOrdersController < ApplicationController
   include AlipayGeneratable
   include HasApiResponse
   before_filter :authenticate_user!, only: [:create]
-  before_filter :authorize_event!, only: [:stats, :index]
+  before_filter :authorize_course!, only: [:stats, :index]
 
   set_tab :order, only: [:stats, :index]
 
@@ -12,10 +12,10 @@ class EventOrdersController < ApplicationController
   end
 
   def create
-    event = Event.find params[:event_id]
+    course = Event.find params[:course_id]
 
     current_user.update_attributes! user_params
-    @order = EventOrder.place_order current_user, event, order_params
+    @order = EventOrder.place_order current_user, course, order_params
 
     respond_to do |format|
       format.json
@@ -25,12 +25,12 @@ class EventOrdersController < ApplicationController
   def index
     params[:q] ||= {}
     params[:q][:status_eq] = params[:status]
-    @search = @event.orders.search params[:q]
+    @search = @course.orders.search params[:q]
     @orders = @search.result
   end
 
   def stats
-    @orders = @event.orders.includes(items: :ticket)
+    @orders = @course.orders.includes(items: :ticket)
   end
 
   private

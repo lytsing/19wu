@@ -21,13 +21,13 @@ window.init_map = ->
             map.addOverlay new BMap.Marker(point)
         ), "中国")
 
-    $("#event_location").keyup ->
+    $("#course_location").keyup ->
       updateMap(@value)
 
-    updateMap $("#event_location").val() unless $("#event_location").val() is ""
+    updateMap $("#course_location").val() unless $("#course_location").val() is ""
     updateMap $("#baiduMap").data("location") if $("#baiduMap").length
 
-  mapImages = $("div.event-map img")
+  mapImages = $("div.course-map img")
   if mapImages.length > 0
     mapImages.each (index) ->
       mapModalId = "mapModal#{index}"

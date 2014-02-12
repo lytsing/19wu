@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  helper :event
+  helper :course
   default from: Settings.email[:from]
 
   def welcome_email(user)
@@ -11,15 +11,15 @@ class UserMailer < ActionMailer::Base
     mail(:to => user.email, :subject => I18n.t('email.invited.subject', :login => user.login))
   end
 
-  def notify_email(user, event)
+  def notify_email(user, course)
     @user = user
-    @event = event
-    mail(:to => user.email, :subject => I18n.t('email.notify.subject', :title => event.title))
+    @course = course
+    mail(:to => user.email, :subject => I18n.t('email.notify.subject', :title => course.title))
   end
 
-  def reminder_email(user, event)
+  def reminder_email(user, course)
     @user = user
-    @event = event
+    @course = course
     mail(:to => user.email, :subject => I18n.t('email.reminder.subject'))
   end
 end

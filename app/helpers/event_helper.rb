@@ -1,8 +1,8 @@
 module EventHelper
 
-  def time_merge(event)
-    start_time = event.start_time
-    end_time = event.end_time
+  def time_merge(course)
+    start_time = course.start_time
+    end_time = course.end_time
     text = start = I18n.localize(start_time, :format => format_year(start_time)) # http://j.mp/11ycCAB
     unless end_time.nil?
       format = if same_day?(start_time, end_time)
@@ -15,50 +15,50 @@ module EventHelper
     text
   end
 
-  def group_event_path(event)
-    group = event.group
-    (event == group.events.latest.first) ? slug_event_path(group.slug) : url_for(
-      :controller => 'events',
+  def group_course_path(course)
+    group = course.group
+    (course == group.courses.latest.first) ? slug_course_path(group.slug) : url_for(
+      :controller => 'courses',
       :action => 'show',
-      :id => event.id
+      :id => course.id
     )
   end
 
-  def group_event_followers_path(event)
-    group = event.group
-    (event == group.events.latest.first) ? slug_event_path(group.slug)+"/followers" : url_for(
-      :controller => 'events',
+  def group_course_followers_path(course)
+    group = course.group
+    (course == group.courses.latest.first) ? slug_course_path(group.slug)+"/followers" : url_for(
+      :controller => 'courses',
       :action => 'followers',
-      :id => event.id
+      :id => course.id
     )
   end
 
-  def event_follow_info(event)
-    entry = [ event.group.followers_count, t('views.follow.state'), false ]
-    entry[2] = true if current_user.try(:following?, event.group)
+  def course_follow_info(course)
+    entry = [ course.group.followers_count, t('views.follow.state'), false ]
+    entry[2] = true if current_user.try(:following?, course.group)
     entry.to_json
   end
 
-  def build_summary_title(event)
-    if event.event_summary
+  def build_summary_title(course)
+    if course.course_summary
       return I18n.t("views.summary")
-    elsif !event.finished? && event.group.last_event_with_summary
-      return I18n.t("views.previous_summary") + "(#{event.group.last_event_with_summary.start_time.strftime('%Y%m%d')})"
+    elsif !course.finished? && course.group.last_course_with_summary
+      return I18n.t("views.previous_summary") + "(#{course.group.last_course_with_summary.start_time.strftime('%Y%m%d')})"
     end
   end
 
-  def build_summary_content(event)
-    if event.event_summary
-      return event.event_summary.content_html
-    elsif !event.finished? && event.group.last_event_with_summary
-      return event.group.last_event_with_summary.event_summary.content_html
+  def build_summary_content(course)
+    if course.course_summary
+      return course.course_summary.content_html
+    elsif !course.finished? && course.group.last_course_with_summary
+      return course.group.last_course_with_summary.course_summary.content_html
     end
   end
 
-  def init_event(event)
+  def init_course(course)
     {
-      'event.id' => event.id,
-      'event.started' => event.started?
+      'course.id' => course.id,
+      'course.started' => course.started?
     }.to_ng_init
   end
 
@@ -75,8 +75,8 @@ module EventHelper
     time1.strftime('%P') == time2.strftime('%P')
   end
 
-  def history_url_text(event)
-    event.start_time.strftime("%Y-%m-%d ") + I18n.t('views.history.participants', number: event.ordered_users.size)
+  def history_url_text(course)
+    course.start_time.strftime("%Y-%m-%d ") + I18n.t('views.history.participants', number: course.ordered_users.size)
   end
 
 end

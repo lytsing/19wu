@@ -23,8 +23,8 @@ class CollaboratorsController < ApplicationController
 
   private
   def authorize_group!
-    @event = Event.find(params[:event_id])
-    @group = @event.group
+    @course = Event.find(params[:course_id])
+    @group = @course.group
     authorize! :update, @group
   end
 end

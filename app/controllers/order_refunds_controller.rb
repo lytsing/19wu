@@ -2,12 +2,12 @@
 class OrderRefundsController < ApplicationController
   include HasApiResponse
   before_filter :authenticate_user!, except: :alipay_notify
-  before_filter :authorize_event!, only: [:submit]          # organizer
+  before_filter :authorize_course!, only: [:submit]          # organizer
   before_filter :authorize_refund!, only: [:index, :archive] # shinebox admin
   skip_before_filter  :verify_authenticity_token, :alipay_notify
 
   def submit
-    order = @event.orders.find(params[:id])
+    order = @course.orders.find(params[:id])
     @refund = order.refunds.submit(params.fetch(:refund).permit(:amount, :reason))
   end
 

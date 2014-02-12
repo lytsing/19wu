@@ -16,13 +16,13 @@ class EventOrderItem < ActiveRecord::Base
   end
 
   # Ensure ticket_id exists and use price in database.
-  def self.filter_attributes(event, items_attributes)
+  def self.filter_attributes(course, items_attributes)
     items_attributes = Array.wrap(items_attributes)
 
     # build tickets lookup table
     tickets_ids = items_attributes.collect { |attrs| attrs[:ticket_id] }
     tickets_table = {}
-    event.tickets.where(id: tickets_ids).each do |ticket|
+    course.tickets.where(id: tickets_ids).each do |ticket|
       tickets_table[ticket.id] = ticket
     end
 

@@ -3,7 +3,7 @@
     return unless $scope.code
     $scope.wait = true
     $scope.error = $scope.data = null
-    request = $http.post("/events/#{$scope.event.id}/participants", code: $scope.code)
+    request = $http.post("/courses/#{$scope.course.id}/participants", code: $scope.code)
     request.success (data) ->
       $scope.code = ''
       $scope.data = data

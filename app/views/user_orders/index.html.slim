@@ -9,7 +9,7 @@ h2 = t('labels.my_orders')
 table.table.table-striped.table-bordered
   thead
     tr
-      th = t('views.my_orders.event')
+      th = t('views.my_orders.course')
       th = t('views.my_orders.items')
       th = t('views.my_orders.price')
       th = t('views.my_orders.trade_no')
@@ -19,7 +19,7 @@ table.table.table-striped.table-bordered
   tbody
     - @orders.each do |order|
       tr
-        td = link_to order.event.title, order.event, target: '_blank'
+        td = link_to order.course.title, order.course, target: '_blank'
         td
           ul.tickets-list = render partial: 'user_orders/order_item', collection: order.items, as: 'item'
         td = order.price

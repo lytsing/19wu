@@ -1,12 +1,12 @@
-= link_to t('labels.launch_event'), (can?(:create, Event) ? new_event_path : upgrade_invitation_path), :class => "btn btn-info new-event-btn pull-right"
+= link_to t('labels.launch_course'), (can?(:create, Event) ? new_course_path : upgrade_invitation_path), :class => "btn btn-info new-course-btn pull-right"
 ul.home-nav
   li class=active?(current, :activities)
     = link_to t('home.menu.activities'), root_path
-  li class=active?(current, :events)
-    = link_to events_path do
-      = t('home.menu.created_events')
-      span.label.amount = current_user.events.size
-  li class=active?(current, :ordered_events)
-    = link_to ordered_events_path do
-      = t('home.menu.ordered_events')
-      span.label.amount = current_user.ordered_events.uniq.size
+  li class=active?(current, :courses)
+    = link_to courses_path do
+      = t('home.menu.created_courses')
+      span.label.amount = current_user.courses.size
+  li class=active?(current, :ordered_courses)
+    = link_to ordered_courses_path do
+      = t('home.menu.ordered_courses')
+      span.label.amount = current_user.ordered_courses.uniq.size

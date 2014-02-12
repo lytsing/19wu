@@ -1,5 +1,5 @@
 .span3
   .submenu
     = tabs_tag namespace: :sidebar, builder: EventSubmenu do |tab|
-      = tab.participants_checkin t('menus.submenu.participants.checkin'), checkin_event_participants_path(@event)
-      = tab.participants_index t('menus.submenu.participants.index'), event_participants_path(@event)
+      = tab.participants_checkin t('menus.submenu.participants.checkin'), checkin_course_participants_path(@course)
+      = tab.participants_index t('menus.submenu.participants.index'), course_participants_path(@course)

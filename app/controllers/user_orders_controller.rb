@@ -58,9 +58,9 @@ class UserOrdersController < ApplicationController
 
   private
   def filter_orders
-    if params[:event_id].present?
-      event = Event.find(params[:event_id])
-      @orders = @orders.where(event_id: event.id)
+    if params[:course_id].present?
+      course = Event.find(params[:course_id])
+      @orders = @orders.where(course_id: course.id)
     end
   end
 end

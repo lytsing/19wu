@@ -8,10 +8,10 @@ module AlipayGeneratable
   end
 
   def generate_pay_link_by_order(order)
-    event = order.event
+    course = order.course
     options = {
         :out_trade_no      => order.number,
-        :subject           => "#{event.title} 门票",
+        :subject           => "#{course.title} 门票",
         :logistics_type    => 'DIRECT',
         :logistics_fee     => '0',
         :logistics_payment => 'SELLER_PAY',

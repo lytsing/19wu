@@ -1,3 +1,3 @@
 class EventOrderStatusTransition < ActiveRecord::Base
-  belongs_to :event_order
+  belongs_to :course_order
 end

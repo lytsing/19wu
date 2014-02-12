@@ -1,22 +1,22 @@
 class EventChangesController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :authorize_event!
+  before_filter :authorize_course!
   set_tab :change
   set_tab :new_change, :sidebar, only: [:new]
   set_tab :changes   , :sidebar, only: [:index]
 
   def index
-    @changes = @event.updates
+    @changes = @course.updates
   end
 
   def new
-    @change = @event.updates.build
+    @change = @course.updates.build
   end
 
   def create
-    @change = @event.updates.build(event_change_params)
+    @change = @course.updates.build(course_change_params)
     if @change.save
-      redirect_to event_changes_path(@event)
+      redirect_to course_changes_path(@course)
     else
       render :new
     end
@@ -24,7 +24,7 @@ class EventChangesController < ApplicationController
 
   private
 
-  def event_change_params
-    params.require(:event_change).permit :content
+  def course_change_params
+    params.require(:course_change).permit :content
   end
 end

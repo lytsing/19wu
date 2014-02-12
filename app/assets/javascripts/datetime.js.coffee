@@ -20,7 +20,7 @@ $(document).ready ->
     el = $this.closest(".time").find(".timepicker")
 
     # Init and show it the first time. After time picker is initialized, it
-    # will register events handlers.
+    # will register courses handlers.
     timepicker = el.data("timepicker")
     unless timepicker?
       el.timepicker({minuteStep: 5, defaultTime: false})

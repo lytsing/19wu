@@ -1,5 +1,5 @@
 module Admin::OrderFulfillmentHelper
-  def init_event_order_fulfillments(orders = @orders)
+  def init_course_order_fulfillments(orders = @orders)
     orders = Jbuilder.new do |json|
       json.array! orders do |order|
         json.(order, :id, :number, :paid_amount)

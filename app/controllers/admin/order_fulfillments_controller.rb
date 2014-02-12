@@ -4,7 +4,7 @@ class Admin::OrderFulfillmentsController < ApplicationController
   before_filter :authorize_order!
 
   def index
-    @orders = EventOrder.where(status: 'paid').joins(items: :ticket).where(event_tickets: {require_invoice: true}).order('paid_amount_in_cents asc, id asc')
+    @orders = EventOrder.where(status: 'paid').joins(items: :ticket).where(course_tickets: {require_invoice: true}).order('paid_amount_in_cents asc, id asc')
   end
 
   def create

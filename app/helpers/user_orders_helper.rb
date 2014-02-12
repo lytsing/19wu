@@ -28,6 +28,6 @@ module UserOrdersHelper
   end
 
   def orders_filtered?
-    params[:event_id].present?
+    params[:course_id].present?
   end
 end

@@ -3,6 +3,6 @@ class ExportController < ApplicationController
   set_tab :export
 
   def index
-    @event = Event.find(params[:event_id])
+    @course = Event.find(params[:course_id])
   end
 end

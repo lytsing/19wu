@@ -1,12 +1,12 @@
 fieldset
   legend = t('.title', :scope => 'views')
-  = simple_form_for @event, :html => { :class => "form-horizontal event-form" } do |f|
+  = simple_form_for @course, :html => { :class => "form-horizontal course-form" } do |f|
     = f.error_notification
     .controls
       ul.unstyled
-        - @source_events.each do |event|
+        - @source_courses.each do |course|
           li
-            span.space = "[#{event.start_time.to_date.to_s(:db)}]"
-            span.space = link_to event.title, group_event_path(event)
-            = link_to t('views.events.new.copy'), new_event_path(from: event.id)
+            span.space = "[#{course.start_time.to_date.to_s(:db)}]"
+            span.space = link_to course.title, group_course_path(course)
+            = link_to t('views.courses.new.copy'), new_course_path(from: course.id)
     = render 'form', :f => f

@@ -1,7 +1,7 @@
-= render 'events/header'
+= render 'courses/header'
 
 .row
-  = render 'event_orders/submenu'
+  = render 'course_orders/submenu'
   .span9
     .well
       ul.orders-stats
@@ -12,15 +12,15 @@
           h2 #{stats_tickets_quantity (@orders)} 张
           p.muted 总票数
 
-    = search_form_for @search, url: filter_event_orders_path(@event, status: params[:status]), html: { class: 'form-search' } do |f|
+    = search_form_for @search, url: filter_course_orders_path(@course, status: params[:status]), html: { class: 'form-search' } do |f|
       label.margin-right for="q_items_ticket_id_eq" 包含门票
-      = f.select :items_ticket_id_eq, @event.tickets.collect{|p| [ "#{p.name}", p.id ] }, {include_blank: true}, class: ['margin-right', 'span2']
+      = f.select :items_ticket_id_eq, @course.tickets.collect{|p| [ "#{p.name}", p.id ] }, {include_blank: true}, class: ['margin-right', 'span2']
       label.margin-right for="q_items_unit_price_in_cents_gteq_price" 门票单价>=
       = f.text_field :items_unit_price_in_cents_gteq_price, class: ['margin-right', 'span2'], placeholder: '（元）'
       = f.hidden_field :status_eq
       = f.submit class: 'btn', value: '查询'
 
-    .orders-list ng-init=init_event_orders
+    .orders-list ng-init=init_course_orders
       table.table.table-bordered ng-controller='OrderRefundSubmitCtrl'
         thead
           tr
@@ -57,11 +57,11 @@
             td colspan=5 ng-hide='order.refund'
               form.form-horizontal
                 .control-group
-                  label.control-label for="amount-{{order.id}}" = t('activerecord.attributes.event_order_refund.amount')
+                  label.control-label for="amount-{{order.id}}" = t('activerecord.attributes.course_order_refund.amount')
                   .controls
                     input.input-large id='amount-{{order.id}}' ng-model="order.amount" type="text"
                 .control-group
-                  label.control-label for="reason-{{order.id}}" = t('activerecord.attributes.event_order_refund.reason')
+                  label.control-label for="reason-{{order.id}}" = t('activerecord.attributes.course_order_refund.reason')
                   .controls
                     textarea.input-large id='reason-{{order.id}}' ng-model="order.reason" rows="3"
                     span.help-block 提交后课程盒子将进行退款，您和下单用户将收到邮件通知。

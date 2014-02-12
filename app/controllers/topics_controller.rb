@@ -10,7 +10,7 @@ class TopicsController < ApplicationController
     @topic = @group.topics.build group_topic_params
     @topic.user = current_user
     if @topic.save
-      redirect_to event_path(@event)
+      redirect_to course_path(@course)
     else
       render :new
     end
@@ -24,8 +24,8 @@ class TopicsController < ApplicationController
 
   private
   def find_resource
-    @event = Event.find(params[:event_id])
-    @group = @event.group
+    @course = Event.find(params[:course_id])
+    @group = @course.group
   end
 
   def group_topic_params

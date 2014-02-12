@@ -2,12 +2,12 @@ class HomeController < ApplicationController
   def index
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @events }
+      format.json { render json: @courses }
     end
   end
   
   def page
-    @events = Event.all
+    @courses = Event.all
   end
 
   def content_preview
