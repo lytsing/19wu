@@ -1,0 +1,5 @@
+= render 'courses/header'
+.row
+  .span12
+    = simple_form_for @ticket, url: course_ticket_path(@course, @ticket), html: {class: "form-horizontal", name: 'form', novalidate: ''} do |f|
+      = render 'form', f: f

@@ -1,0 +1,12 @@
+fieldset
+  legend = t('.title', :scope => 'views')
+  = simple_form_for @course, :html => { :class => "form-horizontal course-form" } do |f|
+    = f.error_notification
+    .controls
+      ul.unstyled
+        - @source_courses.each do |course|
+          li
+            span.space = "[#{course.start_time.to_date.to_s(:db)}]"
+            span.space = link_to course.title, group_course_path(course)
+            = link_to t('views.courses.new.copy'), new_course_path(from: course.id)
+    = render 'form', :f => f
