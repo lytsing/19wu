@@ -11,21 +11,36 @@
         .span4.offset2.well
           ul#myTab.nav.nav-tabs
             li.active
-              a href="#register" =t('labels.sign_up')
-            li = link_to t('labels.sign_in'), new_user_session_path
+              a href="#sign_up" data-toggle="tab" =t('labels.sign_up')
+            li
+              a href="#sign_in" data-toggle="tab" =t('labels.sign_in')
               
-
-          = simple_form_for(User.new, :as => resource_name, :url => user_registration_path, :html => { :class => 'form-full-width'}) do |f|
-            = f.input :login, :label => false, :placeholder => User.human_attribute_name(:login), class: 'input-large', :input_html => { 'ng-required' =>'true' }
-            = f.input :email, :label => false, :placeholder => resource.class.human_attribute_name(:email), class: 'input-large', :input_html => { 'ng-required' =>'true' }
-            = f.input :password, :label => false, :placeholder => resource.class.human_attribute_name(:password), class: 'input-large', :input_html => { 'ng-required' =>'true' }
-            = f.submit t('labels.sign_up'), :class => 'btn btn-success btn-large'
-            .row
-              .span2
-                h3 社交帐号直接登录
-              .span2
-                = link_to image_tag("weibo.png"), '/users/auth/weibo', class: 'weibo'
-                = image_tag("im-qq.png")
+          .tab-content
+            #sign_up.tab-pane.fade.in.active
+              = simple_form_for(User.new, :as => resource_name, :url => user_registration_path, :html => { :class => 'form-full-width'}) do |f|
+                = f.input :login, :label => false, :placeholder => User.human_attribute_name(:login), class: 'input-large', :input_html => { 'ng-required' =>'true' }
+                = f.input :email, :label => false, :placeholder => resource.class.human_attribute_name(:email), class: 'input-large', :input_html => { 'ng-required' =>'true' }
+                = f.input :password, :label => false, :placeholder => resource.class.human_attribute_name(:password), class: 'input-large', :input_html => { 'ng-required' =>'true' }
+                = f.submit t('labels.sign_up'), :class => 'btn btn-success btn-large'
+                .row
+                  .span2
+                    h3 社交帐号直接登录
+                  .span2
+                    = link_to image_tag("weibo.png"), '/users/auth/weibo', class: 'weibo'
+                    = image_tag("im-qq.png")
+                  
+            #sign_in.tab-pane.fade
+              = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-full-width' }) do |f|
+                fieldset
+                  = render_flashes
+                  = f.label :email
+                  = f.email_field :email
+                  = f.label :password, render_password_label_with_forget_link(f.object)
+                  = f.password_field :password
+                  .control-group
+                    - if devise_mapping.rememberable?
+                      = f.hidden_field :remember_me, :value => true
+                  = f.submit t('devise.views.sessions.new.submit'), :class => ['btn', 'btn-info']
 .features
   .row
     h3 最新课程
@@ -39,5 +54,10 @@
     .span4.offset2
       h3 = t('features.discover.title')
 
+javascript:
+  $('a[data-toggle="tab"]').on('shown', function (e) {
+    e.target // activated tab
+    e.relatedTarget // previous tab
+  })
 
 
