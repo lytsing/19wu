@@ -28,7 +28,6 @@
                   .span2
                     = link_to image_tag("weibo.png"), '/users/auth/weibo', class: 'weibo'
                     = image_tag("im-qq.png")
-                  
             #sign_in.tab-pane.fade
               = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-full-width' }) do |f|
                 fieldset
