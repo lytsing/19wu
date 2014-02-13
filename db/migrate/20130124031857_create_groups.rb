@@ -10,7 +10,7 @@ class CreateGroups < ActiveRecord::Migration
 
     add_column :courses, :group_id, :integer
     add_index :courses, :group_id
-    Event.all.each do |course|
+    Course.all.each do |course|
       course.update_attributes! :slug => "e#{course.id}"
     end
     change_column :courses, :group_id, :integer, :null => false

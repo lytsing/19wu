@@ -1,4 +1,4 @@
-class CreateEventSummaries < ActiveRecord::Migration
+class CreateCourseSummaries < ActiveRecord::Migration
   def up
     create_table :course_summaries do |t|
       t.text :content

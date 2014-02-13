@@ -1,4 +1,4 @@
-class AddPictureToEvents < ActiveRecord::Migration
+class AddPictureToCourses < ActiveRecord::Migration
   def change
      add_column :courses, :picture, :string
   end

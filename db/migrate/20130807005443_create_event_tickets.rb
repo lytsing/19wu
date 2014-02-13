@@ -1,4 +1,4 @@
-class CreateEventTickets < ActiveRecord::Migration
+class CreateCourseTickets < ActiveRecord::Migration
   def change
     create_table :course_tickets do |t|
       t.string :name

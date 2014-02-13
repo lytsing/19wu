@@ -1,4 +1,4 @@
-class CreateEventOrderItems < ActiveRecord::Migration
+class CreateCourseOrderItems < ActiveRecord::Migration
   def change
     create_table :course_order_items do |t|
       t.integer :order_id , null: false

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-class MoveEventParticipantToOrderParticipant < ActiveRecord::Migration
-  class EventParticipant < ActiveRecord::Base # faux model
+class MoveCourseParticipantToOrderParticipant < ActiveRecord::Migration
+  class CourseParticipant < ActiveRecord::Base # faux model
     belongs_to :course
     belongs_to :user
   end
@@ -10,7 +10,7 @@ class MoveEventParticipantToOrderParticipant < ActiveRecord::Migration
   class OrderMailer; def self.method_missing(*a); end; end
 
   def up
-    EventParticipant.all.each do |participant|
+    CourseParticipant.all.each do |participant|
       course = participant.course
       ticket = course.tickets.first_or_create name: '门票', price: 0
       order = course.orders.create user: participant.user, items_attributes: [{ticket: ticket, quantity: 1}]
@@ -33,8 +33,8 @@ class MoveEventParticipantToOrderParticipant < ActiveRecord::Migration
     add_index :course_participants, :course_id
     add_index :course_participants, :user_id
 
-    EventOrderParticipant.all.each do |participant|
-      EventParticipant.create course: participant.course, user: participant.user, joined: !!participant.joined?
+    CourseOrderParticipant.all.each do |participant|
+      CourseParticipant.create course: participant.course, user: participant.user, joined: !!participant.joined?
     end
   end
 end

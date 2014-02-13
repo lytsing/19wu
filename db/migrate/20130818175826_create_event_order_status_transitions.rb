@@ -1,4 +1,4 @@
-class CreateEventOrderStatusTransitions < ActiveRecord::Migration
+class CreateCourseOrderStatusTransitions < ActiveRecord::Migration
   def change
     create_table :course_order_status_transitions do |t|
       t.references :course_order, index: true
