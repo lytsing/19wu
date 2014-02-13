@@ -3,17 +3,17 @@
   .jumbotron
     .container
       .row
-        .span6
+        .span5
           .slogan
             h1.slogan-title = t('slogan.title')
             p.slogan-description = t('slogan.description')
             .help-block = t('views.users.apply_sign_up')
-        .span4.offset2
-          .row
-            .span2
-              h3 注册帐号
-            .span2
-             h3 登录
+        .span4.offset2.well
+          ul#myTab.nav.nav-tabs
+            li.active
+              a href="#register" =t('labels.sign_up')
+            li = link_to t('labels.sign_in'), new_user_session_path
+              
 
           = simple_form_for(User.new, :as => resource_name, :url => user_registration_path, :html => { :class => 'form-full-width'}) do |f|
             = f.input :login, :label => false, :placeholder => User.human_attribute_name(:login), class: 'input-large', :input_html => { 'ng-required' =>'true' }
