@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   handle_asynchronously :send_on_create_confirmation_instructions
 
   include Gravtastic
-  gravtastic :default => 'mm'
+  gravtastic :default => 'monsterid'
 
   def confirm!
     super
