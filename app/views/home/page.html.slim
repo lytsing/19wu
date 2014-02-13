@@ -40,7 +40,7 @@
                   .control-group
                     - if devise_mapping.rememberable?
                       = f.hidden_field :remember_me, :value => true
-                  = f.submit t('devise.views.sessions.new.submit'), :class => ['btn', 'btn-info']
+                  = f.submit t('devise.views.sessions.new.submit'), :class => ['btn', 'btn-info btn-large']
 .features
   .row
     h3 最新课程
