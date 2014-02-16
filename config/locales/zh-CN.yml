@@ -121,7 +121,7 @@ zh-CN:
     updated: "更新成功!"
     destroyed: "删除成功!"
     courses:
-      created: "课程已经发布"
+      created: "课程基本信息提交成功!请继续填写课程资费"
       updated: "课程已经更新"
     user_phones:
       here: 这里

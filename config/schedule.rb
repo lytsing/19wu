@@ -20,9 +20,9 @@
 # Learn more: http://github.com/javan/whenever
 
 every 1.day, :at => '4:30 am' do
-  runner "Event.remind_participants"
+  runner "Course.remind_participants"
 end
 
 every 1.day, :at => '3:00 am' do
-  runner "EventOrder.cleanup_expired"
+  runner "CourseOrder.cleanup_expired"
 end

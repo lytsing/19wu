@@ -34,7 +34,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to group_course_path(@course), notice: I18n.t('flash.courses.created') }
+        format.html { redirect_to course_tickets_path(@course), notice: I18n.t('flash.courses.created') }
         format.json { render json: @course, status: :created, location: @course }
       else
         find_source_courses
