@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
 
   include Gravtastic
   gravtastic :default => 'monsterid'
-
+  
   def confirm!
     super
     UserMailer.delay.welcome_email(self)

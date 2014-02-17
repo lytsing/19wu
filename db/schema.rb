@@ -11,23 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140211124627) do
-
-  create_table "delayed_jobs", force: true do |t|
-    t.integer  "priority",   default: 0, null: false
-    t.integer  "attempts",   default: 0, null: false
-    t.text     "handler",                null: false
-    t.text     "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
+ActiveRecord::Schema.define(version: 20140217072243) do
 
   create_table "course_changes", force: true do |t|
     t.integer  "course_id"
@@ -57,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140211124627) do
 
   create_table "course_order_participants", force: true do |t|
     t.integer  "order_id",               null: false
-    t.integer  "course_id",               null: false
+    t.integer  "course_id",              null: false
     t.integer  "user_id",                null: false
     t.string   "checkin_code", limit: 6, null: false
     t.datetime "checkin_at"
@@ -101,7 +85,7 @@ ActiveRecord::Schema.define(version: 20140211124627) do
   add_index "course_order_status_transitions", ["course_order_id"], name: "index_course_order_status_transitions_on_course_order_id"
 
   create_table "course_orders", force: true do |t|
-    t.integer  "course_id",                                    null: false
+    t.integer  "course_id",                                   null: false
     t.integer  "user_id",                                     null: false
     t.integer  "quantity",                                    null: false
     t.string   "status",               limit: 16
@@ -152,6 +136,22 @@ ActiveRecord::Schema.define(version: 20140211124627) do
   end
 
   add_index "courses", ["group_id"], name: "index_courses_on_group_id"
+
+  create_table "delayed_jobs", force: true do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
   create_table "fallback_urls", force: true do |t|
     t.string   "origin"
@@ -227,6 +227,7 @@ ActiveRecord::Schema.define(version: 20140211124627) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "avatar"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"

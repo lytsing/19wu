@@ -1,7 +1,15 @@
 .row
-  .span4.offset4.well
-    = simple_form_for resource, :as => resource_name, :url => user_invitation_path(resource_name), :html => {:method => :post, :class => 'form-full-width'} do |f|
-      legend  = t('labels.need_upgrade_invitation')
-      = f.input :invite_reason, :as => :text, :label => false, :input_html => { :rows => 3}
-      .help-block = t('views.users.upgrade_invitation')
-      = f.submit t('labels.apply_sign_up'), :class => 'btn btn-success btn-large'
+  .span8.offset2.well
+    .form-inputs
+      = simple_form_for resource, :as => resource_name, :url => user_invitation_path(resource_name), :html => {:method => :post, :class => 'form-full-width', :multipart => true} do |f|
+        legend  = t('labels.need_upgrade_invitation')
+        = f.input :invite_reason, :as => :text, :label => false, :input_html => { :rows => 3}
+    
+        legend  = t('labels.need_complete_profile')
+        = f.simple_fields_for :profile do |builder|
+            = builder.input :avatar, :label => '照片'
+            = builder.input :name, :placeholder => '真实姓名'
+            = builder.input :website, :placeholder => '个人站点或社交帐号'
+            = builder.input :bio, :input_html => { :rows => 3 }, :placeholder => '简介'
+        = f.submit t('labels.apply_sign_up'), :class => 'btn btn-success btn-large'
+        .help-block = t('views.users.upgrade_invitation')

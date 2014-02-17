@@ -75,6 +75,7 @@ zh-CN:
     sign_in: "登录"
     sign_up: "注册"
     need_upgrade_invitation: "申请开课"
+    need_complete_profile: "请完善以下信息"
     apply_sign_up: "提交申请"
     sign_up_to_launch_course: "注册，发起课程"
     invitations: "开课申请"
@@ -177,7 +178,7 @@ zh-CN:
       edit:
         title: "修改课程"
       slug:
-        hint: '相同链接的课程组成系列课程，访问此链接时显示最近一个课程'
+        hint: '设定课程个性化链接, 给课程取个有意义的URL'
       followers:
         title: "关注者列表"
       topics:

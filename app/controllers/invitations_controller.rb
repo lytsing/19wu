@@ -11,9 +11,14 @@ class InvitationsController < Devise::InvitationsController
     current_user.skip_invitation = true
     current_user.invite_reason = params[:user][:invite_reason]
     current_user.invite!
-
+    
+    @profile = current_user.profile
+    profile_params = params.require(:user).permit :bio, :name, :website, :avatar
+    @profile.assign_attributes(profile_params)
+    @profile.save
+    
     notice = t('devise.invitations.received')
-    redirect_to root_url, notice: notice
+    redirect_to user_path(current_user), notice: notice
   end
 
   def index
