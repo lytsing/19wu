@@ -3,7 +3,7 @@
     .form-inputs
       = f.input :title, :input_html => { :class => 'span5', "ng-init" => "title='#{@course.title}'", "ng-model" => "title" }
       = f.input :slug, :wrapper => :prepend, :hint => t('views.courses.slug.hint'), :input_html => { :class => 'span5' } do
-        span.add-on = "#{request.protocol}#{request.host_with_port}/"
+        span.add-on = "#{request.protocol}#{request.host_with_port}/#{current_user.login}/"
         = f.input_field :slug, :class => 'span2', :placeholder => 'your-course-name', :value => f.object.group.try(:slug)
       = f.input :content, :input_html => { :rows => 12, :class => 'span5' }, :as => 'uploadable'
       = f.input :abstract, :input_html => { :row => 5, :class => 'span5'}

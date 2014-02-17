@@ -75,7 +75,7 @@ zh-CN:
     sign_in: "登录"
     sign_up: "注册"
     need_upgrade_invitation: "申请开课"
-    need_complete_profile: "请完善以下信息"
+    need_complete_profile: "请完善以下讲师信息"
     apply_sign_up: "提交申请"
     sign_up_to_launch_course: "注册，发起课程"
     invitations: "开课申请"
@@ -91,7 +91,7 @@ zh-CN:
     invite_button: "通过"
     my_orders: "我的课程"
 
-    
+
   find:
     submit: "提交"
     address: "输入希望上课的地点"
