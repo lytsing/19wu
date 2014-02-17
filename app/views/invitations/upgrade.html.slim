@@ -5,11 +5,16 @@
         legend  = t('labels.need_upgrade_invitation')
         = f.input :invite_reason, :as => :text, :label => false, :input_html => { :rows => 3}
     
-        legend  = t('labels.need_complete_profile')
+        - if (!@profile.avatar? || !@profile.name? || !@profile.website? || !@profile.bio?)
+          legend  = t('labels.need_complete_profile')
         = f.simple_fields_for :profile do |builder|
+          - if !@profile.avatar?
             = builder.input :avatar, :label => '照片'
+          - if !@profile.name?
             = builder.input :name, :placeholder => '真实姓名'
+          - if !@profile.website?
             = builder.input :website, :placeholder => '个人站点或社交帐号'
+          - if !@profile.bio?
             = builder.input :bio, :input_html => { :rows => 3 }, :placeholder => '简介'
         = f.submit t('labels.apply_sign_up'), :class => 'btn btn-success btn-large'
         .help-block = t('views.users.upgrade_invitation')

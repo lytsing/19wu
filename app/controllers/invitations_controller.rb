@@ -4,6 +4,7 @@ class InvitationsController < Devise::InvitationsController
   before_filter :authenticate_user!, only: [:create, :upgrade]
 
   def upgrade
+    @profile = current_user.profile
     build_resource
   end
 

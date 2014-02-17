@@ -5,6 +5,8 @@
       = f.input :name
       = f.input :website
       = f.input :bio, :input_html => { :rows => 12 }
+      = image_tag(@profile.avatar_url(:thumb)) if @profile.avatar?
+      = f.input :avatar
 
     .form-actions
       = f.button :submit, :class => 'btn-primary'
