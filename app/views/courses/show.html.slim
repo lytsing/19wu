@@ -97,6 +97,13 @@ article.course ng-init=init_course(@course)
           h2 = build_summary_title(@course)
           == build_summary_content(@course)
           
+      h2 讲师信息
+      .row
+        .san3
+          = image_tag(@profile.avatar_url(:thumb)) if @profile.avatar?
+          p 讲师：#{@profile.name}
+          p 简介: #{@profile.bio}
+          
       = render 'topics/index'
     .span4
       .actions

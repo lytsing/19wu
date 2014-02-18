@@ -14,6 +14,8 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    @user = User.friendly.find(@course.user_id)
+    @profile = @user.profile
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @course }
