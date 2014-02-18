@@ -7,7 +7,6 @@
         = f.input_field :slug, :class => 'span2', :placeholder => 'your-course-name', :value => f.object.group.try(:slug)
       = f.input :content, :input_html => { :rows => 12, :class => 'span5' }, :as => 'uploadable'
       = f.input :abstract, :input_html => { :row => 5, :class => 'span5'}
-      = f.input :abstract, :input_html => { :row => 5, :class => 'span5'}, :placeholder => '讲师信息'
       = f.input :picture
       = f.input :compound_start_time, :as => :compound_datetime, :compound_wrapper_html => { :class => 'span5' }
       = f.input :compound_end_time, :as => :compound_datetime, :compound_wrapper_html => { :class => 'span5' }
