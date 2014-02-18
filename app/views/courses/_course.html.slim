@@ -1,5 +1,5 @@
 .box
-  = link_to image_tag(course.picture_url, :class => "img-rounded img-responsive"), course
+  = link_to image_tag(course.picture_url(:thumb), :class => "img-rounded img-responsive"), course
   .list
     .item
       p = link_to course.title, course_path(course)

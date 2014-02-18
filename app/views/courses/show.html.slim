@@ -89,7 +89,7 @@ article.course ng-init=init_course(@course)
         .sold-out.alert.alert-alert
           | 名额已满，停止报名 :(
       .course-body
-        = image_tag(@course.picture_url, :width => 180) if @course.picture.present?
+        = image_tag(@course.picture_url) if @course.picture.present?
         == @course.content_html
         
       - if @course.show_summary?
