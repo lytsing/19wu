@@ -16,10 +16,7 @@ html ng-app='shinebox'
         .navbar-inner
           .container
             a.brand href="/" = t('shinebox')
-            - if !user_signed_in?
-              ul.user-bar.pull-left
-                li= link_to I18n.t('labels.launch_course'), new_user_session_path, :class => "btn btn-link"
-                li= link_to t('features.discover.title'), new_user_session_path, :class => "btn btn-link"
+
             = render_nav_bar
 
             .nav-collapse.collapse
